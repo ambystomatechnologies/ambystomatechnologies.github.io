@@ -2,10 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Ambystoma Technologies · Portal de Aplicaciones y Herramientas Web</title>
-  <meta name="description" content="Suite oficial de herramientas y aplicaciones web gratuitas desarrolladas por Ambystoma Technologies.">
+  <meta name="description" content="Suite oficial de herramientas y aplicaciones web 100% gratuitas desarrolladas por Ambystoma Technologies: Lector de Voz TTS, PDF Tools Studio, Visor 3D y Open-Galileo.">
+  <meta name="keywords" content="ambystoma technologies, lector de voz gratis, pdf tools gratis, visor 3d web, aplicaciones web gratuitas, text to speech español">
+  <meta name="author" content="Ambystoma Technologies">
   <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+
+  <!-- Schema.org JSON-LD para Google Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ambystoma Technologies",
+    "url": "https://ambystomatechnologies.github.io/",
+    "logo": "https://ambystomatechnologies.github.io/logo.png",
+    "description": "Desarrollo de aplicaciones, herramientas científicas y utilidades web de libre acceso y alto rendimiento.",
+    "sameAs": [
+      "https://github.com/ambystomatechnologies"
+    ]
+  }
+  </script>
 
   <!-- Google AdSense Oficial de Ambystoma Technologies -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5786595894984320"
@@ -21,87 +42,180 @@
       --bg: #0a0f1d;
       --card-bg: rgba(17, 24, 39, 0.85);
       --card-border: rgba(255, 255, 255, 0.1);
+      --card-border-hover: rgba(56, 189, 248, 0.4);
       --accent: #38bdf8;
       --accent-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
       --text: #f8fafc;
       --text-muted: #94a3b8;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      color-scheme: dark;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background-color: var(--bg);
-      background-image: radial-gradient(at 20% 20%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
-                        radial-gradient(at 80% 80%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+      background-image: 
+        radial-gradient(at 20% 20%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
+        radial-gradient(at 80% 80%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
       color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
+      width: 100%;
+      -webkit-font-smoothing: antialiased;
     }
+
     header {
-      padding: 1.5rem 2rem;
+      padding: 1.15rem 1.5rem;
       border-bottom: 1px solid var(--card-border);
-      background: rgba(10, 15, 29, 0.9);
-      backdrop-filter: blur(12px);
+      background: rgba(10, 15, 29, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      width: 100%;
     }
-    .logo { height: 48px; width: auto; }
+
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .logo {
+      height: 44px;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.03);
+    }
+
+    .suite-badge {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
     .hero {
       text-align: center;
-      padding: 3.5rem 1.5rem 2rem;
-      max-width: 800px;
+      padding: 3rem 1.25rem 1.5rem;
+      max-width: 820px;
       margin: 0 auto;
+      width: 100%;
     }
+
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: clamp(1.75rem, 5vw, 2.6rem);
       font-weight: 800;
+      letter-spacing: -0.02em;
       background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
+      line-height: 1.25;
     }
+
     .hero p {
-      font-size: 1.15rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
       color: var(--text-muted);
       line-height: 1.6;
+      max-width: 650px;
+      margin: 0 auto;
     }
-    /* Publicidad Superior */
+
+    /* Publicidad Superior Responsiva */
     .ad-banner {
       max-width: 960px;
-      margin: 1rem auto;
-      padding: 0 1.5rem;
+      width: 100%;
+      margin: 0.5rem auto 1rem;
+      padding: 0 1rem;
       text-align: center;
+      overflow: hidden;
+      min-height: 50px;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
+      width: 100%;
+      margin: 1rem auto 2.5rem;
+      padding: 0 1.25rem;
       flex: 1;
     }
+
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
-      padding: 1.8rem;
+      padding: 1.6rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
+
     .card:hover {
       transform: translateY(-4px);
-      border-color: rgba(56, 189, 248, 0.4);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(56, 189, 248, 0.15);
     }
-    .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-    .card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.6rem; color: #ffffff; }
-    .card-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem; }
-    .card-btn {
+
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.85rem;
       display: inline-block;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
       text-align: center;
       background: var(--accent-gradient);
       color: #ffffff;
@@ -110,26 +224,141 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
-      transition: opacity 0.2s;
+      min-height: 44px;
+      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
     }
-    .card-btn:hover { opacity: 0.92; }
+
+    .card-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(56, 189, 248, 0.45);
+    }
+
+    .card-btn:active {
+      transform: scale(0.98);
+    }
+
     footer {
       border-top: 1px solid var(--card-border);
-      padding: 2rem;
+      padding: 1.75rem 1.25rem;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
       margin-top: auto;
+      line-height: 1.5;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       Media Queries para pantallas de teléfonos celulares
+       ========================================================================== */
+    @media (max-width: 640px) {
+      header {
+        padding: 0.85rem 1rem;
+      }
+
+      .logo {
+        height: 36px;
+        max-width: 170px;
+      }
+
+      .suite-badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.65rem;
+        line-height: 1.25;
+      }
+
+      .hero p {
+        font-size: 0.92rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+        margin: 1rem auto 2rem;
+      }
+
+      .card {
+        padding: 1.25rem 1.15rem;
+        border-radius: 14px;
+      }
+
+      .card-icon {
+        font-size: 1.85rem;
+        margin-bottom: 0.65rem;
+      }
+
+      .card-title {
+        font-size: 1.15rem;
+      }
+
+      .card-desc {
+        font-size: 0.88rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .card-btn {
+        width: 100%;
+        font-size: 0.92rem;
+      }
+
+      .ad-banner {
+        padding: 0 0.5rem;
+        margin: 0.5rem auto;
+      }
+
+      footer {
+        padding: 1.25rem 1rem;
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo {
+        height: 30px;
+        max-width: 140px;
+      }
+
+      .suite-badge {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 1.45rem;
+      }
+
+      .card {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Encabezado Superior -->
   <header>
-    <a href="https://ambystomatechnologies.github.io/" style="display: inline-flex; align-items: center; text-decoration: none; cursor: pointer;">
-      <img src="logo.png" alt="Ambystoma Technologies" class="logo" style="cursor: pointer;">
+    <a href="https://ambystomatechnologies.github.io/" class="logo-link" title="Ambystoma Technologies - Portal Principal" onclick="window.location.href='https://ambystomatechnologies.github.io/';">
+      <img src="logo.png" alt="Ambystoma Technologies" class="logo">
     </a>
-    <span style="font-size: 0.9rem; color: var(--accent); font-weight: 600;">Suite Oficial</span>
+    <span class="suite-badge">Suite Oficial</span>
   </header>
 
   <!-- Banner Superior AdSense -->
@@ -143,55 +372,58 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
+  <!-- Sección Hero -->
   <section class="hero">
     <h1>Ambystoma Technologies</h1>
-    <p>Aplicaciones, herramientas científicas y utilidades web de código libre y alto rendimiento.</p>
+    <p>Aplicaciones, herramientas científicas y utilidades web de código libre, alto rendimiento y 100% gratuitas.</p>
   </section>
 
+  <!-- Grilla de Aplicaciones -->
   <main class="grid">
     <!-- Proyecto 1: Lector de Voz & Transcripciones -->
-    <div class="card">
+    <article class="card">
       <div>
         <div class="card-icon">🔊</div>
         <h2 class="card-title">Lector de Voz &amp; Transcripciones</h2>
-        <p class="card-desc">Suite de texto a voz neural con 22 acentos en español, corrección fonética y transcriptor de audio inteligente con Whisper.</p>
+        <p class="card-desc">Suite de texto a voz neural con 22 acentos en español, corrección fonética personalizada y transcriptor de audio inteligente cliente.</p>
       </div>
       <a href="https://ambystomatechnologies.github.io/lector-de-voz-y-transcripciones-gratis/" class="card-btn">Abrir Aplicación →</a>
-    </div>
+    </article>
 
-    <!-- Proyecto 2: PDF Tools -->
-    <div class="card">
+    <!-- Proyecto 2: PDF Tools Studio -->
+    <article class="card">
       <div>
         <div class="card-icon">📄</div>
         <h2 class="card-title">PDF Tools Studio</h2>
-        <p class="card-desc">Herramientas profesionales para manipular, unir, convertir y extraer contenido de archivos PDF en el navegador.</p>
+        <p class="card-desc">Herramientas profesionales para combinar múltiples documentos PDF, recortar páginas específicas y convertir imágenes a PDF sin costo.</p>
       </div>
       <a href="https://ambystomatechnologies.github.io/pdf-tools-ambystoma-studio/" class="card-btn">Abrir Aplicación →</a>
-    </div>
+    </article>
 
-    <!-- Proyecto 3: Visor 3D -->
-    <div class="card">
+    <!-- Proyecto 3: Visor 3D Interactivo -->
+    <article class="card">
       <div>
         <div class="card-icon">🧊</div>
         <h2 class="card-title">Visor 3D Interactivo</h2>
-        <p class="card-desc">Visualizador web interactivo para modelos tridimensionales con soporte para texturas y renderizado en tiempo real.</p>
+        <p class="card-desc">Visualizador web interactivo para modelos tridimensionales con corte transversal por planos, mesa giratoria y renderizado WebGL en tiempo real.</p>
       </div>
       <a href="https://ambystomatechnologies.github.io/visor-3d/" class="card-btn">Abrir Aplicación →</a>
-    </div>
+    </article>
 
     <!-- Proyecto 4: Open-Galileo -->
-    <div class="card">
+    <article class="card">
       <div>
         <div class="card-icon">🔭</div>
         <h2 class="card-title">Open-Galileo</h2>
-        <p class="card-desc">Plataforma de ciencia, computación y proyectos de investigación tecnológica abierta.</p>
+        <p class="card-desc">Plataforma de astronomía, computación científica y proyectos de investigación tecnológica abierta y colaborativa.</p>
       </div>
       <a href="https://ambystomatechnologies.github.io/Open-Galileo/" class="card-btn">Explorar Proyecto →</a>
-    </div>
+    </article>
   </main>
 
+  <!-- Pie de página -->
   <footer>
-    <p>© 2026 Ambystoma Technologies · Contacto: ambystomatechnologies@gmail.com</p>
+    <p>© 2026 Ambystoma Technologies · Contacto: <a href="mailto:ambystomatechnologies@gmail.com">ambystomatechnologies@gmail.com</a></p>
   </footer>
 
 </body>
