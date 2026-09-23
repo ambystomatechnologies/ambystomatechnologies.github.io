@@ -1,11 +1,11 @@
 # MANIFIESTO DE DIRECTRICES DEL PROYECTO
-# Ambystoma Technologies - Lector de voz & transcripciones
+# Ambystoma Technologies - Portal Ambystoma
 
 ## REGLA FUNDAMENTAL Y ESTRICTA: PROHIBICIÓN DE PRUEBAS AUTOMATIZADAS NO SOLICITADAS
 
-1. **NO REALIZAR PRUEBAS POR INICIATIVA PROPIA**:
-   - Queda terminantemente prohibido iniciar subagentes de navegador (`browser_subagent`), scripts de prueba largos, benchmarks o emulaciones de usuario por iniciativa del asistente.
-   - El motivo es que estas pruebas consumen demasiado tiempo innecesario del usuario.
+1. **NO REALIZAR PRUEBAS AUTOMATIZADAS POR INICIATIVA PROPIA**:
+   - Queda terminantemente prohibido iniciar subagentes de navegador (`browser_subagent`), scripts de prueba automatizados, navegaciones emuladas, benchmarks o emulaciones de usuario por iniciativa del asistente.
+   - El motivo es que estas pruebas consumen tiempo innecesario del usuario.
 
 2. **LAS PRUEBAS LAS REALIZA EXCLUSIVAMENTE EL USUARIO**:
    - El usuario realiza personalmente todas las pruebas funcionales, interactivas y visuales directamente en su entorno y navegador.

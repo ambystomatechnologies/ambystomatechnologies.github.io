@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Ambystoma Technologies · Portal de Aplicaciones y Herramientas Web</title>
-  <meta name="description" content="Suite oficial de herramientas y aplicaciones web 100% gratuitas desarrolladas por Ambystoma Technologies: Lector de Voz TTS, PDF Tools Studio, Visor 3D y Open-Galileo.">
-  <meta name="keywords" content="ambystoma technologies, lector de voz gratis, pdf tools gratis, visor 3d web, aplicaciones web gratuitas, text to speech español">
+  <title id="meta-title">Ambystoma Technologies · Web Applications & Tools Portal</title>
+  <meta name="description" id="meta-desc" content="Official suite of 100% free web tools and scientific applications developed by Ambystoma Technologies: Cell Count, Voice Reader TTS, PDF Tools Studio, 3D Viewer, and Open-Galileo.">
+  <meta name="keywords" content="ambystoma technologies, lector de voz gratis, pdf tools gratis, visor 3d web, aplicaciones web gratuitas, text to speech español, scientific tools">
   <meta name="author" content="Ambystoma Technologies">
   <meta name="theme-color" content="#0a0f1d">
 
@@ -108,6 +108,12 @@
       transform: scale(1.03);
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
     .suite-badge {
       font-size: 0.82rem;
       color: var(--accent);
@@ -118,6 +124,52 @@
       border-radius: 9999px;
       letter-spacing: 0.02em;
       white-space: nowrap;
+    }
+
+    /* Selector de Idiomas con Banderas Circulares */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3px 6px;
+      border-radius: 9999px;
+      border: 1px solid var(--card-border);
+    }
+
+    .lang-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      opacity: 0.6;
+    }
+
+    .lang-btn:hover {
+      opacity: 1;
+      transform: scale(1.12);
+    }
+
+    .lang-btn.active {
+      opacity: 1;
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+      transform: scale(1.06);
+    }
+
+    .lang-btn svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      pointer-events: none;
     }
 
     .hero {
@@ -140,104 +192,213 @@
     }
 
     .hero p {
-      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
       color: var(--text-muted);
+      font-size: 1.05rem;
       line-height: 1.6;
-      max-width: 650px;
+      max-width: 640px;
       margin: 0 auto;
     }
 
-    /* Tarjeta Destacada Cell Count */
-    .card-featured {
-      border-color: rgba(56, 189, 248, 0.35);
-      background: linear-gradient(180deg, rgba(14, 28, 54, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.12);
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 1160px;
+      margin: 1.5rem auto 3.5rem;
+      padding: 0 1.25rem;
+      width: 100%;
+      flex-grow: 1;
     }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1.15rem;
+      display: inline-block;
+    }
+
     .card-header-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 1.15rem;
       gap: 0.75rem;
-      margin-bottom: 0.85rem;
     }
+
     .app-card-logo {
-      width: 58px;
-      height: 58px;
-      border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       object-fit: cover;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
     }
+
     .badge-featured {
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: #34d399;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      padding: 0.3rem 0.65rem;
+      font-size: 0.75rem;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.25rem 0.6rem;
       border-radius: 9999px;
-      letter-spacing: 0.02em;
+      font-weight: 600;
       white-space: nowrap;
     }
-    .card-actions-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
+
+    .card-featured {
+      border-color: rgba(56, 189, 248, 0.28);
+      background: linear-gradient(180deg, rgba(20, 32, 54, 0.88) 0%, rgba(15, 23, 42, 0.88) 100%);
     }
-    .card-btn-play {
-      background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+
+    .card-featured:hover {
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 14px 35px rgba(56, 189, 248, 0.15);
     }
-    .card-btn-play:hover {
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
-    }
-    .card-btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      color: #cbd5e1;
-      padding: 0.65rem 1rem;
-      border-radius: 10px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: center;
-      width: 100%;
-      font-family: inherit;
-    }
-    .card-btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(56, 189, 248, 0.5);
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
       color: #ffffff;
     }
 
-    /* Modal de Ficha Completa */
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-actions-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.2rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .card-btn:hover {
+      background: var(--accent-gradient);
+      border-color: transparent;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .card-btn-play {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+    }
+
+    .card-btn-play:hover {
+      background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+      border-color: rgba(56, 189, 248, 0.5);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+    }
+
+    .card-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .card-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Modal Cell Count */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(2, 6, 23, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      z-index: 100;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.25rem;
+      padding: 1rem;
       overflow-y: auto;
       animation: fadeIn 0.2s ease;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .modal-card {
       background: #0f172a;
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 1.25rem;
       max-width: 760px;
       width: 100%;
       max-height: 90vh;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-      animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 189, 248, 0.15);
+      position: relative;
+      animation: scaleUp 0.25s ease;
     }
+
+    @keyframes scaleUp {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
     .modal-header {
       padding: 1.25rem 1.5rem;
       border-bottom: 1px solid var(--card-border);
@@ -245,331 +406,214 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      background: rgba(15, 23, 42, 0.95);
+      border-top-left-radius: 1.25rem;
+      border-top-right-radius: 1.25rem;
     }
+
     .modal-header-info {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
+
     .modal-app-logo {
-      width: 54px;
-      height: 54px;
+      width: 52px;
+      height: 52px;
       border-radius: 12px;
       object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
+
     .modal-title {
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 800;
       color: #ffffff;
+      line-height: 1.2;
     }
+
     .modal-subtitle {
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
+      margin-top: 0.15rem;
     }
+
     .btn-close-modal {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
       width: 36px;
       height: 36px;
       border-radius: 50%;
+      font-size: 1.25rem;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1rem;
+      transition: all 0.2s ease;
       flex-shrink: 0;
-      transition: all 0.2s;
     }
+
     .btn-close-modal:hover {
       background: rgba(239, 68, 68, 0.2);
-      border-color: rgba(239, 68, 68, 0.5);
-      color: #ffffff;
+      border-color: #ef4444;
+      color: #ef4444;
+      transform: scale(1.05);
     }
+
     .modal-body {
       padding: 1.5rem;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
     }
+
     .modal-intro-box {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(30, 41, 59, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 1rem 1.15rem;
-      font-size: 0.94rem;
-      line-height: 1.6;
-      color: #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
     }
+
     .btn-play-store {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.65rem;
-      background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       color: #ffffff;
-      padding: 0.85rem 1.5rem;
-      border-radius: 12px;
-      text-decoration: none;
       font-weight: 700;
-      font-size: 1rem;
-      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
-      transition: all 0.25s ease;
+      padding: 0.85rem 1.5rem;
+      border-radius: 0.65rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      transition: all 0.2s ease;
+      margin: 0.25rem 0;
     }
+
     .btn-play-store:hover {
+      background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(16, 185, 129, 0.55);
+      box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5);
     }
+
     .section-heading {
+      color: #38bdf8;
       font-size: 0.95rem;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: 0.05em;
-      color: var(--accent);
       text-transform: uppercase;
       margin-top: 0.5rem;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      padding-bottom: 0.35rem;
     }
+
     .feature-card {
-      background: rgba(17, 24, 39, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
+      background: rgba(30, 41, 59, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 0.75rem;
+      padding: 1rem 1.2rem;
     }
+
     .feature-title {
       font-size: 1rem;
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 0.55rem;
+      margin-bottom: 0.6rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
     }
+
     .feature-list {
-      list-style: disc;
+      list-style-type: disc;
       padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .feature-list strong {
+      color: #f1f5f9;
+    }
+
+    .privacy-card {
+      border-color: rgba(34, 197, 94, 0.3);
+      background: rgba(34, 197, 94, 0.06);
+    }
+
+    .disclaimer-card {
+      background: rgba(234, 179, 8, 0.08);
+      border: 1px solid rgba(234, 179, 8, 0.28);
+      border-radius: 0.75rem;
+      padding: 1rem 1.2rem;
+    }
+
+    .disclaimer-title {
+      color: #facc15;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .disclaimer-list {
+      list-style-type: square;
+      padding-left: 1.25rem;
+      font-size: 0.85rem;
+      color: #e2e8f0;
       display: flex;
       flex-direction: column;
       gap: 0.45rem;
-      font-size: 0.88rem;
-      color: #cbd5e1;
-      line-height: 1.55;
-    }
-    .privacy-card {
-      background: rgba(16, 185, 129, 0.08);
-      border-color: rgba(16, 185, 129, 0.3);
-    }
-    .disclaimer-card {
-      background: rgba(245, 158, 11, 0.08);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-    }
-    .disclaimer-title {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #fbbf24;
-      margin-bottom: 0.45rem;
-    }
-    .disclaimer-list {
-      list-style: disc;
-      padding-left: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.84rem;
-      color: #cbd5e1;
       line-height: 1.5;
     }
+
     .modal-outro {
-      font-size: 0.92rem;
-      color: var(--text-muted);
       text-align: center;
-      line-height: 1.5;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes scaleUp {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      width: 100%;
-      margin: 1rem auto 2.5rem;
-      padding: 0 1.25rem;
-      flex: 1;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--card-border-hover);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(56, 189, 248, 0.15);
-    }
-
-    .card-icon {
-      font-size: 2.2rem;
-      margin-bottom: 0.85rem;
-      display: inline-block;
-    }
-
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #ffffff;
-      letter-spacing: -0.01em;
-    }
-
-    .card-desc {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      text-align: center;
-      background: var(--accent-gradient);
-      color: #ffffff;
-      padding: 0.75rem 1.25rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
+      color: #f8fafc;
       font-size: 0.95rem;
-      min-height: 44px;
-      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
-    }
-
-    .card-btn:hover {
-      opacity: 0.95;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(56, 189, 248, 0.45);
-    }
-
-    .card-btn:active {
-      transform: scale(0.98);
     }
 
     footer {
       border-top: 1px solid var(--card-border);
-      padding: 1.75rem 1.25rem;
+      padding: 2rem 1.25rem;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       margin-top: auto;
-      line-height: 1.5;
+      background: rgba(10, 15, 29, 0.95);
     }
 
     footer a {
       color: var(--accent);
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     footer a:hover {
       text-decoration: underline;
     }
 
-    /* ==========================================================================
-       Media Queries para pantallas de teléfonos celulares
-       ========================================================================== */
     @media (max-width: 640px) {
-      header {
-        padding: 0.85rem 1rem;
-      }
-
-      .logo {
-        height: 36px;
-        max-width: 170px;
-      }
-
-      .suite-badge {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.6rem;
+      .grid {
+        grid-template-columns: 1fr;
       }
 
       .hero {
-        padding: 2rem 1rem 1rem;
-      }
-
-      .hero h1 {
-        font-size: 1.65rem;
-        line-height: 1.25;
-      }
-
-      .hero p {
-        font-size: 0.92rem;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 0 1rem;
-        margin: 1rem auto 2rem;
-      }
-
-      .card {
-        padding: 1.25rem 1.15rem;
-        border-radius: 14px;
-      }
-
-      .card-icon {
-        font-size: 1.85rem;
-        margin-bottom: 0.65rem;
-      }
-
-      .card-title {
-        font-size: 1.15rem;
-      }
-
-      .card-desc {
-        font-size: 0.88rem;
-        margin-bottom: 1.25rem;
-      }
-
-      .card-btn {
-        width: 100%;
-        font-size: 0.92rem;
-      }
-
-      .ad-banner-bottom {
-        padding: 0 0.5rem;
-        margin: 1rem auto;
-      }
-
-      footer {
-        padding: 1.25rem 1rem;
-        font-size: 0.78rem;
+        padding: 2.25rem 1rem 1.25rem;
       }
     }
 
-    @media (max-width: 380px) {
+    @media (max-width: 420px) {
       .logo {
-        height: 30px;
+        height: 32px;
         max-width: 140px;
       }
 
@@ -591,16 +635,66 @@
 
   <!-- Encabezado Superior -->
   <header>
-    <a href="https://ambystomatechnologies.github.io/" class="logo-link" title="Ambystoma Technologies - Portal Principal" onclick="window.location.href='https://ambystomatechnologies.github.io/';">
+    <a href="https://ambystomatechnologies.github.io/" class="logo-link" title="Ambystoma Technologies - Portal" onclick="window.location.href='https://ambystomatechnologies.github.io/';">
       <img src="logo.png" alt="Ambystoma Technologies" class="logo">
     </a>
-    <span class="suite-badge">Suite Oficial</span>
+
+    <div class="header-right">
+      <span class="suite-badge" data-i18n="suiteBadge">Official Suite</span>
+
+      <!-- Selector de Idiomas con Banderas Circulares -->
+      <div class="lang-switch" role="group" aria-label="Language selector">
+        <!-- Bandera US (Inglés - Default) -->
+        <button type="button" class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')" title="English" aria-label="English">
+          <svg viewBox="0 0 32 32" width="26" height="26">
+            <clipPath id="portal-flag-us"><circle cx="16" cy="16" r="16"/></clipPath>
+            <g clip-path="url(#portal-flag-us)">
+              <rect width="32" height="32" fill="#b22234"/>
+              <path d="M0 4.92h32M0 9.85h32M0 14.77h32M0 19.69h32M0 24.62h32M0 29.54h32" stroke="#ffffff" stroke-width="2.46"/>
+              <rect width="14" height="17.23" fill="#3c3b6e"/>
+              <g fill="#ffffff">
+                <circle cx="3" cy="3" r="0.9"/>
+                <circle cx="7" cy="3" r="0.9"/>
+                <circle cx="11" cy="3" r="0.9"/>
+                <circle cx="5" cy="6" r="0.9"/>
+                <circle cx="9" cy="6" r="0.9"/>
+                <circle cx="3" cy="9" r="0.9"/>
+                <circle cx="7" cy="9" r="0.9"/>
+                <circle cx="11" cy="9" r="0.9"/>
+                <circle cx="5" cy="12" r="0.9"/>
+                <circle cx="9" cy="12" r="0.9"/>
+                <circle cx="3" cy="15" r="0.9"/>
+                <circle cx="7" cy="15" r="0.9"/>
+                <circle cx="11" cy="15" r="0.9"/>
+              </g>
+            </g>
+          </svg>
+        </button>
+
+        <!-- Bandera España (Español) -->
+        <button type="button" class="lang-btn" id="btn-lang-es" onclick="setLanguage('es')" title="Español" aria-label="Español">
+          <svg viewBox="0 0 32 32" width="26" height="26">
+            <clipPath id="portal-flag-es"><circle cx="16" cy="16" r="16"/></clipPath>
+            <g clip-path="url(#portal-flag-es)">
+              <rect width="32" height="32" fill="#aa151b"/>
+              <rect y="8" width="32" height="16" fill="#f1bf00"/>
+              <g transform="translate(6.5, 10.5) scale(0.68)">
+                <path d="M4 1h8v6c0 3-4 5-4 5s-4-2-4-5V1z" fill="#aa151b" stroke="#f1bf00" stroke-width="0.8"/>
+                <circle cx="8" cy="3" r="1.3" fill="#f1bf00"/>
+                <rect x="2" y="2" width="1.2" height="9" fill="#94a3b8"/>
+                <rect x="12.8" y="2" width="1.2" height="9" fill="#94a3b8"/>
+              </g>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
   </header>
 
   <!-- Sección Hero -->
   <section class="hero">
-    <h1>Ambystoma Technologies</h1>
-    <p>Aplicaciones, herramientas científicas y utilidades web de código libre, alto rendimiento y 100% gratuitas.</p>
+    <h1 data-i18n="heroTitle">Ambystoma Technologies</h1>
+    <p data-i18n="heroDesc">Open-source, high-performance, and 100% free scientific applications, tools, and web utilities.</p>
   </section>
 
   <!-- Grilla de Aplicaciones -->
@@ -610,17 +704,17 @@
       <div>
         <div class="card-header-top">
           <img src="cellcount-logo.png" alt="Cell Count (Axi IA) Logo" class="app-card-logo">
-          <span class="badge-featured">⭐ App Oficial Android</span>
+          <span class="badge-featured" data-i18n="cellcountBadge">⭐ Official Android App</span>
         </div>
         <h2 class="card-title">Cell Count (Axi IA)</h2>
-        <p class="card-desc">Herramienta definitiva para estudiantes, investigadores, cerveceros y profesionales de laboratorio. Conteo celular en imágenes, Cámara de Neubauer, hematología, viabilidad de levaduras y procesamiento 100% local con algoritmos inteligentes.</p>
+        <p class="card-desc" data-i18n="cellcountDesc">The definitive tool for students, researchers, brewers, and lab professionals. Cell counting on images, Neubauer Chamber, hematology, yeast viability, and 100% local processing with smart algorithms.</p>
       </div>
       <div class="card-actions-group">
-        <a href="https://play.google.com/store/apps/details?id=com.cellcount.axiia&hl=es_PA" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-play" title="Descargar en Google Play Store">
-          <span>📲 Descargar en Google Play →</span>
+        <a href="https://play.google.com/store/apps/details?id=com.cellcount.axiia&hl=es_PA" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-play" title="Download on Google Play Store">
+          <span data-i18n="cellcountPlayBtn">📲 Download on Google Play →</span>
         </a>
         <button type="button" class="card-btn-secondary" onclick="openCellCountModal()">
-          <span>ℹ️ Ver ficha y características completas</span>
+          <span data-i18n="cellcountDetailsBtn">ℹ️ View details & full features</span>
         </button>
       </div>
     </article>
@@ -629,10 +723,10 @@
     <article class="card">
       <div>
         <div class="card-icon">🔊</div>
-        <h2 class="card-title">Lector de Voz &amp; Transcripciones</h2>
-        <p class="card-desc">Suite de texto a voz neural con 22 acentos en español, corrección fonética personalizada y transcriptor de audio inteligente cliente.</p>
+        <h2 class="card-title" data-i18n="ttsTitle">Voice Reader &amp; Transcriptions</h2>
+        <p class="card-desc" data-i18n="ttsDesc">Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber.</p>
       </div>
-      <a href="https://ambystomatechnologies.github.io/lector-de-voz-y-transcripciones-gratis/" class="card-btn">Abrir Aplicación →</a>
+      <a href="https://ambystomatechnologies.github.io/lector-de-voz-y-transcripciones-gratis/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
     </article>
 
     <!-- Proyecto 3: PDF Tools Studio -->
@@ -640,19 +734,19 @@
       <div>
         <div class="card-icon">📄</div>
         <h2 class="card-title">PDF Tools Studio</h2>
-        <p class="card-desc">Herramientas profesionales para combinar múltiples documentos PDF, recortar páginas específicas y convertir imágenes a PDF sin costo.</p>
+        <p class="card-desc" data-i18n="pdfToolsDesc">Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF at no cost.</p>
       </div>
-      <a href="https://ambystomatechnologies.github.io/pdf-tools-ambystoma-studio/" class="card-btn">Abrir Aplicación →</a>
+      <a href="https://ambystomatechnologies.github.io/pdf-tools-ambystoma-studio/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
     </article>
 
     <!-- Proyecto 4: Visor 3D Interactivo -->
     <article class="card">
       <div>
         <div class="card-icon">🧊</div>
-        <h2 class="card-title">Visor 3D Interactivo</h2>
-        <p class="card-desc">Visualizador web interactivo para modelos tridimensionales con corte transversal por planos, mesa giratoria y renderizado WebGL en tiempo real.</p>
+        <h2 class="card-title" data-i18n="viewer3dTitle">Interactive 3D Viewer</h2>
+        <p class="card-desc" data-i18n="viewer3dDesc">Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering.</p>
       </div>
-      <a href="https://ambystomatechnologies.github.io/visor-3d/" class="card-btn">Abrir Aplicación →</a>
+      <a href="https://ambystomatechnologies.github.io/visor-3d/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
     </article>
 
     <!-- Proyecto 5: Open-Galileo -->
@@ -660,9 +754,9 @@
       <div>
         <div class="card-icon">🔭</div>
         <h2 class="card-title">Open-Galileo</h2>
-        <p class="card-desc">Plataforma de astronomía, computación científica y proyectos de investigación tecnológica abierta y colaborativa.</p>
+        <p class="card-desc" data-i18n="galileoDesc">Astronomy, scientific computing, and collaborative open technological research platform.</p>
       </div>
-      <a href="https://ambystomatechnologies.github.io/Open-Galileo/" class="card-btn">Explorar Proyecto →</a>
+      <a href="https://ambystomatechnologies.github.io/Open-Galileo/" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
     </article>
   </main>
 
@@ -673,105 +767,105 @@
         <div class="modal-header-info">
           <img src="cellcount-logo.png" alt="Cell Count (Axi IA)" class="modal-app-logo">
           <div>
-            <span class="badge-featured" style="margin-bottom: 0.25rem; display: inline-block;">App Android Oficial</span>
+            <span class="badge-featured" style="margin-bottom: 0.25rem; display: inline-block;" data-i18n="modalAndroidBadge">Official Android App</span>
             <h3 class="modal-title">Cell Count (Axi IA)</h3>
-            <p class="modal-subtitle">Ambystoma Technologies · Soporte inteligente de laboratorio</p>
+            <p class="modal-subtitle" data-i18n="modalSubtitle">Ambystoma Technologies · Smart laboratory support</p>
           </div>
         </div>
-        <button type="button" class="btn-close-modal" onclick="closeCellCountModal()" aria-label="Cerrar modal">✕</button>
+        <button type="button" class="btn-close-modal" onclick="closeCellCountModal()" aria-label="Close modal">✕</button>
       </div>
 
       <div class="modal-body">
         <div class="modal-intro-box">
-          <p>
-            <strong>Cell Count (Axi IA) multilenguaje</strong> es la herramienta definitiva para estudiantes, investigadores, cerveceros y profesionales del laboratorio diseñada para simplificar el recuento celular y optimizar los cálculos microbiológicos y hematológicos más comunes. Desarrollada por <strong>Ambystoma Technologies</strong>, fusiona algoritmos inteligentes con una interfaz intuitiva y fluida para ofrecerte un soporte preciso en tu día a día en el laboratorio.
+          <p data-i18n="modalIntro">
+            <strong>Cell Count (Axi IA) multilingual</strong> is the definitive tool for students, researchers, brewers, and lab professionals designed to simplify cell counting and optimize the most common microbiological and hematological calculations. Developed by <strong>Ambystoma Technologies</strong>, it merges smart algorithms with an intuitive and smooth interface to offer accurate support in your everyday laboratory work.
           </p>
         </div>
 
         <div style="text-align: center;">
           <a href="https://play.google.com/store/apps/details?id=com.cellcount.axiia&hl=es_PA" target="_blank" rel="noopener noreferrer" class="btn-play-store" style="width: 100%;">
-            <span>📲 Descargar en Google Play Store</span>
+            <span data-i18n="modalPlayStoreBtn">📲 Download on Google Play Store</span>
           </a>
         </div>
 
-        <h4 class="section-heading">CARACTERÍSTICAS PRINCIPALES</h4>
+        <h4 class="section-heading" data-i18n="modalKeyFeatures">KEY FEATURES</h4>
 
         <!-- Conteo Celular -->
         <div class="feature-card">
-          <h5 class="feature-title">🔬 Conteo Celular y de Cultivos Flexible</h5>
+          <h5 class="feature-title" data-i18n="feat1Title">🔬 Flexible Cell & Culture Counting</h5>
           <ul class="feature-list">
-            <li><strong>Conteo en imágenes:</strong> Sube o toma una fotografía de tu microscopio para marcar y contar de forma manual o asistida por algoritmos.</li>
-            <li><strong>Conteo digital sin imagen:</strong> Registra recuentos en una cuadrícula virtual de forma rápida y sin complicaciones.</li>
-            <li><strong>Medición en imágenes:</strong> Mide longitudes y áreas reales en tus muestras estableciendo una escala calibrada.</li>
+            <li data-i18n="feat1Item1"><strong>Counting on images:</strong> Upload or capture a microscope photo to count manually or algorithm-assisted.</li>
+            <li data-i18n="feat1Item2"><strong>Digital counting without image:</strong> Record counts on a virtual grid quickly and easily.</li>
+            <li data-i18n="feat1Item3"><strong>Measurement on images:</strong> Measure real distances and areas on your samples using a calibrated scale.</li>
           </ul>
         </div>
 
         <!-- Cervecería -->
         <div class="feature-card">
-          <h5 class="feature-title">🍺 Herramientas Especializadas para Cervecería</h5>
+          <h5 class="feature-title" data-i18n="feat2Title">🍺 Specialized Brewery Tools</h5>
           <ul class="feature-list">
-            <li><strong>Conteo de Levaduras y Viabilidad:</strong> Clasifica levaduras (vivas, muertas, gemadas de tipos A a H) con facilidad.</li>
-            <li><strong>Informe de Cámara de Neubauer:</strong> Realiza recuentos por cuadrantes, ingresa factores de dilución y obtén resultados de viabilidad e índice de gemación de forma automática.</li>
-            <li><strong>Cálculo de Inoculación (Pitch Rates):</strong> Determina la cantidad exacta de levadura necesaria para tu lote de fermentación.</li>
+            <li data-i18n="feat2Item1"><strong>Yeast Counting & Viability:</strong> Easily classify yeast cells (live, dead, budding types A to H).</li>
+            <li data-i18n="feat2Item2"><strong>Neubauer Chamber Report:</strong> Perform quadrant counts, input dilution factors, and get viability and budding rates automatically.</li>
+            <li data-i18n="feat2Item3"><strong>Inoculation Calculation (Pitch Rates):</strong> Determine the exact amount of yeast required for your fermentation batch.</li>
           </ul>
         </div>
 
         <!-- Hematología -->
         <div class="feature-card">
-          <h5 class="feature-title">🩸 Herramientas Clínicas y Hematológicas</h5>
+          <h5 class="feature-title" data-i18n="feat3Title">🩸 Clinical & Hematology Tools</h5>
           <ul class="feature-list">
-            <li><strong>Conteo Diferencial de Leucocitos:</strong> Clasifica los tipos de glóbulos blancos (neutrófilos, linfocitos, monocitos, eosinófilos, basófilos).</li>
-            <li><strong>Recuento Semicuantitativo de Plaquetas:</strong> Estima plaquetas en frotis sanguíneo por campo de inmersión.</li>
-            <li><strong>Plaquetas y Eritrocitos en Cámara de Neubauer:</strong> Automatiza el cálculo de concentración celular en sangre.</li>
-            <li><strong>Precursores en Médula Ósea y Reticulocitos:</strong> Registra y evalúa la maduración celular de forma estructurada.</li>
-            <li><strong>Análisis de Sedimento Urinario:</strong> Registra cristales, bacterias y células epiteliales en muestras de orina.</li>
+            <li data-i18n="feat3Item1"><strong>Differential Leukocyte Count:</strong> Classify white blood cell types (neutrophils, lymphocytes, monocytes, eosinophils, basophils).</li>
+            <li data-i18n="feat3Item2"><strong>Semi-quantitative Platelet Count:</strong> Estimate platelets on blood smears per oil immersion field.</li>
+            <li data-i18n="feat3Item3"><strong>Platelets & Erythrocytes in Neubauer Chamber:</strong> Automate cell concentration calculations in blood.</li>
+            <li data-i18n="feat3Item4"><strong>Bone Marrow Precursors & Reticulocytes:</strong> Record and evaluate cell maturation systematically.</li>
+            <li data-i18n="feat3Item5"><strong>Urinary Sediment Analysis:</strong> Record crystals, bacteria, and epithelial cells in urine samples.</li>
           </ul>
         </div>
 
         <!-- Cálculos Científicos -->
         <div class="feature-card">
-          <h5 class="feature-title">🧪 Cálculos Científicos y del Laboratorio</h5>
+          <h5 class="feature-title" data-i18n="feat4Title">🧪 Scientific & Laboratory Calculations</h5>
           <ul class="feature-list">
-            <li><strong>Método del Número Más Probable (NMP):</strong> Estima la densidad de microorganismos en muestras líquidas con series de 3 y 5 tubos.</li>
-            <li><strong>Multitemporizadores Inteligentes:</strong> Gestiona múltiples temporizadores y alarmas simultáneas (con animaciones de tubos, matraces y placas de Petri) para no perder el control de tus incubaciones y cultivos.</li>
-            <li><strong>Axi Chat:</strong> Consulta y resuelve dudas técnicas o de laboratorio mediante nuestro asistente integrado.</li>
+            <li data-i18n="feat4Item1"><strong>Most Probable Number (MPN):</strong> Estimate microorganism density in liquid samples with 3 and 5 tube series.</li>
+            <li data-i18n="feat4Item2"><strong>Smart Multi-timers:</strong> Manage simultaneous timers and alarms (with tube, flask, and petri dish animations) to never lose track of incubations and cultures.</li>
+            <li data-i18n="feat4Item3"><strong>Axi Chat:</strong> Ask technical or lab questions directly to our integrated assistant.</li>
           </ul>
         </div>
 
         <!-- Informes Profesionales -->
         <div class="feature-card">
-          <h5 class="feature-title">📋 Registro Fotográfico e Informes Profesionales</h5>
+          <h5 class="feature-title" data-i18n="feat5Title">📋 Photo Logs & Professional Reports</h5>
           <ul class="feature-list">
-            <li><strong>Historial Digital:</strong> Guarda todos tus análisis y recuentos para consultarlos o editarlos en el futuro.</li>
-            <li><strong>Reportes Premium:</strong> Exporta tus resultados en formato de texto plano (.txt) o como un reporte premium en formato de imagen (.jpg) listo para compartir.</li>
+            <li data-i18n="feat5Item1"><strong>Digital History:</strong> Save all your analyses and counts to review or edit them anytime.</li>
+            <li data-i18n="feat5Item2"><strong>Premium Reports:</strong> Export results in plain text (.txt) or as a ready-to-share high-quality image report (.jpg).</li>
           </ul>
         </div>
 
         <!-- Privacidad Local -->
         <div class="feature-card privacy-card">
-          <h5 class="feature-title">🔒 Privacidad Absoluta y Procesamiento Local</h5>
-          <p style="margin-bottom: 0; font-size: 0.88rem; color: #e2e8f0; line-height: 1.55;">
-            <strong>100% Local y Seguro:</strong> Todo el procesamiento y análisis de las imágenes se realiza de manera interna en tu dispositivo. Tus muestras científicas e imágenes nunca se suben a servidores externos ni se comparten con terceros.
+          <h5 class="feature-title" data-i18n="feat6Title">🔒 Absolute Privacy & Local Processing</h5>
+          <p style="margin-bottom: 0; font-size: 0.88rem; color: #e2e8f0; line-height: 1.55;" data-i18n="feat6Desc">
+            <strong>100% Local & Secure:</strong> All image processing and analysis is performed entirely on your device. Your scientific samples and images are never uploaded to external servers or shared with third parties.
           </p>
         </div>
 
         <!-- Exención de Responsabilidad -->
         <div class="disclaimer-card">
-          <h5 class="disclaimer-title">⚠️ INFORMACIÓN IMPORTANTE Y EXENCIÓN DE RESPONSABILIDAD:</h5>
+          <h5 class="disclaimer-title" data-i18n="disclaimerTitle">⚠️ IMPORTANT INFORMATION & DISCLAIMER:</h5>
           <ul class="disclaimer-list">
-            <li>Esta aplicación se proporciona únicamente como una herramienta de apoyo educativo, científico y de investigación.</li>
-            <li><strong>NO ES UN DISPOSITIVO MÉDICO:</strong> No está certificada para el diagnóstico, tratamiento o monitoreo de ninguna condición médica en humanos o animales.</li>
-            <li>Cualquier uso clínico o industrial es responsabilidad exclusiva del usuario. Los recuentos automáticos o asistidos son estimaciones y deben ser verificados de manera manual e independiente antes de su aplicación en procesos de producción (como fermentaciones de cerveza) o toma de decisiones diagnósticas.</li>
+            <li data-i18n="disclaimerItem1">This application is provided solely as an educational, scientific, and research support tool.</li>
+            <li data-i18n="disclaimerItem2"><strong>NOT A MEDICAL DEVICE:</strong> It is not certified for diagnosis, treatment, or monitoring of any medical condition in humans or animals.</li>
+            <li data-i18n="disclaimerItem3">Any clinical or industrial use is the sole responsibility of the user. Automated or assisted counts are estimates and must be verified independently before use in production (such as brewing fermentations) or diagnostic decisions.</li>
           </ul>
         </div>
 
-        <p class="modal-outro">
-          Optimiza tus jornadas en el microscopio y lleva el control de tus cultivos al siguiente nivel con <strong>Cell Count (Axi IA)</strong>. ¡Descárgala ahora!
+        <p class="modal-outro" data-i18n="modalOutro">
+          Optimize your microscope sessions and take control of your cultures to the next level with <strong>Cell Count (Axi IA)</strong>. Download it now!
         </p>
 
         <div style="text-align: center; margin-top: 0.5rem; margin-bottom: 0.5rem;">
           <a href="https://play.google.com/store/apps/details?id=com.cellcount.axiia&hl=es_PA" target="_blank" rel="noopener noreferrer" class="btn-play-store" style="width: 100%;">
-            <span>📲 Instalar desde Google Play Store</span>
+            <span data-i18n="modalInstallBtn">📲 Install from Google Play Store</span>
           </a>
         </div>
       </div>
@@ -780,10 +874,164 @@
 
   <!-- Pie de página -->
   <footer>
-    <p>© 2026 Ambystoma Technologies · Contacto: <a href="mailto:ambystomatechnologies@gmail.com">ambystomatechnologies@gmail.com</a></p>
+    <p><span data-i18n="footerText">© 2026 Ambystoma Technologies · Contact: </span><a href="mailto:ambystomatechnologies@gmail.com">ambystomatechnologies@gmail.com</a></p>
   </footer>
 
   <script>
+    // Diccionario de Traducciones (Inglés por defecto, Español seleccionable)
+    const I18N = {
+      en: {
+        pageTitle: "Ambystoma Technologies · Web Applications & Tools Portal",
+        pageDesc: "Official suite of 100% free web tools and scientific applications developed by Ambystoma Technologies: Cell Count, Voice Reader TTS, PDF Tools Studio, 3D Viewer, and Open-Galileo.",
+        suiteBadge: "Official Suite",
+        heroTitle: "Ambystoma Technologies",
+        heroDesc: "Open-source, high-performance, and 100% free scientific applications, tools, and web utilities.",
+        cellcountBadge: "⭐ Official Android App",
+        cellcountDesc: "The definitive tool for students, researchers, brewers, and lab professionals. Cell counting on images, Neubauer Chamber, hematology, yeast viability, and 100% local processing with smart algorithms.",
+        cellcountPlayBtn: "📲 Download on Google Play →",
+        cellcountDetailsBtn: "ℹ️ View details & full features",
+        ttsTitle: "Voice Reader & Transcriptions",
+        ttsDesc: "Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber.",
+        pdfToolsDesc: "Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF at no cost.",
+        viewer3dTitle: "Interactive 3D Viewer",
+        viewer3dDesc: "Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering.",
+        galileoDesc: "Astronomy, scientific computing, and collaborative open technological research platform.",
+        openAppBtn: "Open Application →",
+        exploreBtn: "Explore Project →",
+        footerText: "© 2026 Ambystoma Technologies · Contact: ",
+        // Modal
+        modalAndroidBadge: "Official Android App",
+        modalSubtitle: "Ambystoma Technologies · Smart laboratory support",
+        modalIntro: "<strong>Cell Count (Axi IA) multilingual</strong> is the definitive tool for students, researchers, brewers, and lab professionals designed to simplify cell counting and optimize the most common microbiological and hematological calculations. Developed by <strong>Ambystoma Technologies</strong>, it merges smart algorithms with an intuitive and smooth interface to offer accurate support in your everyday laboratory work.",
+        modalPlayStoreBtn: "📲 Download on Google Play Store",
+        modalKeyFeatures: "KEY FEATURES",
+        feat1Title: "🔬 Flexible Cell & Culture Counting",
+        feat1Item1: "<strong>Counting on images:</strong> Upload or capture a microscope photo to count manually or algorithm-assisted.",
+        feat1Item2: "<strong>Digital counting without image:</strong> Record counts on a virtual grid quickly and easily.",
+        feat1Item3: "<strong>Measurement on images:</strong> Measure real distances and areas on your samples using a calibrated scale.",
+        feat2Title: "🍺 Specialized Brewery Tools",
+        feat2Item1: "<strong>Yeast Counting & Viability:</strong> Easily classify yeast cells (live, dead, budding types A to H).",
+        feat2Item2: "<strong>Neubauer Chamber Report:</strong> Perform quadrant counts, input dilution factors, and get viability and budding rates automatically.",
+        feat2Item3: "<strong>Inoculation Calculation (Pitch Rates):</strong> Determine the exact amount of yeast required for your fermentation batch.",
+        feat3Title: "🩸 Clinical & Hematology Tools",
+        feat3Item1: "<strong>Differential Leukocyte Count:</strong> Classify white blood cell types (neutrophils, lymphocytes, monocytes, eosinophils, basophils).",
+        feat3Item2: "<strong>Semi-quantitative Platelet Count:</strong> Estimate platelets on blood smears per oil immersion field.",
+        feat3Item3: "<strong>Platelets & Erythrocytes in Neubauer Chamber:</strong> Automate cell concentration calculations in blood.",
+        feat3Item4: "<strong>Bone Marrow Precursors & Reticulocytes:</strong> Record and evaluate cell maturation systematically.",
+        feat3Item5: "<strong>Urinary Sediment Analysis:</strong> Record crystals, bacteria, and epithelial cells in urine samples.",
+        feat4Title: "🧪 Scientific & Laboratory Calculations",
+        feat4Item1: "<strong>Most Probable Number (MPN):</strong> Estimate microorganism density in liquid samples with 3 and 5 tube series.",
+        feat4Item2: "<strong>Smart Multi-timers:</strong> Manage simultaneous timers and alarms (with tube, flask, and petri dish animations) to never lose track of incubations and cultures.",
+        feat4Item3: "<strong>Axi Chat:</strong> Ask technical or lab questions directly to our integrated assistant.",
+        feat5Title: "📋 Photo Logs & Professional Reports",
+        feat5Item1: "<strong>Digital History:</strong> Save all your analyses and counts to review or edit them anytime.",
+        feat5Item2: "<strong>Premium Reports:</strong> Export results in plain text (.txt) or as a ready-to-share high-quality image report (.jpg).",
+        feat6Title: "🔒 Absolute Privacy & Local Processing",
+        feat6Desc: "<strong>100% Local & Secure:</strong> All image processing and analysis is performed entirely on your device. Your scientific samples and images are never uploaded to external servers or shared with third parties.",
+        disclaimerTitle: "⚠️ IMPORTANT INFORMATION & DISCLAIMER:",
+        disclaimerItem1: "This application is provided solely as an educational, scientific, and research support tool.",
+        disclaimerItem2: "<strong>NOT A MEDICAL DEVICE:</strong> It is not certified for diagnosis, treatment, or monitoring of any medical condition in humans or animals.",
+        disclaimerItem3: "Any clinical or industrial use is the sole responsibility of the user. Automated or assisted counts are estimates and must be verified independently before use in production (such as brewing fermentations) or diagnostic decisions.",
+        modalOutro: "Optimize your microscope sessions and take control of your cultures to the next level with <strong>Cell Count (Axi IA)</strong>. Download it now!",
+        modalInstallBtn: "📲 Install from Google Play Store"
+      },
+      es: {
+        pageTitle: "Ambystoma Technologies · Portal de Aplicaciones y Herramientas Web",
+        pageDesc: "Suite oficial de herramientas y aplicaciones web 100% gratuitas desarrolladas por Ambystoma Technologies: Cell Count, Lector de Voz TTS, PDF Tools Studio, Visor 3D y Open-Galileo.",
+        suiteBadge: "Suite Oficial",
+        heroTitle: "Ambystoma Technologies",
+        heroDesc: "Aplicaciones, herramientas científicas y utilidades web de código libre, alto rendimiento y 100% gratuitas.",
+        cellcountBadge: "⭐ App Oficial Android",
+        cellcountDesc: "Herramienta definitiva para estudiantes, investigadores, cerveceros y profesionales de laboratorio. Conteo celular en imágenes, Cámara de Neubauer, hematología, viabilidad de levaduras y procesamiento 100% local con algoritmos inteligentes.",
+        cellcountPlayBtn: "📲 Descargar en Google Play →",
+        cellcountDetailsBtn: "ℹ️ Ver ficha y características completas",
+        ttsTitle: "Lector de Voz & Transcripciones",
+        ttsDesc: "Suite de texto a voz, corrección fonética personalizada y transcriptor de audio inteligente cliente.",
+        pdfToolsDesc: "Herramientas profesionales para combinar múltiples documentos PDF, recortar páginas específicas y convertir imágenes a PDF sin costo.",
+        viewer3dTitle: "Visor 3D Interactivo",
+        viewer3dDesc: "Visualizador web interactivo para modelos tridimensionales con corte transversal por planos, mesa giratoria y renderizado WebGL en tiempo real.",
+        galileoDesc: "Plataforma de astronomía, computación científica y proyectos de investigación tecnológica abierta y colaborativa.",
+        openAppBtn: "Abrir Aplicación →",
+        exploreBtn: "Explorar Proyecto →",
+        footerText: "© 2026 Ambystoma Technologies · Contacto: ",
+        // Modal
+        modalAndroidBadge: "App Android Oficial",
+        modalSubtitle: "Ambystoma Technologies · Soporte inteligente de laboratorio",
+        modalIntro: "<strong>Cell Count (Axi IA) multilenguaje</strong> es la herramienta definitiva para estudiantes, investigadores, cerveceros y profesionales del laboratorio diseñada para simplificar el recuento celular y optimizar los cálculos microbiológicos y hematológicos más comunes. Desarrollada por <strong>Ambystoma Technologies</strong>, fusiona algoritmos inteligentes con una interfaz intuitiva y fluida para ofrecerte un soporte preciso en tu día a día en el laboratorio.",
+        modalPlayStoreBtn: "📲 Descargar en Google Play Store",
+        modalKeyFeatures: "CARACTERÍSTICAS PRINCIPALES",
+        feat1Title: "🔬 Conteo Celular y de Cultivos Flexible",
+        feat1Item1: "<strong>Conteo en imágenes:</strong> Sube o toma una fotografía de tu microscopio para marcar y contar de forma manual o asistida por algoritmos.",
+        feat1Item2: "<strong>Conteo digital sin imagen:</strong> Registra recuentos en una cuadrícula virtual de forma rápida y sin complicaciones.",
+        feat1Item3: "<strong>Medición en imágenes:</strong> Mide longitudes y áreas reales en tus muestras estableciendo una escala calibrada.",
+        feat2Title: "🍺 Herramientas Especializadas para Cervecería",
+        feat2Item1: "<strong>Conteo de Levaduras y Viabilidad:</strong> Clasifica levaduras (vivas, muertas, gemadas de tipos A a H) con facilidad.",
+        feat2Item2: "<strong>Informe de Cámara de Neubauer:</strong> Realiza recuentos por cuadrantes, ingresa factores de dilución y obtén resultados de viabilidad e índice de gemación de forma automática.",
+        feat2Item3: "<strong>Cálculo de Inoculación (Pitch Rates):</strong> Determina la cantidad exacta de levadura necesaria para tu lote de fermentación.",
+        feat3Title: "🩸 Herramientas Clínicas y Hematológicas",
+        feat3Item1: "<strong>Conteo Diferencial de Leucocitos:</strong> Clasifica los tipos de glóbulos blancos (neutrófilos, linfocitos, monocitos, eosinófilos, basófilos).",
+        feat3Item2: "<strong>Recuento Semicuantitativo de Plaquetas:</strong> Estima plaquetas en frotis sanguíneo por campo de inmersión.",
+        feat3Item3: "<strong>Plaquetas y Eritrocitos en Cámara de Neubauer:</strong> Automatiza el cálculo de concentración celular en sangre.",
+        feat3Item4: "<strong>Precursores en Médula Ósea y Reticulocitos:</strong> Registra y evalúa la maduración celular de forma estructurada.",
+        feat3Item5: "<strong>Análisis de Sedimento Urinario:</strong> Registra cristales, bacterias y células epiteliales en muestras de orina.",
+        feat4Title: "🧪 Cálculos Científicos y del Laboratorio",
+        feat4Item1: "<strong>Método del Número Más Probable (NMP):</strong> Estima la densidad de microorganismos en muestras líquidas con series de 3 y 5 tubos.",
+        feat4Item2: "<strong>Multitemporizadores Inteligentes:</strong> Gestiona múltiples temporizadores y alarmas simultáneas (con animaciones de tubos, matraces y placas de Petri) para no perder el control de tus incubaciones y cultivos.",
+        feat4Item3: "<strong>Axi Chat:</strong> Consulta y resuelve dudas técnicas o de laboratorio mediante nuestro asistente integrado.",
+        feat5Title: "📋 Registro Fotográfico e Informes Profesionales",
+        feat5Item1: "<strong>Historial Digital:</strong> Guarda todos tus análisis y recuentos para consultarlos o editarlos en el futuro.",
+        feat5Item2: "<strong>Reportes Premium:</strong> Exporta tus resultados en formato de texto plano (.txt) o como un reporte premium en formato de imagen (.jpg) listo para compartir.",
+        feat6Title: "🔒 Privacidad Absoluta y Procesamiento Local",
+        feat6Desc: "<strong>100% Local y Seguro:</strong> Todo el procesamiento y análisis de las imágenes se realiza de manera interna en tu dispositivo. Tus muestras científicas e imágenes nunca se suben a servidores externos ni se comparten con terceros.",
+        disclaimerTitle: "⚠️ INFORMACIÓN IMPORTANTE Y EXENCIÓN DE RESPONSABILIDAD:",
+        disclaimerItem1: "Esta aplicación se proporciona únicamente como una herramienta de apoyo educativo, científico y de investigación.",
+        disclaimerItem2: "<strong>NO ES UN DISPOSITIVO MÉDICO:</strong> No está certificada para el diagnóstico, tratamiento o monitoreo de ninguna condición médica en humanos o animales.",
+        disclaimerItem3: "Cualquier uso clínico o industrial es responsabilidad exclusiva del usuario. Los recuentos automáticos o asistidos son estimaciones y deben ser verificados de manera manual e independiente antes de su aplicación en procesos de producción (como fermentaciones de cerveza) o toma de decisiones diagnósticas.",
+        modalOutro: "Optimiza tus jornadas en el microscopio y lleva el control de tus cultivos al siguiente nivel con <strong>Cell Count (Axi IA)</strong>. ¡Descárgala ahora!",
+        modalInstallBtn: "📲 Instalar desde Google Play Store"
+      }
+    };
+
+    function setLanguage(lang) {
+      if (!I18N[lang]) lang = 'en';
+      document.documentElement.lang = lang;
+      localStorage.setItem('ambystoma_portal_lang', lang);
+
+      const dict = I18N[lang];
+
+      // Actualizar título y metadatos
+      if (dict.pageTitle) document.title = dict.pageTitle;
+      const metaDesc = document.getElementById('meta-desc');
+      if (metaDesc && dict.pageDesc) metaDesc.setAttribute('content', dict.pageDesc);
+
+      // Actualizar elementos con atributo data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Actualizar estado activo en los botones de banderas circulares
+      const btnEn = document.getElementById('btn-lang-en');
+      const btnEs = document.getElementById('btn-lang-es');
+      if (btnEn && btnEs) {
+        btnEn.classList.toggle('active', lang === 'en');
+        btnEs.classList.toggle('active', lang === 'es');
+      }
+    }
+
+    // Inicializar idioma (Inglés por defecto a menos que haya selección explícita previa)
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('ambystoma_portal_lang');
+      if (savedLang === 'es') {
+        setLanguage('es');
+      } else {
+        setLanguage('en');
+      }
+    });
+
+    // Control del Modal Cell Count
     function openCellCountModal() {
       const modal = document.getElementById('cellcount-modal');
       if (modal) {
