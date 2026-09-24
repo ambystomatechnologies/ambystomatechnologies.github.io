@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title id="meta-title">Ambystoma Technologies · Web Applications & Tools Portal</title>
-  <meta name="description" id="meta-desc" content="Official suite of 100% free web tools and scientific applications developed by Ambystoma Technologies: Cell Count, 2D Optics Simulator, Voice Reader TTS, PDF Tools Studio, 3D Viewer, and Open-Galileo.">
-  <meta name="keywords" content="ambystoma technologies, lector de voz gratis, pdf tools gratis, visor 3d web, aplicaciones web gratuitas, text to speech español, scientific tools">
+  <title id="meta-title">Ambystoma Technologies · Deep Tech & Scientific Solutions</title>
+  <meta name="description" id="meta-desc" content="Ambystoma Technologies is a Deep Tech startup combining hardware and software for laboratory research, scientific computing, and custom technological solutions.">
+  <meta name="keywords" content="ambystoma technologies, startup, cell count, axi ia, brandon antonio segura torres, microscopia, optica, simulador de optica, lector de voz, pdf tools, visor 3d, open galileo, deep tech">
   <meta name="author" content="Ambystoma Technologies">
   <meta name="theme-color" content="#0a0f1d">
 
-  <!-- Favicon Oficial con favicon_logo -->
+  <!-- Favicon Oficial -->
   <link rel="icon" type="image/png" href="favicon_logo.png">
   <link rel="shortcut icon" href="favicon_logo.png">
   <link rel="apple-touch-icon" href="favicon_logo.png">
@@ -22,9 +22,19 @@
     "name": "Ambystoma Technologies",
     "url": "https://ambystomatechnologies.github.io/",
     "logo": "https://ambystomatechnologies.github.io/logo.png",
-    "description": "Desarrollo de aplicaciones, herramientas científicas y utilidades web de libre acceso y alto rendimiento.",
+    "founder": {
+      "@type": "Person",
+      "name": "Brandon Antonio Segura Torres",
+      "jobTitle": "CEO & Founder",
+      "sameAs": [
+        "https://www.linkedin.com/in/brandon-antonio-segura-torres/",
+        "https://www.instagram.com/micro.cosmonauta/"
+      ]
+    },
+    "description": "Desarrollo de soluciones tecnológicas de vanguardia, combinando hardware y software con enfoque científico para laboratorios, investigación y aplicaciones personalizadas.",
     "sameAs": [
       "https://github.com/ambystomatechnologies",
+      "https://www.instagram.com/ambystoma_technologies/",
       "https://play.google.com/store/apps/details?id=com.cellcount.axiia"
     ]
   }
@@ -33,18 +43,26 @@
   <!-- Tipografía Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg: #0a0f1d;
       --card-bg: rgba(17, 24, 39, 0.85);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --card-border-hover: rgba(56, 189, 248, 0.4);
+      --card-bg-elevated: rgba(26, 36, 56, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(56, 189, 248, 0.45);
       --accent: #38bdf8;
-      --accent-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
+      --accent-glow: rgba(56, 189, 248, 0.35);
+      --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #2563eb 100%);
       --text: #f8fafc;
       --text-muted: #94a3b8;
+      --badge-green-bg: rgba(34, 197, 94, 0.12);
+      --badge-green-text: #4ade80;
+      --badge-green-border: rgba(34, 197, 94, 0.3);
+      --badge-blue-bg: rgba(56, 189, 248, 0.12);
+      --badge-blue-text: #38bdf8;
+      --badge-blue-border: rgba(56, 189, 248, 0.3);
     }
 
     * {
@@ -62,8 +80,9 @@
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background-color: var(--bg);
       background-image: 
-        radial-gradient(at 20% 20%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
-        radial-gradient(at 80% 80%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+        radial-gradient(at 15% 15%, rgba(37, 99, 235, 0.15) 0px, transparent 45%),
+        radial-gradient(at 85% 30%, rgba(6, 182, 212, 0.12) 0px, transparent 45%),
+        radial-gradient(at 50% 85%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
       color: var(--text);
       min-height: 100vh;
       display: flex;
@@ -73,19 +92,27 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Header & Navegación */
     header {
-      padding: 1.15rem 1.5rem;
+      padding: 0.35rem 1.75rem;
       border-bottom: 1px solid var(--card-border);
-      background: rgba(10, 15, 29, 0.92);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(10, 15, 29, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
       width: 100%;
+      transition: padding 0.2s ease;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
 
     .logo-link {
@@ -93,19 +120,58 @@
       align-items: center;
       text-decoration: none;
       cursor: pointer;
+      line-height: 0;
+      padding: 2px 0;
     }
 
+    /* Logo ampliado para ocupar todo el espacio vertical disponible */
     .logo {
-      height: 44px;
+      height: 58px;
       width: auto;
-      max-width: 240px;
+      max-width: 340px;
       object-fit: contain;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      display: block;
+      transition: transform 0.2s ease, filter 0.2s ease;
     }
 
     .logo:hover {
-      transform: scale(1.03);
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3));
+    }
+
+    /* Navegación central/derecha */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid transparent;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link.active-nav {
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
     }
 
     .header-right {
@@ -114,23 +180,33 @@
       gap: 0.85rem;
     }
 
-    .suite-badge {
-      font-size: 0.82rem;
-      color: var(--accent);
-      font-weight: 600;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 0.35rem 0.75rem;
-      border-radius: 9999px;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
+    .social-header-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: all 0.2s ease;
     }
 
-    /* Selector de Idiomas con Banderas Circulares */
+    .social-header-link:hover {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #ffffff;
+      border-color: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(220, 39, 67, 0.4);
+    }
+
+    /* Selector de Idiomas */
     .lang-switch {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
       background: rgba(255, 255, 255, 0.05);
       padding: 3px 6px;
       border-radius: 9999px;
@@ -172,49 +248,157 @@
       pointer-events: none;
     }
 
+    /* Hero Principal de StartUp */
     .hero {
       text-align: center;
-      padding: 3rem 1.25rem 1.5rem;
-      max-width: 820px;
+      padding: 3.8rem 1.25rem 2.5rem;
+      max-width: 920px;
       margin: 0 auto;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .startup-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.38rem 0.95rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
     }
 
     .hero h1 {
-      font-size: clamp(1.75rem, 5vw, 2.6rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);
+      font-size: clamp(2rem, 5.2vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 30%, #93c5fd 75%, #38bdf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.85rem;
-      line-height: 1.25;
+      margin-bottom: 1.15rem;
+      line-height: 1.18;
     }
 
     .hero p {
       color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.6;
-      max-width: 640px;
-      margin: 0 auto;
+      font-size: 1.12rem;
+      line-height: 1.7;
+      max-width: 720px;
+      margin: 0 auto 2rem;
     }
 
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      background: var(--accent-gradient);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 0.65rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(2, 132, 199, 0.55);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 0.65rem;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Encabezados de Sección */
+    .section-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+      width: 100%;
+    }
+
+    .section-header-block {
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 680px;
+      line-height: 1.55;
+    }
+
+    /* Grilla de Aplicaciones / Desarrollos */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
       gap: 1.5rem;
-      max-width: 1160px;
-      margin: 1.5rem auto 3.5rem;
-      padding: 0 1.25rem;
       width: 100%;
-      flex-grow: 1;
     }
 
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 1rem;
-      padding: 1.5rem;
+      padding: 1.6rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -228,13 +412,12 @@
     .card:hover {
       transform: translateY(-4px);
       border-color: var(--card-border-hover);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
     }
 
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 1.15rem;
-      display: inline-block;
+    .card-top {
+      display: flex;
+      flex-direction: column;
     }
 
     .card-header-top {
@@ -243,6 +426,27 @@
       justify-content: space-between;
       margin-bottom: 1.15rem;
       gap: 0.75rem;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    /* Icono SVG de Óptica Profesional */
+    .card-icon-svg {
+      background: rgba(56, 189, 248, 0.08);
+      border-color: rgba(56, 189, 248, 0.25);
+      color: var(--accent);
+      padding: 4px;
     }
 
     .app-card-logo {
@@ -255,25 +459,40 @@
       flex-shrink: 0;
     }
 
-    .badge-featured {
-      font-size: 0.75rem;
-      color: #38bdf8;
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 0.25rem 0.6rem;
+    /* Badges de Licencia y Estado */
+    .badge-license {
+      font-size: 0.73rem;
+      font-weight: 700;
+      padding: 0.26rem 0.65rem;
       border-radius: 9999px;
-      font-weight: 600;
       white-space: nowrap;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .badge-license.free-app {
+      background: rgba(56, 189, 248, 0.14);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .badge-license.opensource {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
     }
 
     .card-featured {
-      border-color: rgba(56, 189, 248, 0.28);
-      background: linear-gradient(180deg, rgba(20, 32, 54, 0.88) 0%, rgba(15, 23, 42, 0.88) 100%);
+      border-color: rgba(56, 189, 248, 0.35);
+      background: linear-gradient(180deg, rgba(20, 32, 54, 0.92) 0%, rgba(15, 23, 42, 0.9) 100%);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.08);
     }
 
     .card-featured:hover {
-      border-color: rgba(56, 189, 248, 0.6);
-      box-shadow: 0 14px 35px rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.65);
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.2);
     }
 
     .card-title {
@@ -281,6 +500,7 @@
       font-weight: 700;
       margin-bottom: 0.6rem;
       color: #ffffff;
+      line-height: 1.3;
     }
 
     .card-desc {
@@ -357,6 +577,456 @@
       background: rgba(255, 255, 255, 0.08);
       color: var(--text);
       border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Sección About Us */
+    .about-section {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(10, 15, 29, 0.95) 100%);
+      border-top: 1px solid var(--card-border);
+      position: relative;
+    }
+
+    .about-grid-main {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-story-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-story-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-gradient);
+    }
+
+    .about-story-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    .about-story-p {
+      color: #cbd5e1;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .pillar-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .pillar-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pillar-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .pillar-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Flagship Product Showcase */
+    .flagship-showcase {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.85) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .flagship-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .flagship-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .flagship-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 0.35rem;
+    }
+
+    .flagship-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .flagship-p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Founder & Outreach Section */
+    .founder-outreach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .founder-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .founder-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .founder-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0284c7, #3b82f6);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+      flex-shrink: 0;
+    }
+
+    .founder-name {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    .founder-role {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 0.15rem;
+    }
+
+    .founder-bio {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .btn-linkedin {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #0077b5;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.7rem 1.2rem;
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
+    }
+
+    .btn-linkedin:hover {
+      background: #006097;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 119, 181, 0.45);
+    }
+
+    /* Tarjeta Divulgación Científica */
+    .outreach-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .outreach-badge {
+      font-size: 0.75rem;
+      color: #f472b6;
+      background: rgba(244, 114, 182, 0.12);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .outreach-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .outreach-desc {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.7rem 1.2rem;
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(220, 39, 67, 0.35);
+    }
+
+    .btn-instagram:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(220, 39, 67, 0.5);
+    }
+
+    /* Tarjeta Charla TEDx con Miniatura y Play Button */
+    .tedx-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tedx-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(239, 68, 68, 0.5);
+      box-shadow: 0 14px 35px rgba(239, 68, 68, 0.15);
+    }
+
+    .tedx-thumbnail-wrap {
+      position: relative;
+      width: 100%;
+      height: 210px;
+      overflow: hidden;
+      background: #000;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+
+    .tedx-thumbnail-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      display: block;
+    }
+
+    .tedx-thumbnail-wrap:hover .tedx-thumbnail-img {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
+
+    /* Botón Play Superpuesto */
+    .tedx-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.35);
+      transition: background 0.2s ease;
+    }
+
+    .tedx-thumbnail-wrap:hover .tedx-play-overlay {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .play-button-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #eb0028; /* Rojo oficial TED */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(235, 0, 40, 0.7);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tedx-thumbnail-wrap:hover .play-button-circle {
+      transform: scale(1.12);
+      box-shadow: 0 0 35px rgba(235, 0, 40, 0.95);
+    }
+
+    .play-icon-triangle {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 11px 0 11px 18px;
+      border-color: transparent transparent transparent #ffffff;
+      margin-left: 4px;
+    }
+
+    .tedx-badge-floating {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(235, 0, 40, 0.95);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .tedx-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-grow: 1;
+    }
+
+    .tedx-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.35;
+    }
+
+    .tedx-desc {
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .btn-watch-tedx {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(235, 0, 40, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(235, 0, 40, 0.35);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.65rem 1.1rem;
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-watch-tedx:hover {
+      background: #eb0028;
+      color: #ffffff;
+      border-color: transparent;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(235, 0, 40, 0.4);
+    }
+
+    /* Redes y Conexión */
+    .company-social-banner {
+      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .company-social-info h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .company-social-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .company-social-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
     }
 
     /* Modal Cell Count */
@@ -503,7 +1173,7 @@
       box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5);
     }
 
-    .section-heading {
+    .section-heading-modal {
       color: #38bdf8;
       font-size: 0.95rem;
       font-weight: 700;
@@ -581,66 +1251,111 @@
       font-size: 0.95rem;
     }
 
+    /* Footer */
     footer {
       border-top: 1px solid var(--card-border);
-      padding: 2rem 1.25rem;
+      padding: 2.5rem 1.5rem;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       margin-top: auto;
-      background: rgba(10, 15, 29, 0.95);
+      background: rgba(10, 15, 29, 0.98);
     }
 
-    footer a {
-      color: var(--accent);
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #cbd5e1;
       text-decoration: none;
       transition: color 0.2s ease;
+      font-size: 0.88rem;
     }
 
-    footer a:hover {
+    .footer-links a:hover {
+      color: var(--accent);
       text-decoration: underline;
     }
 
-    @media (max-width: 640px) {
-      .grid {
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-grid-main {
         grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 2.25rem 1rem 1.25rem;
       }
     }
 
-    @media (max-width: 420px) {
-      .logo {
-        height: 32px;
-        max-width: 140px;
+    @media (max-width: 768px) {
+      header {
+        padding: 0.35rem 1rem;
       }
-
-      .suite-badge {
+      .logo {
+        height: 48px;
+        max-width: 240px;
+      }
+      .nav-menu {
+        gap: 0.25rem;
+      }
+      .nav-link {
+        font-size: 0.82rem;
+        padding: 0.35rem 0.65rem;
+      }
+      .social-header-link {
         display: none;
       }
-
-      .hero h1 {
-        font-size: 1.45rem;
+      .hero {
+        padding: 2.75rem 1rem 1.75rem;
       }
+      .hero p {
+        font-size: 1rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .about-pillars {
+        grid-template-columns: 1fr;
+      }
+      .company-social-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
 
-      .card {
-        padding: 1rem;
+    @media (max-width: 480px) {
+      .logo {
+        height: 40px;
+        max-width: 180px;
+      }
+      .nav-link span.nav-text-extra {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Encabezado Superior -->
-  <header>
-    <a href="https://ambystomatechnologies.github.io/" class="logo-link" title="Ambystoma Technologies - Portal" onclick="window.location.href='https://ambystomatechnologies.github.io/';">
-      <img src="logo.png" alt="Ambystoma Technologies" class="logo">
-    </a>
+  <!-- Encabezado Superior Sticky con Navegación de StartUp -->
+  <header id="main-header">
+    <div class="header-left">
+      <a href="#hero" class="logo-link" title="Ambystoma Technologies">
+        <img src="logo.png" alt="Ambystoma Technologies" class="logo">
+      </a>
+    </div>
 
     <div class="header-right">
-      <span class="suite-badge" data-i18n="suiteBadge">Official Suite</span>
+      <!-- Enlace directo al Instagram Oficial de la StartUp -->
+      <a href="https://www.instagram.com/ambystoma_technologies/" target="_blank" rel="noopener noreferrer" class="social-header-link" title="Instagram @ambystoma_technologies" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
 
       <!-- Selector de Idiomas con Banderas Circulares -->
       <div class="lang-switch" role="group" aria-label="Language selector">
@@ -692,83 +1407,301 @@
   </header>
 
   <!-- Sección Hero -->
-  <section class="hero">
+  <section class="hero" id="hero">
+    <div class="startup-pill" data-i18n="heroBadge">🔬 Deep Tech & Applied Science StartUp</div>
     <h1 data-i18n="heroTitle">Ambystoma Technologies</h1>
-    <p data-i18n="heroDesc">Open-source, high-performance, and 100% free scientific applications, tools, and web utilities.</p>
+    <p data-i18n="heroDesc">Developing cutting-edge technology solutions, combining hardware and software with a strong scientific focus to transform how complex challenges in laboratories and research are solved.</p>
+    <div class="hero-actions">
+      <a href="#suite" class="btn-hero-primary" data-i18n="ctaExploreSuite">Explore Official Suite</a>
+      <a href="#about" class="btn-hero-secondary" data-i18n="ctaLearnAbout">About Our StartUp →</a>
+    </div>
   </section>
 
-  <!-- Grilla de Aplicaciones -->
-  <main class="grid">
-    <!-- Proyecto 1 (Destacado): Cell Count (Axi IA) -->
-    <article class="card card-featured">
-      <div>
-        <div class="card-header-top">
-          <img src="cellcount-logo.png" alt="Cell Count (Axi IA) Logo" class="app-card-logo">
-          <span class="badge-featured" data-i18n="cellcountBadge">⭐⭐⭐⭐⭐ Official Android App</span>
+  <!-- SECCIÓN 1: SUITE OFICIAL & DESARROLLOS -->
+  <section class="section-wrap" id="suite">
+    <div class="section-header-block">
+      <span class="section-tag" data-i18n="suiteTag">PORTFOLIO</span>
+      <h2 class="section-title" data-i18n="suiteTitle">Official Suite & Developments</h2>
+      <p class="section-desc" data-i18n="suiteSubtitle">Explore our ecosystem of applications, laboratory instrumentation, and scientific tools.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Proyecto 1 (Destacado): Cell Count (Axi IA) -->
+      <article class="card card-featured">
+        <div class="card-top">
+          <div class="card-header-top">
+            <img src="cellcount-logo.png" alt="Cell Count (Axi IA) Logo" class="app-card-logo">
+            <span class="badge-license free-app" data-i18n="cellcountLicenseBadge">📱 Free Android App</span>
+          </div>
+          <h3 class="card-title">Cell Count (Axi IA)</h3>
+          <p class="card-desc" data-i18n="cellcountDesc">The definitive tool for students, researchers, brewers, and lab professionals. Cell counting on images, Neubauer Chamber, hematology, yeast viability, and 100% local processing with smart algorithms. Free-to-use Android application.</p>
         </div>
-        <h2 class="card-title">Cell Count (Axi IA)</h2>
-        <p class="card-desc" data-i18n="cellcountDesc">The definitive tool for students, researchers, brewers, and lab professionals. Cell counting on images, Neubauer Chamber, hematology, yeast viability, and 100% local processing with smart algorithms.</p>
-      </div>
-      <div class="card-actions-group">
-        <a href="https://play.google.com/store/apps/details?id=com.cellcount.axiia&hl=es_PA" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-play" title="Download on Google Play Store">
-          <span data-i18n="cellcountPlayBtn">📲 Download on Google Play →</span>
-        </a>
-        <button type="button" class="card-btn-secondary" onclick="openCellCountModal()">
-          <span data-i18n="cellcountDetailsBtn">ℹ️ View details & full features</span>
-        </button>
-      </div>
-    </article>
+        <div class="card-actions-group">
+          <a href="https://play.google.com/store/apps/details?id=com.cellcount.axiia&hl=es_PA" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-play" title="Download on Google Play Store">
+            <span data-i18n="cellcountPlayBtn">📲 Download on Google Play →</span>
+          </a>
+          <button type="button" class="card-btn-secondary" onclick="openCellCountModal()">
+            <span data-i18n="cellcountDetailsBtn">ℹ️ View details & full features</span>
+          </button>
+        </div>
+      </article>
 
-    <!-- Proyecto 2: Simulador de Óptica 2D -->
-    <article class="card">
-      <div>
-        <div class="card-icon">🌈</div>
-        <h2 class="card-title" data-i18n="opticsTitle">2D Optics Simulator</h2>
-        <p class="card-desc" data-i18n="opticsDesc">Interactive ray tracer & optics simulator: 7-color spectral refraction, deformable custom lenses, prisms, mirrors, and 12 physics demos.</p>
-      </div>
-      <a href="https://ambystomatechnologies.github.io/optic-simulator/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
-    </article>
+      <!-- Proyecto 2: Simulador de Óptica 2D (Icono serio de lente física) -->
+      <article class="card">
+        <div class="card-top">
+          <div class="card-header-top">
+            <div class="card-icon card-icon-svg" title="Optical Physics Lens">
+              <svg viewBox="0 0 48 48" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="lensGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38bdf8"/>
+                    <stop offset="100%" stop-color="#0284c7"/>
+                  </linearGradient>
+                  <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.5"/>
+                    <stop offset="60%" stop-color="#38bdf8"/>
+                    <stop offset="100%" stop-color="#ffffff"/>
+                  </linearGradient>
+                </defs>
+                <!-- Lente biconvexa óptica central -->
+                <path d="M24 5 C32 16 32 32 24 43 C16 32 16 16 24 5 Z" fill="url(#lensGradient)" fill-opacity="0.25" stroke="#38bdf8" stroke-width="2.2" stroke-linejoin="round"/>
+                <line x1="24" y1="8" x2="24" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 2"/>
+                <!-- Rayo superior refractándose a foco -->
+                <path d="M4 14 L20 14 L42 24" stroke="url(#beamGradient)" stroke-width="2" stroke-linecap="round"/>
+                <!-- Rayo medio incidente directo -->
+                <path d="M2 24 L44 24" stroke="#a5f3fc" stroke-width="1.8" stroke-linecap="round"/>
+                <!-- Rayo inferior refractándose a foco -->
+                <path d="M4 34 L20 34 L42 24" stroke="url(#beamGradient)" stroke-width="2" stroke-linecap="round"/>
+                <!-- Foco luminoso -->
+                <circle cx="42" cy="24" r="2.5" fill="#ffffff"/>
+                <circle cx="42" cy="24" r="5.5" fill="#38bdf8" fill-opacity="0.4"/>
+              </svg>
+            </div>
+            <span class="badge-license opensource" data-i18n="opticsLicenseBadge">Open Source & Free</span>
+          </div>
+          <h3 class="card-title" data-i18n="opticsTitle">2D Optics Simulator</h3>
+          <p class="card-desc" data-i18n="opticsDesc">Interactive ray tracer & optics simulator: 7-color spectral refraction, deformable custom lenses, prisms, mirrors, and 12 physics demos. Free and open source.</p>
+        </div>
+        <a href="https://ambystomatechnologies.github.io/optic-simulator/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
+      </article>
 
-    <!-- Proyecto 3: Lector de Voz & Transcripciones -->
-    <article class="card">
-      <div>
-        <div class="card-icon">🔊</div>
-        <h2 class="card-title" data-i18n="ttsTitle">Voice Reader &amp; Transcriptions</h2>
-        <p class="card-desc" data-i18n="ttsDesc">Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber.</p>
-      </div>
-      <a href="https://ambystomatechnologies.github.io/lector-de-voz-y-transcripciones-gratis/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
-    </article>
+      <!-- Proyecto 3: Lector de Voz & Transcripciones -->
+      <article class="card">
+        <div class="card-top">
+          <div class="card-header-top">
+            <div class="card-icon">🔊</div>
+            <span class="badge-license opensource" data-i18n="ttsLicenseBadge">Open Source & Free</span>
+          </div>
+          <h3 class="card-title" data-i18n="ttsTitle">Voice Reader &amp; Transcriptions</h3>
+          <p class="card-desc" data-i18n="ttsDesc">Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber. Free and open source.</p>
+        </div>
+        <a href="https://ambystomatechnologies.github.io/lector-de-voz-y-transcripciones-gratis/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
+      </article>
 
-    <!-- Proyecto 4: PDF Tools Studio -->
-    <article class="card">
-      <div>
-        <div class="card-icon">📄</div>
-        <h2 class="card-title">PDF Tools Studio</h2>
-        <p class="card-desc" data-i18n="pdfToolsDesc">Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF at no cost.</p>
-      </div>
-      <a href="https://ambystomatechnologies.github.io/pdf-tools-ambystoma-studio/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
-    </article>
+      <!-- Proyecto 4: PDF Tools Studio -->
+      <article class="card">
+        <div class="card-top">
+          <div class="card-header-top">
+            <div class="card-icon">📄</div>
+            <span class="badge-license opensource" data-i18n="pdfLicenseBadge">Open Source & Free</span>
+          </div>
+          <h3 class="card-title">PDF Tools Studio</h3>
+          <p class="card-desc" data-i18n="pdfToolsDesc">Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF. Free and open source.</p>
+        </div>
+        <a href="https://ambystomatechnologies.github.io/pdf-tools-ambystoma-studio/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
+      </article>
 
-    <!-- Proyecto 5: Visor 3D Interactivo -->
-    <article class="card">
-      <div>
-        <div class="card-icon">🧊</div>
-        <h2 class="card-title" data-i18n="viewer3dTitle">Interactive 3D Viewer</h2>
-        <p class="card-desc" data-i18n="viewer3dDesc">Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering.</p>
-      </div>
-      <a href="https://ambystomatechnologies.github.io/visor-3d/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
-    </article>
+      <!-- Proyecto 5: Visor 3D Interactivo -->
+      <article class="card">
+        <div class="card-top">
+          <div class="card-header-top">
+            <div class="card-icon">🧊</div>
+            <span class="badge-license opensource" data-i18n="viewer3dLicenseBadge">Open Source & Free</span>
+          </div>
+          <h3 class="card-title" data-i18n="viewer3dTitle">Interactive 3D Viewer</h3>
+          <p class="card-desc" data-i18n="viewer3dDesc">Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering. Free and open source.</p>
+        </div>
+        <a href="https://ambystomatechnologies.github.io/visor-3d/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
+      </article>
 
-    <!-- Proyecto 6: Open-Galileo -->
-    <article class="card">
-      <div>
-        <div class="card-icon">🔭</div>
-        <h2 class="card-title">Open-Galileo</h2>
-        <p class="card-desc" data-i18n="galileoDesc">Astronomy, scientific computing, and collaborative open technological research platform.</p>
+      <!-- Proyecto 6: Open-Galileo -->
+      <article class="card">
+        <div class="card-top">
+          <div class="card-header-top">
+            <div class="card-icon">🔭</div>
+            <span class="badge-license opensource" data-i18n="galileoLicenseBadge">Open Source & Free</span>
+          </div>
+          <h3 class="card-title">Open-Galileo</h3>
+          <p class="card-desc" data-i18n="galileoDesc">Astronomy, scientific computing, and collaborative open technological research platform. Free and open source.</p>
+        </div>
+        <a href="https://ambystomatechnologies.github.io/Open-Galileo/" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: ABOUT US (STARTUP DEEP TECH) -->
+  <section class="about-section" id="about">
+    <div class="section-wrap">
+      <div class="section-header-block">
+        <span class="section-tag" data-i18n="aboutTag">STARTUP PROFILE</span>
+        <h2 class="section-title" data-i18n="aboutTitle">About Ambystoma Technologies</h2>
+        <p class="section-desc" data-i18n="aboutSubtitle">Bridging the gap between scientific discovery and applied engineering.</p>
       </div>
-      <a href="https://ambystomatechnologies.github.io/Open-Galileo/" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
-    </article>
-  </main>
+
+      <!-- Misión, Visión & Flagship Product -->
+      <div class="about-grid-main">
+        <!-- Historia, Misión y Visión -->
+        <article class="about-story-card">
+          <h3 class="about-story-title" data-i18n="storyTitle">Science & Applied Engineering in Synergy</h3>
+          <p class="about-story-p" data-i18n="storyP1">
+            Ambystoma Technologies is a technology StartUp founded by robotics professor <strong>Brandon Antonio Segura Torres</strong>. We develop cutting-edge technology solutions, combining hardware and software with a strong scientific focus to transform how complex challenges in laboratories and research are solved.
+          </p>
+          <p class="about-story-p" data-i18n="storyP2">
+            Our mission is to bridge the gap between science and applied technology by creating efficient, accurate, and accessible tools. While our core DNA is deeply rooted in scientific and technological innovation, we also design and build custom solutions tailored to meet our users' specific needs.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar-box">
+              <div class="pillar-icon">🔬</div>
+              <h4 class="pillar-name" data-i18n="pillar1Name">Scientific Focus</h4>
+              <p class="pillar-sub" data-i18n="pillar1Desc">Algorithms engineered with high accuracy for rigorous experimental workflows.</p>
+            </div>
+            <div class="pillar-box">
+              <div class="pillar-icon">⚙️</div>
+              <h4 class="pillar-name" data-i18n="pillar2Name">Hardware & Software</h4>
+              <p class="pillar-sub" data-i18n="pillar2Desc">Deep synergy between physical instrumentation, optics, and intelligent code.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Showcase de Flagship Product -->
+        <article class="flagship-showcase">
+          <div>
+            <span class="flagship-badge" data-i18n="flagshipBadge">FLAGSHIP PRODUCT</span>
+            <div class="flagship-top">
+              <img src="cellcount-logo.png" alt="Cell Count (Axi IA)" class="flagship-logo">
+              <div>
+                <h3 class="flagship-title">Cell Count (Axi IA)</h3>
+                <span style="font-size: 0.85rem; color: #94a3b8;" data-i18n="flagshipSub">AI-Powered Automated Cell Counting</span>
+              </div>
+            </div>
+            <p class="flagship-p" style="margin-top: 1.25rem;" data-i18n="flagshipDesc">
+              We have officially launched our first AI-powered automated cell-counting application. Cell Count is designed to streamline and optimize routine laboratory tasks, reducing margins of error and boosting productivity for researchers and professionals.
+            </p>
+          </div>
+
+          <div class="card-actions-group">
+            <a href="https://play.google.com/store/apps/details?id=com.cellcount.axiia&hl=es_PA" target="_blank" rel="noopener noreferrer" class="btn-play-store" style="text-align: center;">
+              <span data-i18n="flagshipBtnPlay">📲 Get on Google Play Store</span>
+            </a>
+            <button type="button" class="card-btn-secondary" onclick="openCellCountModal()">
+              <span data-i18n="flagshipBtnModal">ℹ️ View Full Technical Specs</span>
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Fundador, Divulgación Científica & Charla TEDx -->
+      <div class="founder-outreach-grid">
+        <!-- Tarjeta del Fundador (CEO & Founder) -->
+        <article class="founder-card">
+          <div>
+            <div class="founder-header">
+              <div class="founder-avatar" aria-hidden="true">BS</div>
+              <div>
+                <h3 class="founder-name">Brandon Antonio Segura Torres</h3>
+                <p class="founder-role" data-i18n="founderRole">CEO &amp; Founder · Robotics Professor</p>
+              </div>
+            </div>
+            <p class="founder-bio" style="margin-top: 1.15rem;" data-i18n="founderBio">
+              Robotics professor, technologist, and researcher driving innovation at the intersection of embedded systems, scientific software, and intelligent laboratory instrumentation.
+            </p>
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/in/brandon-antonio-segura-torres/" target="_blank" rel="noopener noreferrer" class="btn-linkedin" title="LinkedIn Profile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span data-i18n="btnLinkedIn">Connect on LinkedIn →</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Tarjeta Proyecto de Divulgación Científica @micro.cosmonauta -->
+        <article class="outreach-card">
+          <div>
+            <span class="outreach-badge" data-i18n="outreachBadge">SCIENCE COMMUNICATION</span>
+            <h3 class="outreach-title">
+              <span>🔬</span>
+              <span>@micro.cosmonauta</span>
+            </h3>
+            <p class="outreach-desc" style="margin-top: 0.85rem;" data-i18n="outreachDesc">
+              Scientific outreach project dedicated to uncovering the beauty, mystery, and complexity of the microscopic world through high-resolution microscopy and popular science.
+            </p>
+          </div>
+          <div>
+            <a href="https://www.instagram.com/micro.cosmonauta/" target="_blank" rel="noopener noreferrer" class="btn-instagram" title="Instagram @micro.cosmonauta">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span data-i18n="btnInstagramOutreach">Follow @micro.cosmonauta →</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Tarjeta Charla TEDx con Miniatura portadaminiaturated.JPG y Botón Play hacia YouTube -->
+        <article class="tedx-card">
+          <a href="https://www.youtube.com/watch?v=GvIoT5yXPlg&t=37s" target="_blank" rel="noopener noreferrer" class="tedx-thumbnail-wrap" title="Watch TEDx Talk on YouTube">
+            <img src="portadaminiaturated.JPG" alt="TEDx Talk: La búsqueda de la belleza en lo diminuto - Brandon Antonio Segura Torres" class="tedx-thumbnail-img">
+            <span class="tedx-badge-floating">TEDx TALK</span>
+            <div class="tedx-play-overlay">
+              <div class="play-button-circle" title="Play Video">
+                <div class="play-icon-triangle"></div>
+              </div>
+            </div>
+          </a>
+          <div class="tedx-content">
+            <div>
+              <h3 class="tedx-title" data-i18n="tedxTitle">TEDx Talk: "La búsqueda de la belleza en lo diminuto"</h3>
+              <p class="tedx-desc" style="margin-top: 0.6rem;" data-i18n="tedxDesc">
+                A captivating TEDx talk exploring the intersection of scientific curiosity, microscopy, and the artistic aesthetics hidden within the microscopic universe.
+              </p>
+            </div>
+            <div>
+              <a href="https://www.youtube.com/watch?v=GvIoT5yXPlg&t=37s" target="_blank" rel="noopener noreferrer" class="btn-watch-tedx">
+                <span>▶</span>
+                <span data-i18n="btnWatchTedx">Watch Talk on YouTube ↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Banner de Instagram Oficial de la StartUp -->
+      <div class="company-social-banner">
+        <div class="company-social-info">
+          <h4 data-i18n="companyIgTitle">Official StartUp Community</h4>
+          <p data-i18n="companyIgDesc">Follow our latest research, hardware prototypes, product launches, and company milestones.</p>
+        </div>
+        <div class="company-social-actions">
+          <a href="https://www.instagram.com/ambystoma_technologies/" target="_blank" rel="noopener noreferrer" class="btn-instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span>@ambystoma_technologies</span>
+          </a>
+          <a href="mailto:ambystomatechnologies@gmail.com" class="btn-hero-secondary" style="padding: 0.7rem 1.2rem; font-size: 0.9rem;">
+            <span>✉️</span>
+            <span data-i18n="btnContactEmail">Contact Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Modal Detallado de Cell Count (Axi IA) -->
   <div id="cellcount-modal" class="modal-overlay" style="display: none;" onclick="closeCellCountModalOnBackdrop(event)">
@@ -777,7 +1710,7 @@
         <div class="modal-header-info">
           <img src="cellcount-logo.png" alt="Cell Count (Axi IA)" class="modal-app-logo">
           <div>
-            <span class="badge-featured" style="margin-bottom: 0.25rem; display: inline-block;" data-i18n="modalAndroidBadge">Official Android App</span>
+            <span class="badge-license free-app" style="margin-bottom: 0.25rem; display: inline-block;" data-i18n="modalAndroidBadge">Official Android App</span>
             <h3 class="modal-title">Cell Count (Axi IA)</h3>
             <p class="modal-subtitle" data-i18n="modalSubtitle">Ambystoma Technologies · Smart laboratory support</p>
           </div>
@@ -798,7 +1731,7 @@
           </a>
         </div>
 
-        <h4 class="section-heading" data-i18n="modalKeyFeatures">KEY FEATURES</h4>
+        <h4 class="section-heading-modal" data-i18n="modalKeyFeatures">KEY FEATURES</h4>
 
         <!-- Conteo Celular -->
         <div class="feature-card">
@@ -884,34 +1817,83 @@
 
   <!-- Pie de página -->
   <footer>
+    <div class="footer-links">
+      <a href="#suite" data-i18n="navSuite">Official Suite</a>
+      <a href="#about" data-i18n="navAbout">About Us</a>
+      <a href="https://www.linkedin.com/in/brandon-antonio-segura-torres/" target="_blank" rel="noopener noreferrer">LinkedIn (Founder)</a>
+      <a href="https://www.instagram.com/micro.cosmonauta/" target="_blank" rel="noopener noreferrer">@micro.cosmonauta</a>
+      <a href="https://www.instagram.com/ambystoma_technologies/" target="_blank" rel="noopener noreferrer">@ambystoma_technologies</a>
+      <a href="https://github.com/ambystomatechnologies" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
     <p><span data-i18n="footerText">© 2026 Ambystoma Technologies · Contact: </span><a href="mailto:ambystomatechnologies@gmail.com">ambystomatechnologies@gmail.com</a></p>
   </footer>
 
   <script>
-    // Diccionario de Traducciones (Inglés por defecto, Español seleccionable)
+    // Diccionario Bilingüe (Inglés por defecto, Español seleccionable)
     const I18N = {
       en: {
-        pageTitle: "Ambystoma Technologies · Web Applications & Tools Portal",
-        pageDesc: "Official suite of 100% free web tools and scientific applications developed by Ambystoma Technologies: Cell Count, 2D Optics Simulator, Voice Reader TTS, PDF Tools Studio, 3D Viewer, and Open-Galileo.",
-        suiteBadge: "Official Suite",
+        pageTitle: "Ambystoma Technologies · Deep Tech & Scientific Solutions",
+        pageDesc: "Ambystoma Technologies is a Deep Tech startup combining hardware and software for laboratory research, scientific computing, and custom technological solutions.",
+        navSuite: "Official Suite",
+        navAbout: "About Us",
+        heroBadge: "🔬 Deep Tech & Applied Science StartUp",
         heroTitle: "Ambystoma Technologies",
-        heroDesc: "Open-source, high-performance, and 100% free scientific applications, tools, and web utilities.",
-        cellcountBadge: "⭐⭐⭐⭐⭐ Official Android App",
-        cellcountDesc: "The definitive tool for students, researchers, brewers, and lab professionals. Cell counting on images, Neubauer Chamber, hematology, yeast viability, and 100% local processing with smart algorithms.",
+        heroDesc: "At Ambystoma Technologies, we develop cutting-edge technology solutions, combining hardware and software with a strong scientific focus to transform how complex challenges in laboratories and research are solved.",
+        ctaExploreSuite: "Explore Official Suite",
+        ctaLearnAbout: "About Our StartUp →",
+        // Suite Section
+        suiteTag: "PORTFOLIO",
+        suiteTitle: "Official Suite & Developments",
+        suiteSubtitle: "Explore our ecosystem of applications, laboratory instrumentation, and scientific tools.",
+        cellcountLicenseBadge: "📱 Free Android App",
+        cellcountDesc: "The definitive tool for students, researchers, brewers, and lab professionals. Cell counting on images, Neubauer Chamber, hematology, yeast viability, and 100% local processing with smart algorithms. Free-to-use Android application.",
         cellcountPlayBtn: "📲 Download on Google Play →",
         cellcountDetailsBtn: "ℹ️ View details & full features",
+        opticsLicenseBadge: "Open Source & Free",
         opticsTitle: "2D Optics Simulator",
-        opticsDesc: "Interactive ray tracer & optics simulator: 7-color spectral refraction, deformable custom lenses, prisms, mirrors, and 12 physics demos.",
+        opticsDesc: "Interactive ray tracer & optics simulator: 7-color spectral refraction, deformable custom lenses, prisms, mirrors, and 12 physics demos. Free and open source.",
+        ttsLicenseBadge: "Open Source & Free",
         ttsTitle: "Voice Reader & Transcriptions",
-        ttsDesc: "Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber.",
-        pdfToolsDesc: "Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF at no cost.",
+        ttsDesc: "Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber. Free and open source.",
+        pdfLicenseBadge: "Open Source & Free",
+        pdfToolsDesc: "Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF. Free and open source.",
+        viewer3dLicenseBadge: "Open Source & Free",
         viewer3dTitle: "Interactive 3D Viewer",
-        viewer3dDesc: "Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering.",
-        galileoDesc: "Astronomy, scientific computing, and collaborative open technological research platform.",
+        viewer3dDesc: "Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering. Free and open source.",
+        galileoLicenseBadge: "Open Source & Free",
+        galileoDesc: "Astronomy, scientific computing, and collaborative open technological research platform. Free and open source.",
         openAppBtn: "Open Application →",
         exploreBtn: "Explore Project →",
+        // About Section
+        aboutTag: "STARTUP PROFILE",
+        aboutTitle: "About Ambystoma Technologies",
+        aboutSubtitle: "Bridging the gap between scientific discovery and applied engineering.",
+        storyTitle: "Science & Applied Engineering in Synergy",
+        storyP1: "Ambystoma Technologies is a technology StartUp founded by robotics professor <strong>Brandon Antonio Segura Torres</strong>. We develop cutting-edge technology solutions, combining hardware and software with a strong scientific focus to transform how complex challenges in laboratories and research are solved.",
+        storyP2: "Our mission is to bridge the gap between science and applied technology by creating efficient, accurate, and accessible tools. While our core DNA is deeply rooted in scientific and technological innovation, we also design and build custom solutions tailored to meet our users' specific needs.",
+        pillar1Name: "Scientific Focus",
+        pillar1Desc: "Algorithms engineered with high accuracy for rigorous experimental workflows.",
+        pillar2Name: "Hardware & Software",
+        pillar2Desc: "Deep synergy between physical instrumentation, optics, and intelligent code.",
+        flagshipBadge: "FLAGSHIP PRODUCT",
+        flagshipSub: "AI-Powered Automated Cell Counting",
+        flagshipDesc: "We have officially launched our first AI-powered automated cell-counting application. Cell Count is designed to streamline and optimize routine laboratory tasks, reducing margins of error and boosting productivity for researchers and professionals.",
+        flagshipBtnPlay: "📲 Get on Google Play Store",
+        flagshipBtnModal: "ℹ️ View Full Technical Specs",
+        founderRole: "CEO & Founder · Robotics Professor",
+        founderBio: "Robotics professor, technologist, and researcher driving innovation at the intersection of embedded systems, scientific software, and intelligent laboratory instrumentation.",
+        btnLinkedIn: "Connect on LinkedIn →",
+        outreachBadge: "SCIENCE COMMUNICATION",
+        outreachDesc: "Scientific outreach project dedicated to uncovering the beauty, mystery, and complexity of the microscopic world through high-resolution microscopy and popular science.",
+        btnInstagramOutreach: "Follow @micro.cosmonauta →",
+        tedxTitle: 'TEDx Talk: "The Search for Beauty in the Tiny"',
+        tedxDesc: 'A captivating TEDx talk exploring the intersection of scientific curiosity, microscopy, and the artistic aesthetics hidden within the microscopic universe.',
+        btnWatchTedx: "Watch Talk on YouTube ↗",
+        companyIgTitle: "Official StartUp Community",
+        companyIgDesc: "Follow our latest research, hardware prototypes, product launches, and company milestones.",
+        btnContactEmail: "Contact Us",
         footerText: "© 2026 Ambystoma Technologies · Contact: ",
-        // Modal
+        // Modal Cell Count
         modalAndroidBadge: "Official Android App",
         modalSubtitle: "Ambystoma Technologies · Smart laboratory support",
         modalIntro: "<strong>Cell Count (Axi IA) multilingual</strong> is the definitive tool for students, researchers, brewers, and lab professionals designed to simplify cell counting and optimize the most common microbiological and hematological calculations. Developed by <strong>Ambystoma Technologies</strong>, it merges smart algorithms with an intuitive and smooth interface to offer accurate support in your everyday laboratory work.",
@@ -948,27 +1930,68 @@
         modalInstallBtn: "📲 Install from Google Play Store"
       },
       es: {
-        pageTitle: "Ambystoma Technologies · Portal de Aplicaciones y Herramientas Web",
-        pageDesc: "Suite oficial de herramientas y aplicaciones web 100% gratuitas desarrolladas por Ambystoma Technologies: Cell Count, Simulador de Óptica 2D, Lector de Voz TTS, PDF Tools Studio, Visor 3D y Open-Galileo.",
-        suiteBadge: "Suite Oficial",
+        pageTitle: "Ambystoma Technologies · Soluciones Científicas & Deep Tech",
+        pageDesc: "Ambystoma Technologies es una StartUp de base tecnológica que combina hardware y software para investigación de laboratorio, computación científica y desarrollos a medida.",
+        navSuite: "Suite Oficial",
+        navAbout: "Sobre Nosotros",
+        heroBadge: "🔬 StartUp de Ciencia Aplicada & Deep Tech",
         heroTitle: "Ambystoma Technologies",
-        heroDesc: "Aplicaciones, herramientas científicas y utilidades web de código libre, alto rendimiento y 100% gratuitas.",
-        cellcountBadge: "⭐⭐⭐⭐⭐ App Oficial Android",
-        cellcountDesc: "Herramienta definitiva para estudiantes, investigadores, cerveceros y profesionales de laboratorio. Conteo celular en imágenes, Cámara de Neubauer, hematología, viabilidad de levaduras y procesamiento 100% local con algoritmos inteligentes.",
+        heroDesc: "En Ambystoma Technologies desarrollamos soluciones tecnológicas de vanguardia, combinando hardware y software con un sólido enfoque científico para transformar la manera en que se resuelven desafíos complejos en laboratorios e investigación.",
+        ctaExploreSuite: "Explorar Suite Oficial",
+        ctaLearnAbout: "Conoce Nuestra StartUp →",
+        // Suite Section
+        suiteTag: "PORTAFOLIO",
+        suiteTitle: "Suite Oficial & Desarrollos",
+        suiteSubtitle: "Explora nuestro ecosistema de aplicaciones, instrumentación y utilidades científicas.",
+        cellcountLicenseBadge: "📱 App Android Gratuita",
+        cellcountDesc: "Herramienta definitiva para estudiantes, investigadores, cerveceros y profesionales de laboratorio. Conteo celular en imágenes, Cámara de Neubauer, hematología, viabilidad de levaduras y procesamiento 100% local con algoritmos inteligentes. Aplicación Android de uso gratuito.",
         cellcountPlayBtn: "📲 Descargar en Google Play →",
         cellcountDetailsBtn: "ℹ️ Ver ficha y características completas",
+        opticsLicenseBadge: "OpenSource y gratuito",
         opticsTitle: "Simulador de Óptica 2D",
-        opticsDesc: "Simulador interactivo de física óptica y trazador de rayos láser: dispersión en 7 colores, lentes deformables personalizadas, prismas y 12 demos de física.",
+        opticsDesc: "Simulador interactivo de física óptica y trazador de rayos: dispersión espectral en 7 colores, lentes deformables personalizadas, prismas, espejos y 12 demos de física. OpenSource y gratuito.",
+        ttsLicenseBadge: "OpenSource y gratuito",
         ttsTitle: "Lector de Voz & Transcripciones",
-        ttsDesc: "Suite de texto a voz, corrección fonética personalizada y transcriptor de audio inteligente cliente.",
-        pdfToolsDesc: "Herramientas profesionales para combinar múltiples documentos PDF, recortar páginas específicas y convertir imágenes a PDF sin costo.",
+        ttsDesc: "Suite de texto a voz con corrección fonética personalizada y transcriptor de audio inteligente en el navegador. OpenSource y gratuito.",
+        pdfLicenseBadge: "Open Source y gratuito",
+        pdfToolsDesc: "Herramientas profesionales para combinar múltiples documentos PDF, recortar páginas específicas y convertir imágenes a PDF. Open Source y gratuito.",
+        viewer3dLicenseBadge: "OpenSource y gratuito",
         viewer3dTitle: "Visor 3D Interactivo",
-        viewer3dDesc: "Visualizador web interactivo para modelos tridimensionales con corte transversal por planos, mesa giratoria y renderizado WebGL en tiempo real.",
-        galileoDesc: "Plataforma de astronomía, computación científica y proyectos de investigación tecnológica abierta y colaborativa.",
+        viewer3dDesc: "Visualizador web interactivo para modelos 3D con corte transversal por planos, modo turntable y renderizado WebGL en tiempo real. OpenSource y gratuito.",
+        galileoLicenseBadge: "Open Source y Gratuito",
+        galileoDesc: "Plataforma de astronomía, computación científica y proyectos de investigación tecnológica abierta y colaborativa. Open Source y Gratuito.",
         openAppBtn: "Abrir Aplicación →",
         exploreBtn: "Explorar Proyecto →",
+        // About Section
+        aboutTag: "PERFIL DE STARTUP",
+        aboutTitle: "Sobre Ambystoma Technologies",
+        aboutSubtitle: "Tendiendo un puente entre la ciencia de vanguardia y la tecnología aplicada.",
+        storyTitle: "Ciencia y Tecnología en Movimiento",
+        storyP1: "Ambystoma Technologies es una StartUp tecnológica fundada por el profesor de robótica <strong>Brandon Antonio Segura Torres</strong>. Desarrollamos soluciones tecnológicas de vanguardia, combinando hardware y software con un sólido enfoque científico para transformar la manera en que se resuelven desafíos complejos en laboratorios e investigación.",
+        storyP2: "Nuestra misión es tender un puente entre la ciencia y la tecnología aplicada mediante la creación de herramientas eficientes, precisas y accesibles. Si bien nuestro ADN central está profundamente arraigado en la innovación científica y tecnológica, también diseñamos y construimos soluciones a medida adaptadas a las necesidades específicas de nuestros usuarios.",
+        pillar1Name: "Enfoque Científico",
+        pillar1Desc: "Algoritmos estructurados con rigor analítico para flujos de trabajo experimental exigentes.",
+        pillar2Name: "Hardware & Software",
+        pillar2Desc: "Sinergia profunda entre instrumentación física, óptica y programación avanzada.",
+        flagshipBadge: "PRODUCTO INSIGNIA",
+        flagshipSub: "Conteo Celular Automatizado con Inteligencia Artificial",
+        flagshipDesc: "Hemos lanzado oficialmente nuestra primera aplicación automatizada de conteo celular impulsada por Inteligencia Artificial. Cell Count está diseñada para agilizar y optimizar las tareas rutinarias de laboratorio, reduciendo los márgenes de error e incrementando la productividad de investigadores y profesionales.",
+        flagshipBtnPlay: "📲 Descargar en Google Play",
+        flagshipBtnModal: "ℹ️ Ver Ficha Técnica Completa",
+        founderRole: "CEO & Fundador · Profesor de Robótica",
+        founderBio: "Profesor de robótica, tecnólogo e investigador que impulsa la innovación en la intersección de sistemas embebidos, software científico e instrumentación inteligente de laboratorio.",
+        btnLinkedIn: "Conectar en LinkedIn →",
+        outreachBadge: "DIVULGACIÓN CIENTÍFICA",
+        outreachDesc: "Proyecto de divulgación científica enfocado en revelar la belleza, el misterio y la complejidad del mundo microscópico a través de microfotografía de alta resolución y ciencia popular.",
+        btnInstagramOutreach: "Seguir a @micro.cosmonauta →",
+        tedxTitle: 'Charla TEDx: "La búsqueda de la belleza en lo diminuto"',
+        tedxDesc: 'Una inspiradora charla TEDx que explora el punto de encuentro entre la curiosidad científica, la microscopía y la estética artística oculta en el universo microscópico.',
+        btnWatchTedx: "Ver Charla en YouTube ↗",
+        companyIgTitle: "Comunidad Oficial de la StartUp",
+        companyIgDesc: "Sigue nuestras investigaciones, prototipos de hardware, lanzamientos de software y avances de la empresa.",
+        btnContactEmail: "Escríbenos",
         footerText: "© 2026 Ambystoma Technologies · Contacto: ",
-        // Modal
+        // Modal Cell Count
         modalAndroidBadge: "App Android Oficial",
         modalSubtitle: "Ambystoma Technologies · Soporte inteligente de laboratorio",
         modalIntro: "<strong>Cell Count (Axi IA) multilenguaje</strong> es la herramienta definitiva para estudiantes, investigadores, cerveceros y profesionales del laboratorio diseñada para simplificar el recuento celular y optimizar los cálculos microbiológicos y hematológicos más comunes. Desarrollada por <strong>Ambystoma Technologies</strong>, fusiona algoritmos inteligentes con una interfaz intuitiva y fluida para ofrecerte un soporte preciso en tu día a día en el laboratorio.",
@@ -1035,13 +2058,12 @@
       }
     }
 
-    // Inicializar idioma (Inglés por defecto a menos que haya selección explícita previa)
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('ambystoma_portal_lang');
-      if (savedLang === 'es') {
-        setLanguage('es');
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("ambystoma_portal_lang");
+      if (savedLang === "es") {
+        setLanguage("es");
       } else {
-        setLanguage('en');
+        setLanguage("en");
       }
     });
 
