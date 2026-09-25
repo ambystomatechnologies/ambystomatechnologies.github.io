@@ -1782,9 +1782,7 @@
           <p class="card-desc" data-i18n="ecgDesc">Guía completa y sistema de telemetría electrofisiológica no invasiva: acondicionamiento AD8232, adquisición analógica por tarjeta de audio de alta fidelidad, electrodos secos 3D, blindaje electromagnético por Jaula de Faraday y procesamiento digital DSP adaptativo en Python para investigación cardiovascular.</p>
         </div>
         <div class="card-actions-group">
-          <button type="button" class="card-btn card-btn-play" onclick="openEcgModal()">
-            <span data-i18n="ecgDetailsBtn">📖 Abrir Guía Técnica &amp; Manual Completo →</span>
-          </button>
+          <a href="https://ambystomatechnologies.github.io/Real_Time_ECG_Monitor/" class="card-btn" data-i18n="openAppBtn">Abrir Aplicación →</a>
           <a href="https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor" target="_blank" rel="noopener noreferrer" class="card-btn-secondary" style="text-decoration: none;">
             <span data-i18n="ecgGithubBtn">📥 Descargar en GitHub (v_ecg_monitor) ↗</span>
           </a>
@@ -2072,791 +2070,6 @@
     </div>
   </div>
 
-    <!-- Modal Detallado: ECG Monitor Electrocardiograma & Telemetría DSP -->
-  <div id="ecg-modal" class="modal-overlay" style="display: none;" onclick="closeEcgModalOnBackdrop(event)">
-    <div class="modal-card modal-card-guide">
-      <div class="modal-header">
-        <div class="modal-header-info">
-          <div class="card-icon card-icon-ecg" style="width: 52px; height: 52px; font-size: 1.5rem;" title="ECG Monitor">
-            <svg viewBox="0 0 48 48" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="24" r="22" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="1.8"/>
-              <path d="M6 24h8l3.5-9 5 18 4.5-12 3 6 3-3h9" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div>
-            <span class="badge-license biomedical" style="margin-bottom: 0.25rem; display: inline-block;" data-i18n="ecgModalBadge">Ingeniería Biomédica &amp; Código Abierto</span>
-            <h3 class="modal-title" data-i18n="ecgModalTitle">Monitor Electrocardiograma en Tiempo Real (ECG) &amp; Procesamiento DSP en Python</h3>
-            <p class="modal-subtitle" data-i18n="ecgModalSubtitle">Ambystoma Technologies · Guía de Construcción, Adquisición Analógica de Alta Fidelidad y Filtrado Digital Adaptativo</p>
-          </div>
-        </div>
-        <button type="button" class="btn-close-modal" onclick="closeEcgModal()" aria-label="Cerrar modal">✕</button>
-      </div>
-
-      <div class="modal-body" style="padding-top: 0.5rem;">
-        <!-- Barra de Navegación Rápida por Secciones -->
-        <nav class="ecg-guide-nav" aria-label="Navegación de secciones de la guía ECG">
-          <a href="#sec1" class="ecg-nav-pill">§1. Introducción &amp; Tesis</a>
-          <a href="#sec2" class="ecg-nav-pill">§2. Ruido Inicial</a>
-          <a href="#sec3" class="ecg-nav-pill">§3. Fuentes EMI</a>
-          <a href="#sec4" class="ecg-nav-pill">§4. Electrodos 3D</a>
-          <a href="#sec5" class="ecg-nav-pill">§5. Filtros HW vs SW</a>
-          <a href="#sec6" class="ecg-nav-pill">§6. Tarjeta Audio &amp; Python</a>
-          <a href="#sec7" class="ecg-nav-pill">§7. Efecto Young (GIF)</a>
-          <a href="#sec8" class="ecg-nav-pill">§8. Esquema Conexión</a>
-          <a href="#sec9" class="ecg-nav-pill">§9. Configuración Audio</a>
-          <a href="#sec10" class="ecg-nav-pill">§10. Firmware Arduino</a>
-          <a href="#sec11" class="ecg-nav-pill">§11. Blindaje &amp; Video</a>
-          <a href="#sec12" class="ecg-nav-pill">§12. PCB &amp; Descarga</a>
-        </nav>
-
-        <!-- Banner Superior con Acciones Principales y Créditos -->
-        <div class="ecg-quick-bar">
-          <div>
-            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; display: block; margin-bottom: 0.25rem;" data-i18n="ecgQuickLabel">INVESTIGACIÓN Y AUTORÍA</span>
-            <strong style="color: #ffffff; font-size: 1.05rem;">Brandon Antonio Segura Torres &amp; Priscilla Vieto Bonilla</strong>
-            <span style="display: block; font-size: 0.85rem; color: #cbd5e1;" data-i18n="ecgAuthorsDept">Ciencias Biológicas · Ambystoma Technologies</span>
-          </div>
-          <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
-            <a href="https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-play" style="width: auto; padding: 0.7rem 1.25rem; font-size: 0.9rem; text-decoration: none;">
-              <span data-i18n="ecgDownloadReleaseBtn">📥 Descargar Software Oficial (GitHub) ↗</span>
-            </a>
-            <a href="https://www.youtube.com/watch?v=NcodDkrldqQ&t=8s" target="_blank" rel="noopener noreferrer" class="card-btn-secondary" style="width: auto; padding: 0.7rem 1.15rem; font-size: 0.88rem; text-decoration: none;">
-              <span data-i18n="ecgWatchYoutubeBtn">▶ Ver Video Demostrativo (YouTube) ↗</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- SECCIÓN 1: INTRODUCCIÓN Y REQUERIMIENTO CIENTÍFICO -->
-        <section class="ecg-section-block" id="sec1">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 01</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec1Title">Planteamiento del Problema, Contexto Clínico y Ruido Eléctrico</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec1P1">
-            En el ámbito del registro electrofisiológico, la adquisición de biopotenciales cardíacos enfrenta desafíos críticos de relación señal-ruido (SNR). Tal como se define en la teoría electromagnética, el <em>ruido eléctrico</em> comprende todas aquellas señales de interferencia, de origen eléctrico o inductivo, no deseadas que se acoplan a la señal útil alterando su morfología y produciendo distorsiones que invalidan la lectura clínica.
-          </p>
-          <p class="ecg-body-p" data-i18n="sec1P2">
-            En un instrumento de alta sensibilidad como el electrocardiógrafo, convergen múltiples fuentes ambientales parásitas: luminarias de descarga o LED, conductores energizados e incluso regletas multienchufe cercanas, las cuales irradian campos electromagnéticos que inducen zumbidos de gran amplitud aun cuando los dispositivos conectados permanezcan apagados.
-          </p>
-          <div class="ecg-alert-box info">
-            <strong data-i18n="sec1ContextTitle">🔬 Contexto de Investigación Biomédica:</strong>
-            <span data-i18n="sec1ContextDesc">Este proyecto fue formulado en respuesta a la solicitud de un médico cardiólogo en el marco de su investigación de tesis sobre fisiopatología de paros cardíacos y arritmias agudas. El protocolo experimental requería la visualización continua y en tiempo real de la traza electrocardiográfica en un ordenador portátil para capturar instantáneas en alta resolución (HD) y realizar análisis morfométricos diferidos de los complejos cardíacos.</span>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec1P3">
-            Si bien los electrocardiógrafos y osciloscopios clínicos comerciales disponen de interfaces para enlace con PC, sus licencias de software propietario suponen un costo recurrente de entre <strong>$500 USD y $1,000 USD</strong>. El objetivo prioritario de este desarrollo fue superar dicha barrera económica, concibiendo un sistema de telemetría de código abierto, accesible, económicamente viable y de alta confiabilidad metrológica para cualquier profesional o centro de investigación.
-          </p>
-        </section>
-
-        <!-- SECCIÓN 2: REGISTROS INICIALES Y CARACTERIZACIÓN DEL RUIDO -->
-        <section class="ecg-section-block" id="sec2">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 02</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec2Title">Caracterización Experimental Inicial: Señal Cruda y Registros de Fábrica</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec2P1">
-            Los primeros ensayos realizados con el hardware estándar arrojaron resultados insatisfactorios. La señal registrada consistía exclusivamente en ruido estocástico de alta amplitud sin ninguna morfología cardíaca distinguible:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image1.png" alt="Registro inicial con ruido parasitario puro">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig1CaptionTitle">Fig. 1: Primer Registro Electrocardiográfico Obtenido</strong>
-                <span data-i18n="fig1CaptionDesc">Traza dominada por ruido parásito sin modulación biopotencial reconocible; ausencia total de despolarización ventricular.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image2.jpeg" alt="Morfología estándar teórica de un ECG PQRSTU">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig2CaptionTitle">Fig. 2: Complejo Electrocardiográfico Estándar Teórico</strong>
-                <span data-i18n="fig2CaptionDesc">Morfología fisiológica de referencia exhibiendo las ondas características P, Q, R, S, T y U requeridas para el diagnóstico clínico.</span>
-              </div>
-            </div>
-          </div>
-
-          <p class="ecg-body-p" data-i18n="sec2P2">
-            Ante la ausencia de componentes fisiológicos, se procedió a implementar estrictamente las recomendaciones de la <a href="https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide" target="_blank" rel="noopener noreferrer" class="ecg-link-inline">Guía de Conexión del sensor AD8232 de SparkFun ↗</a> y su visualizador en Processing:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image3.jpeg" alt="Placa de desarrollo analógica SparkFun AD8232">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig3CaptionTitle">Fig. 3: Módulo Front-End Analógico SparkFun AD8232</strong>
-                <span data-i18n="fig3CaptionDesc">Circuito integrado de acondicionamiento de señales cardíacas con filtrado analógico paso banda integrado.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image4.png" alt="Señal esperada según manual del fabricante">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig4CaptionTitle">Fig. 4: Registro Esperado Teórico en Processing</strong>
-                <span data-i18n="fig4CaptionDesc">Gráfica teórica ilustrada en la documentación oficial del fabricante bajo condiciones ideales de aislamiento.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image5.png" alt="Resultado real obtenido con el código de fábrica">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig5CaptionTitle">Fig. 5: Registro Real Obtenido con el Código del Manual</strong>
-                <span data-i18n="fig5CaptionDesc">Mejor resultado alcanzado mediante el firmware estándar: traza saturada de ruido de alta frecuencia inaceptable para investigación cardiológica.</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 3: AISLAMIENTO SISTEMÁTICO DE FUENTES DE RUIDO -->
-        <section class="ecg-section-block" id="sec3">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 03</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec3Title">Protocolo de Aislamiento y Caracterización de Fuentes de Interferencia Electromagnética</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec3P1">
-            Para depurar la señal, se diseñó un protocolo de aislamiento factorial para identificar el aporte individual de cada componente del entorno experimental. En primer término, se evaluó un escenario base de aislamiento electromagnético: estación portátil alimentada exclusivamente con batería interna, desconectada de la red eléctrica y apartada de equipos activos:
-          </p>
-
-          <div class="ecg-figures-row single-col">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image6.png" alt="Señal en condiciones de aislamiento puro con batería">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig6CaptionTitle">Fig. 6: Registro de Referencia en Condiciones de Aislamiento por Batería</strong>
-                <span data-i18n="fig6CaptionDesc">Línea base y complejos QRS claramente diferenciados al operar la computadora con alimentación interna y sin cargas electrónicas próximas.</span>
-              </div>
-            </div>
-          </div>
-
-          <p class="ecg-body-p" data-i18n="sec3P2">
-            No obstante, las condiciones clínicas reales de un protocolo de paro cardíaco demandan equipamiento auxiliar concurrente: iluminación focalizada mediante lámparas halógenas, camilla térmica para vasodilatación periférica en el sujeto, ventilador mecánico y telefonía celular. Se sometió el sistema a pruebas secuenciales agregando fuentes de interferencia una a una:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image7.png" alt="Ruido al acoplar el cargador de la PC sin enchufar">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig7CaptionTitle">Fig. 7: Acoplamiento Capacitivo del Conector de Carga</strong>
-                <span data-i18n="fig7CaptionDesc">Cargador insertado en el conector de la PC pero desconectado del tomacorriente de pared; inducción de ruido capacitivo en la línea de tierra.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image8.png" alt="Ruido introducido por cable Ethernet">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig8CaptionTitle">Fig. 8: Interferencia por Cable de Red Ethernet</strong>
-                <span data-i18n="fig8CaptionDesc">Conexión de interfaz cableada de red; se aprecian armónicos de conmutación de alta frecuencia acoplados a la estación.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image9.png" alt="Cargador energizado en el suelo">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig9CaptionTitle">Fig. 9: Radiación de Transformador Energizado en el Suelo</strong>
-                <span data-i18n="fig9CaptionDesc">Cargador conectado a la red eléctrica pero sin conexión a la PC; radiación electromagnética ambiental de 50/60 Hz.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image10.png" alt="Deriva de línea base por proximidad del cargador">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig10CaptionTitle">Fig. 10: Deriva Dinámica de Línea Base por Inducción Proximal</strong>
-                <span data-i18n="fig10CaptionDesc">Aproximación del transformador a los electrodos y la placa; la señal adquiere una oscilación sinusoidal de gran amplitud.</span>
-              </div>
-            </div>
-          </div>
-
-          <p class="ecg-body-p" data-i18n="sec3P3">
-            Finalmente, al conectar la estación a la red eléctrica y operar con todos los equipos auxiliares en funcionamiento simultáneo (iluminación, ventilación forzada y telefonía celular cargando), la señal biopotencial resultó totalmente enmascarada:
-          </p>
-
-          <div class="ecg-figures-row single-col">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image11.png" alt="Saturación destructiva total de la señal ECG">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig11CaptionTitle">Fig. 11: Saturación Destructiva Acumulativa</strong>
-                <span data-i18n="fig11CaptionDesc">Señal colapsada bajo la suma de todas las fuentes de ruido del laboratorio activo; pérdida total de trazabilidad electrofisiológica.</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 4: INNOVACIÓN EN ELECTRODOS Y TRIÁNGULO DE EINTHOVEN -->
-        <section class="ecg-section-block" id="sec4">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 04</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec4Title">Innovación en Electrodos Secos: Pinzas Ergonómicas 3D y Triángulo de Einthoven</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec4P1">
-            Los electrodos adhesivos de gel húmedo desechables (Ag/AgCl) suministrados comúnmente con los kits de desarrollo presentan severas desventajas prácticas: son de uso único, sufren desecación rápida que degrada la impedancia de contacto, dejan residuos en la piel y exigen la exposición precordial del torso del sujeto, lo cual resulta invasivo y poco ágil en entornos experimentales dinámicos:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image12.jpeg" alt="Electrodos desechables de gel adhesivo Ag/AgCl">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig12CaptionTitle">Fig. 12: Electrodos Desechables de Gel Húmedo (Ag/AgCl)</strong>
-                <span data-i18n="fig12CaptionDesc">Parches autoadhesivos con pérdida progresiva de electrolito y desprendimiento por sudoración o movimiento.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image13.jpeg" alt="Ubicación precordial invasiva convencional">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig13CaptionTitle">Fig. 13: Posicionamiento Precordial Torácico Clásico</strong>
-                <span data-i18n="fig13CaptionDesc">Esquema convencional en el torso humano, invasivo y de colocación lenta durante pruebas de laboratorio reiteradas.</span>
-              </div>
-            </div>
-          </div>
-
-          <p class="ecg-body-p" data-i18n="sec4P2">
-            Bajo el asesoramiento del cardiólogo colaborador, se aplicaron los principios biofísicos de la <strong>Ley y Triángulo de Einthoven</strong>: el registro de derivaciones bipolares periféricas (Derivaciones I, II y III) no exige estrictamente una fijación sobre el torso, siempre que los electrodos mantengan una geometría triangular equidistante respecto al vector cardíaco central. En consecuencia, se validó la toma de derivaciones en las falanges distales de los dedos:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image14.jpeg" alt="Colocación de electrodos en dedos de la mano">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig14CaptionTitle">Fig. 14: Captura en Falanges Distales según Einthoven</strong>
-                <span data-i18n="fig14CaptionDesc">Derivación bipolar periférica obtenida mediante contacto en los dedos índice y medio de ambas manos.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image15.jpeg" alt="Posición alternativa de contacto dactilar">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig15CaptionTitle">Fig. 15: Configuración Dactilar Ergonómica</strong>
-                <span data-i18n="fig15CaptionDesc">Disposición alternativa rápida que facilita la toma de muestras seriadas sin retirar prendas de vestir.</span>
-              </div>
-            </div>
-          </div>
-
-          <p class="ecg-body-p" data-i18n="sec4P3">
-            Esta configuración confiere versatilidad diagnóstica al investigador, permitiendo invertir rápidamente las derivaciones para registrar morfologías de onda invertidas o explorar signos patológicos particulares. Asimismo, se comprobó experimentalmente que el electrodo de referencia a tierra (GND / Pierna Derecha - RL) puede posicionarse con total estabilidad en el lóbulo de la oreja:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image16.jpeg" alt="Alternancia de electrodos para inversión de derivación">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig16CaptionTitle">Fig. 16: Intercambio Rápido de Derivaciones Bipolares</strong>
-                <span data-i18n="fig16CaptionDesc">Inversión controlada de electrodos exploradores para análisis vectorial cardiológico directo.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image17.jpeg" alt="Electrodo de referencia GND colocado en el lóbulo auricular">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig17CaptionTitle">Fig. 17: Electrodo de Referencia (GND) en Lóbulo Auricular</strong>
-                <span data-i18n="fig17CaptionDesc">Punto equipotencial idóneo y de nula interferencia electromiográfica para la referencia del amplificador de instrumentación.</span>
-              </div>
-            </div>
-          </div>
-
-          <p class="ecg-body-p" data-i18n="sec4P4">
-            Para materializar esta solución de forma permanente y reusable, se diseñaron y modelaron en 3D pinzas anatómicas de presión constante equipadas con láminas de cobre electrolítico de alta pureza como contacto seco:
-          </p>
-
-          <div class="ecg-figures-row single-col">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image18.jpeg" alt="Pinzas de electrodos dactilares impresas en 3D con cobre">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig18CaptionTitle">Fig. 18: Pinzas Dactilares Impresas en 3D con Lámina de Cobre</strong>
-                <span data-i18n="fig18CaptionDesc">Electrodos secos ergonómicos, lavables, libres de adhesivos e instantáneamente reutilizables.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-alert-box info">
-            <strong>📥 Descarga de Archivos 3D:</strong>
-            <span>El modelo tridimensional en formato STL de las pinzas dactilares se encuentra disponible para impresión en el <a href="https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor" target="_blank" rel="noopener noreferrer" class="ecg-link-inline">repositorio oficial de GitHub (Releases) ↗</a>.</span>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 5: EVALUACIÓN DE ESTRATEGIAS DE FILTRADO -->
-        <section class="ecg-section-block" id="sec5">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 05</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec5Title">Evaluación de Estrategias de Filtrado: Hardware Analógico vs. Software Digital</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec5P1">
-            La frecuencia fundamental del ruido de red comercial es de 50 Hz en Argentina y Europa, y de 60 Hz en Costa Rica y Norteamérica. En la literatura de ingeniería biomédica se describen diversas topologías de filtrado: pasa-bajos, FIR, filtros Butterworth de orden superior y promediado móvil. Inicialmente se exploró la implementación de filtros analógicos activos en hardware (etapas RC y operacionales adicionales):
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image19.png" alt="Esquemas de filtros analógicos ensayados en hardware">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig19CaptionTitle">Fig. 19: Topologías de Filtrado Analógico en Hardware Ensayadas</strong>
-                <span data-i18n="fig19CaptionDesc">Circuitos de filtros activos analógicos evaluados; atenuaban la amplitud útil del biopotencial y carecían de adaptabilidad ante fuentes dinámicas.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image20.jpeg" alt="Ensayos de filtrado digital en MatLab y Simulink">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig20CaptionTitle">Fig. 20: Ensayos de Filtrado Digital en MatLab / Simulink</strong>
-                <span data-i18n="fig20CaptionDesc">Implementación digital en MatLab; si bien limpiaba la traza, generaba un retardo de ~5 segundos incompatible con la monitorización de paro cardíaco en tiempo real.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-alert-box warning">
-            <strong data-i18n="sec5AlertTitle">⚠️ Conclusiones de los Ensayos de Filtrado:</strong>
-            <ul style="padding-left: 1.25rem; margin-top: 0.35rem; display: flex; flex-direction: column; gap: 0.35rem;">
-              <li data-i18n="sec5AlertItem1"><strong>Filtrado por Hardware Analógico:</strong> Atenúa simétricamente el ruido y la señal fisiológica. Adaptarlo a ruidos ambientales variables exigía una circuitería analógica tan costosa y compleja como fabricar un osciloscopio completo, contradiciendo el objetivo del proyecto.</li>
-              <li data-i18n="sec5AlertItem2"><strong>Filtrado Digital en MatLab / Simulink:</strong> La sobrecarga de procesamiento introducía un retraso crítico de 5 segundos entre el latido real y su representación visual, inaceptable para eventos agudos.</li>
-              <li data-i18n="sec5AlertItem3"><strong>Librerías de Sobremuestreo en Arduino:</strong> El ancho de banda del convertidor analógico-digital (ADC) interno del microcontrolador ATmega328P resultaba insuficiente para sostener simultáneamente el muestreo continuo y el filtrado digital en tiempo real.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 6: ARQUITECTURA DEFINITIVA EN PYTHON Y PUERTO DE AUDIO -->
-        <section class="ecg-section-block" id="sec6">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 06</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec6Title">Arquitectura Definitiva: Captura por Tarjeta de Audio (Micrófono) &amp; DSP en Python</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec6P1">
-            El avance determinante del proyecto consistió en comprender que los algoritmos de adquisición de audio de baja latencia a través de la tarjeta de sonido de la computadora eran óptimos para digitalizar la bioseñal cardíaca. Tanto una señal acústica analógica como la salida del sensor AD8232 son variaciones continuas de voltaje; la tarjeta de sonido del ordenador integra convertidores ADC de alta velocidad (44.1 kHz / 48 kHz), preamplificadores de bajo ruido y aislamiento natural del ruido del bus serie USB.
-          </p>
-          <p class="ecg-body-p" data-i18n="sec6P2">
-            Se estructuró una aplicación en <strong>Python</strong> empleando las librerías <code>PyAudio</code> para el streaming de datos a baja latencia (&lt;50 ms), <code>PyQt5</code> para la arquitectura de la interfaz gráfica y <code>pyqtgraph</code> para el renderizado acelerado de la traza, integrando algoritmos de filtrado digital adaptativo con frecuencia de corte sintonizable en tiempo real:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image21.png" alt="Interfaz del software en Python filtrando a 35Hz en tiempo real">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig21CaptionTitle">Fig. 21: Interfaz del Software en Python con Filtrado Adaptativo a 35 Hz</strong>
-                <span data-i18n="fig21CaptionDesc">Traza electrocardiográfica limpia en tiempo real operando bajo la influencia de todas las fuentes de interferencia activas concurrentemente.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image22.jpeg" alt="Registro clínico en alta definición sobre cuadrícula de 40ms y ventana de 5s">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig22CaptionTitle">Fig. 22: Visualización Clínica Estándar en Alta Definición</strong>
-                <span data-i18n="fig22CaptionDesc">Cuadrícula médica estandarizada calibrada a 40 ms por división (0.04 s) con ventana temporal de barrido de 5 segundos solicitada por el cardiólogo.</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 7: EFECTO YOUNG DE ONDAS Y AUTOESCALA MULTIESPECIE -->
-        <section class="ecg-section-block" id="sec7">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 07</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec7Title">Fundamento Físico: Superposición de Ondas (Efecto Young) &amp; Autoescala Multiespecie</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec7P1">
-            Un hallazgo biofísico fundamental del proyecto fue comprobar que la frecuencia de ruido dominante a mitigar no se ubicaba en los 50 Hz teóricos de la red eléctrica, sino en <strong>35 Hz</strong>. Este fenómeno responde a las leyes de la física ondulatoria descritas en el <a href="https://es.wikipedia.org/wiki/Experimento_de_Young" target="_blank" rel="noopener noreferrer" class="ecg-link-inline">experimento de la doble ranura de Thomas Young ↗</a>:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode" style="background: #000;">
-                <img src="ecg-assets/image23.gif" alt="Animación del experimento de doble ranura de Young">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig23CaptionTitle">Fig. 23: Interferencia Constructiva y Destructiva de Ondas (Efecto Young)</strong>
-                <span data-i18n="fig23CaptionDesc">Al coincidir múltiples frentes de onda electromagnéticos en el ambiente, se producen cancelaciones y sumatorias de fase que desplazan la frecuencia dominante de interferencia a 35 Hz.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image24.jpeg" alt="Rutina de autoescala y comparación con osciloscopios">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig24CaptionTitle">Fig. 24: Rutina de Autoescala Dinámica y Calidad Superior a Osciloscopio</strong>
-                <span data-i18n="fig24CaptionDesc">Ajuste automático de ganancia de voltaje apto para biopotenciales humanos (~1 mV) y electrofisiología en modelos murinos (ratas de laboratorio).</span>
-              </div>
-            </div>
-          </div>
-
-          <p class="ecg-body-p" data-i18n="sec7P2">
-            Dado que en cada espacio físico las fuentes electromagnéticas varían, el software en Python incorpora un control dinámico que permite al usuario ajustar con precisión los Hz de filtrado según su entorno particular. Asimismo, la <strong>autoescala de voltaje</strong> normaliza de forma inteligente las lecturas, permitiendo su uso directo en investigaciones con pequeños roedores de laboratorio cuyos biopotenciales presentan amplitudes de microvoltios.
-          </p>
-        </section>
-
-        <!-- SECCIÓN 8: ESQUEMA ELÉCTRICO DE INTERCONEXIÓN -->
-        <section class="ecg-section-block" id="sec8">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 08</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec8Title">Esquema Eléctrico de Interconexión y Montaje de Hardware</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec8P1">
-            A continuación se detalla el esquema de conexión maestro del sistema. El puerto analógico A0 del Arduino no se emplea para transmitir lecturas a la PC por USB; la bioseñal se toma directamente del pin <strong>OUTPUT</strong> del sensor AD8232 y se deriva a la entrada de micrófono (jack TRS 3.5 mm):
-          </p>
-
-          <div class="ecg-figures-row single-col">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image25.jpeg" alt="Diagrama esquemático completo de conexión de hardware">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig25CaptionTitle">Fig. 25: Diagrama Esquemático de Interconexión General</strong>
-                <span data-i18n="fig25CaptionDesc">Conexión de pines del AD8232 al Arduino Nano, derivación analógica al jack TRS 3.5 mm de micrófono y alimentación por batería DC.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-alert-box info">
-            <strong data-i18n="sec8SpecsTitle">⚡ Claves Técnicas de la Conexión:</strong>
-            <ul style="padding-left: 1.25rem; margin-top: 0.35rem; display: flex; flex-direction: column; gap: 0.35rem;">
-              <li data-i18n="sec8Item1"><strong>Alimentación por Baterías DC:</strong> Se emplean baterías para energizar el circuito, desvinculando galvánicamente el sistema de la red eléctrica y del bus USB. Esto ahorra los $40 USD de un aislador de señal USB externo (el cual además sólo aislaría el puerto, no la radiación electromagnética captada por los electrodos que operan como antenas).</li>
-              <li data-i18n="sec8Item2"><strong>Pines D10 y D11 de Arduino:</strong> Se configuran como entradas digitales conectadas a los pines LO- y LO+ del AD8232 para estabilizar las referencias y detectar electrodos desprendidos.</li>
-              <li data-i18n="sec8Item3"><strong>Compatibilidad de Microcontrolador:</strong> Puede emplearse cualquier Arduino (Uno o Nano). Se seleccionó el Nano por su formato compacto. Para microcontroladores con chip CH340, instalar los controladores correspondientes y seleccionar <em>"Old Bootloader"</em> en el IDE de Arduino.</li>
-              <li data-i18n="sec8Item4"><strong>Modo Comparativo Simultáneo:</strong> Si el usuario desea comparar simultáneamente el Serial Plotter de Arduino con el software en Python, puede conectar el cable USB desconectando previamente las baterías para evitar conflictos de alimentación.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 9: CONFIGURACIÓN DE AUDIO EN EL SISTEMA OPERATIVO -->
-        <section class="ecg-section-block" id="sec9">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 09</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec9Title">Configuración del Subsistema de Audio en el Sistema Operativo</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec9P1">
-            Para garantizar que el sistema operativo reconozca el conector de 3.5 mm como canal de entrada analógica de alta fidelidad, se accede al panel de configuración de sonido: clic derecho sobre el icono de audio de la barra de tareas de Windows &rarr; <em>Sonidos</em> &rarr; pestaña <em>Grabación</em>:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image26.png" alt="Panel de control de sonido de Windows antes de conectar">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig26CaptionTitle">Fig. 26: Panel de Dispositivos de Grabación (Estado Inicial)</strong>
-                <span data-i18n="fig26CaptionDesc">Identificación del dispositivo de audio predeterminado previo a la inserción del conector analógico.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image27.png" alt="Reconocimiento del conector de micrófono con Arduino apagado">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig27CaptionTitle">Fig. 27: Conmutación Inmediata al Canal de Micrófono Externo</strong>
-                <span data-i18n="fig27CaptionDesc">Conexión del jack TRS con el Arduino apagado; el sistema conmuta automáticamente al micrófono de entrada externa.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-alert-box warning">
-            <strong data-i18n="sec9TipTitle">💡 Recomendación Práctica sobre Conectores TRS 3.5 mm:</strong>
-            <span data-i18n="sec9TipDesc">Para verificar la asignación de pines (Tip, Ring, Sleeve) hacia el AD8232 y GND, utilice la función de continuidad de un multímetro. Nótese que ciertos conectores macho genéricos adquiridos en comercios de electrónica presentan diámetros ~0.5 mm mayores que impiden el contacto firme en puertos estándar de laptop; en su lugar, se recomienda reciclar un cable con conector de 3.5 mm de auriculares en desuso.</span>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 10: FIRMWARE DE ARDUINO Y MODIFICACIÓN DE POLARIDAD -->
-        <section class="ecg-section-block" id="sec10">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 10</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec10Title">Firmware del Microcontrolador Arduino &amp; Estandarización de Cableado</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec10P1">
-            El microcontrolador Arduino ejecuta un firmware básico de estabilización de niveles de entrada. Si bien la bioseñal primaria viaja por el jack analógico, este código permite mantener los potenciales de referencia estables y permite alternar con el Serial Plotter si se desea realizar mediciones de validación cruzada:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image28.png" alt="Código fuente cargado en el microcontrolador Arduino">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig28CaptionTitle">Fig. 28: Firmware de Arduino para Referencia y Diagnóstico</strong>
-                <span data-i18n="fig28CaptionDesc">Código embebido para gestión de entradas digitales 10 y 11 y estabilización de potenciales del AD8232.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image29.jpeg" alt="Modificación del código de colores rojo y negro en el cable del sensor">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig29CaptionTitle">Fig. 29: Corrección de Polaridad y Código de Color</strong>
-                <span data-i18n="fig29CaptionDesc">Inversión de los cables rojo y negro en el conector del AD8232 para estandarizar el cable negro como común/tierra (GND).</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-alert-box info">
-            <strong data-i18n="sec10CodeLinkTitle">📂 Código Fuente de Arduino:</strong>
-            <span data-i18n="sec10CodeLinkDesc">El sketch oficial en lenguaje C/C++ se encuentra disponible en el <a href="https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor" target="_blank" rel="noopener noreferrer" class="ecg-link-inline">repositorio oficial de GitHub ↗</a>.</span>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 11: PROTOCOLO DE MEDICIÓN, VIDEO Y BLINDAJE AVANZADO -->
-        <section class="ecg-section-block" id="sec11">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 11</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec11Title">Protocolo de Medición, Demostración en Video y Blindaje Electromagnético Avanzado</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec11P1">
-            Con el hardware conectado y el conector de audio reconocido, se procede a ejecutar el software en Python compilado (~200 MB con todas las librerías científicas empaquetadas; la descompresión inicial toma aproximadamente 40 segundos). El sujeto debe mantenerse relajado e inmóvil para prevenir artefactos electromiográficos (EMG) generados por temblores musculares. En residencias sin conexión a tierra física, se recomienda operar la computadora con la batería interna:
-          </p>
-
-          <div class="ecg-figures-row single-col">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image30.png" alt="Video demostrativo comparando señal cruda y señal filtrada con Python">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig30CaptionTitle">Fig. 30: Video Demostrativo Comparativo en Tiempo Real</strong>
-                <span data-i18n="fig30CaptionDesc">Comparativa lado a lado entre el Serial Plotter de Arduino sin filtros y la señal filtrada con el software en Python. <a href="https://www.youtube.com/watch?v=NcodDkrldqQ&t=8s" target="_blank" rel="noopener noreferrer" class="ecg-link-inline">Ver demostración en YouTube (8 min) ↗</a>.</span>
-              </div>
-            </div>
-          </div>
-
-          <p class="ecg-body-p" data-i18n="sec11P2">
-            Para alcanzar la máxima inmunidad electromagnética en laboratorios con abundante radiación parásita, se integraron cuatro niveles de blindaje físico:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image31.jpeg" alt="Cable apantallado balanceado de micrófono">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig31CaptionTitle">Fig. 31: Cable Coaxial Apantallado para la Línea de Audio</strong>
-                <span data-i18n="fig31CaptionDesc">Malla metálica trenzada que drena a masa los campos inducidos a lo largo del trayecto del cable.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image32.jpeg" alt="Estructura de la Jaula de Faraday con malla metálica">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig32CaptionTitle">Fig. 32: Construcción de Jaula de Faraday</strong>
-                <span data-i18n="fig32CaptionDesc">Recinto de malla metálica conductora para atenuar ondas de radiofrecuencia (RF), wifi y telefonía celular.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image33.jpeg" alt="Dispositivo alojado dentro de la jaula Faraday">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig33CaptionTitle">Fig. 33: Alojamiento Integral en Jaula de Faraday</strong>
-                <span data-i18n="fig33CaptionDesc">Circuito resguardado en el interior de la jaula. Ver <a href="https://es.wikipedia.org/wiki/Jaula_de_Faraday" target="_blank" rel="noopener noreferrer" class="ecg-link-inline">fundamentos de la Jaula de Faraday ↗</a>.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image34.jpeg" alt="Blindaje suplementario envolviendo el dispositivo en papel aluminio">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig34CaptionTitle">Fig. 34: Barrera Reflectiva Secundaria en Lámina de Aluminio</strong>
-                <span data-i18n="fig34CaptionDesc">Envoltorio dieléctricamente aislado en lámina de aluminio para atenuar radiaciones electromagnéticas residuales.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-figures-row single-col">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image35.jpeg" alt="Gabinete protector final impreso en 3D">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig35CaptionTitle">Fig. 35: Gabinete de Aislamiento y Carcasa Protectora en 3D</strong>
-                <span data-i18n="fig35CaptionDesc">Encerramiento mecánico final impreso en 3D para robustez física y protección de los puntos de soldadura.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-alert-box danger">
-            <strong data-i18n="sec11WarningTitle">⚠️ Advertencia Crítica de Aislamiento Eléctrico:</strong>
-            <span data-i18n="sec11WarningDesc">Al instalar la Jaula de Faraday o el blindaje de aluminio, asegúrese de interponer una capa aislante (cinta dieléctrica o base plástica) que impida el contacto físico de la malla con los puntos de soldadura de la parte inferior de la placa Arduino, a fin de evitar cortocircuitos destructivos.</span>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 12: FABRICACIÓN DE PCB EN BAQUELITA, DESCARGA Y CRÉDITOS -->
-        <section class="ecg-section-block" id="sec12">
-          <div class="ecg-section-header-row">
-            <span class="ecg-step-number">SECCIÓN 12</span>
-            <div>
-              <h4 class="ecg-step-title-text" data-i18n="sec12Title">Fabricación de Circuito Impreso (PCB) en Baquelita, Repositorio &amp; Créditos</h4>
-            </div>
-          </div>
-          <p class="ecg-body-p" data-i18n="sec12P1">
-            Para conferir máxima confiabilidad mecánica al instrumento y eliminar cables sueltos en protoboard, se diseñó un circuito impreso (PCB de simple faz en baquelita) optimizado para el Arduino Nano y el módulo AD8232:
-          </p>
-
-          <div class="ecg-figures-row">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap contain-mode">
-                <img src="ecg-assets/image36.jpeg" alt="Diseño de pistas de circuito impreso para baquelita">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig36CaptionTitle">Fig. 36: Diseño de Pistas (Layout PCB) para Impresión en Baquelita</strong>
-                <span data-i18n="fig36CaptionDesc">Plantilla de pistas a escala 1:1 lista para transferencia térmica (método del tóner) o grabado químico.</span>
-              </div>
-            </div>
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image37.jpeg" alt="Placa de baquelita grabada con componentes montados">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig37CaptionTitle">Fig. 37: Ensamble y Soldadura en Placa de Baquelita</strong>
-                <span data-i18n="fig37CaptionDesc">Integración compacta del microcontrolador Arduino Nano y el sensor AD8232 soldados sobre el PCB.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-figures-row single-col">
-            <div class="ecg-fig-item">
-              <div class="ecg-fig-media-wrap cover-mode">
-                <img src="ecg-assets/image38.jpeg" alt="Vista general del instrumento electrocardiográfico completamente montado">
-              </div>
-              <div class="ecg-fig-text">
-                <strong data-i18n="fig38CaptionTitle">Fig. 38: Módulo Electrocardiográfico Terminado y Operativo</strong>
-                <span data-i18n="fig38CaptionDesc">Hardware final consolidado, listo para conexión al puerto analógico de audio y ensayos clínicos.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ecg-alert-box info" style="margin-top: 1.5rem;">
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-              <div style="display: flex; align-items: center; gap: 1rem;">
-                <img src="ecg-assets/image39.png" alt="GitHub Logo" style="width: 48px; height: 48px; border-radius: 8px;">
-                <div>
-                  <h5 style="color: #ffffff; font-size: 1.05rem; font-weight: 800; margin-bottom: 0.2rem;" data-i18n="sec12GhTitle">Software Compilado y Código Fuente Oficial (Licencia GPL)</h5>
-                  <p style="color: #cbd5e1; font-size: 0.88rem; margin-bottom: 0;" data-i18n="sec12GhDesc">Software totalmente gratuito y de código abierto bajo Licencia Pública General de GNU (GPL).</p>
-                </div>
-              </div>
-              <a href="https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-play" style="width: auto; padding: 0.75rem 1.4rem; font-size: 0.92rem; text-decoration: none;">
-                <span>📥 Ir al Release Oficial en GitHub (v_ecg_monitor) ↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Tabla de Especificaciones Técnicas Resumida -->
-          <h4 class="section-heading-modal" style="margin-top: 1.75rem;" data-i18n="ecgSecSpecs">ESPECIFICACIONES TÉCNICAS CONSOLIDADAS</h4>
-          <div class="ecg-table-wrap">
-            <table class="ecg-spec-table">
-              <tbody>
-                <tr>
-                  <td data-i18n="spec1Label">Front-End Analógico (AFE)</td>
-                  <td data-i18n="spec1Val">Analog Devices AD8232 (SparkFun Heart Rate Monitor) con filtros activos pasa-altos de 2 polos y pasa-bajos de 3 polos</td>
-                </tr>
-                <tr>
-                  <td data-i18n="spec2Label">Controlador de Referencia</td>
-                  <td data-i18n="spec2Val">Arduino Nano (ATmega328P) para niveles lógicos de referencia, estabilización de línea base y detección de electrodos desconectados</td>
-                </tr>
-                <tr>
-                  <td data-i18n="spec3Label">Canal de Adquisición de Señal</td>
-                  <td data-i18n="spec3Val">Interfaz analógica de audio TRS 3.5 mm (ADC de entrada de línea / micrófono) con alta tasa de muestreo y bajo piso de ruido</td>
-                </tr>
-                <tr>
-                  <td data-i18n="spec4Label">Aislamiento Eléctrico</td>
-                  <td data-i18n="spec4Val">Banco autónomo de baterías DC (aislamiento galvánico total de la red eléctrica y de bucles de masa USB)</td>
-                </tr>
-                <tr>
-                  <td data-i18n="spec5Label">Electrodos de Biopotencial</td>
-                  <td data-i18n="spec5Val">Pinzas anatómicas 3D reutilizables con láminas de cobre de alta conductividad (derivaciones periféricas I, II y III de Einthoven)</td>
-                </tr>
-                <tr>
-                  <td data-i18n="spec6Label">Pipeline DSP y Filtrado</td>
-                  <td data-i18n="spec6Val">Motor en Python en tiempo real, filtro notch adaptativo dinámico (35 Hz - 60 Hz) y etapa pasa-bajos Butterworth (&lt;50 ms de latencia)</td>
-                </tr>
-                <tr>
-                  <td data-i18n="spec7Label">Estándar de Visualización</td>
-                  <td data-i18n="spec7Val">Monocromo de alto contraste, ventana de barrido de 5.0 s, cuadrícula calibrada a 40 ms (0.04 s) y captura instantánea HD para investigación</td>
-                </tr>
-                <tr>
-                  <td data-i18n="spec8Label">Compatibilidad Multiespecie</td>
-                  <td data-i18n="spec8Val">Autoescala dinámica de voltaje: calibrado para ECG humano (~1 mV) y electrofisiología murina en microvoltios (ratas de laboratorio)</td>
-                </tr>
-                <tr>
-                  <td data-i18n="spec9Label">Estructura de Blindaje</td>
-                  <td data-i18n="spec9Val">Cable de audio coaxial blindado, Jaula de Faraday de malla metálica conectada a masa y barrera secundaria reflectora de RF</td>
-                </tr>
-                <tr>
-                  <td data-i18n="spec10Label">Licencia de Software</td>
-                  <td data-i18n="spec10Val">Código y diseño abierto bajo Licencia Pública General de GNU (GPL)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1.15rem; background: rgba(30, 41, 59, 0.45); border-radius: 0.85rem; border: 1px solid rgba(255, 255, 255, 0.08); margin-top: 1.5rem;">
-            <div>
-              <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); font-weight: 700; display: block; margin-bottom: 0.2rem;" data-i18n="ecgAuthorsLabel">INVESTIGADORES Y DESARROLLADORES</span>
-              <strong style="color: #ffffff; font-size: 1rem;">Brandon Antonio Segura Torres &amp; Priscilla Vieto Bonilla</strong>
-              <span style="display: block; font-size: 0.84rem; color: var(--text-muted);" data-i18n="ecgAuthorsDept">Ciencias Biológicas · Ambystoma Technologies</span>
-            </div>
-            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-              <a href="https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor" target="_blank" rel="noopener noreferrer" class="btn-play-store" style="padding: 0.65rem 1.25rem; font-size: 0.88rem; width: auto;">
-                <span>📥 Descargar Release en GitHub</span>
-              </a>
-              <a href="https://www.youtube.com/watch?v=NcodDkrldqQ&t=8s" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary" style="padding: 0.65rem 1.15rem; font-size: 0.88rem;">
-                <span data-i18n="ecgWatchYoutubeBtn">▶ Ver Demostración en Video</span>
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
-
   <!-- Pie de página -->
   <footer>
     <div class="footer-links">
@@ -3035,6 +2248,276 @@
         spec8Val: "Dynamic voltage auto-scaling: calibrated for human ECG (~1 mV) and microvolt murine electrophysiology (laboratory rats)",
         spec9Val: "Balanced shielded audio cable, grounded metallic Faraday mesh cage, and secondary RF reflective barrier",
         spec10Val: "Open Source under GNU General Public License (GPL)",
+        ecgDetailsBtn: "📖 Open Full Technical Guide & Manual →",
+        ecgGithubBtn: "📥 Download on GitHub (v_ecg_monitor) ↗",
+        ecgQuickLabel: "RESEARCH & AUTHORSHIP",
+        ecgDownloadReleaseBtn: "📥 Download Official Software (GitHub) ↗",
+        sec1Title: "Problem Formulation, Clinical Context & Electrical Noise",
+        sec1P1: "In the field of electrophysiological recording, the acquisition of cardiac biopotentials faces critical signal-to-noise ratio (SNR) challenges. As defined in electromagnetic theory, <em>electrical noise</em> encompasses all unwanted interference signals of electrical or inductive origin that couple to the useful biological signal, altering its morphology and introducing distortions that invalidate clinical diagnosis.",
+        sec1P2: "In a high-sensitivity instrument such as an electrocardiograph, multiple environmental parasitic sources converge: discharge or LED lighting, energized conductors, and nearby multi-outlet power strips. These radiate electromagnetic fields that induce high-amplitude hum even when connected appliances remain powered off.",
+        sec1ContextTitle: "🔬 Biomedical Research Context:",
+        sec1ContextDesc: "This project was formulated in response to the request of a cardiologist within the framework of his thesis research on the pathophysiology of acute cardiac arrest and arrhythmias. The experimental protocol required continuous real-time visualization of the electrocardiographic waveform on a laptop to capture high-definition (HD) snapshots and perform offline morphometric analyses of cardiac complexes.",
+        sec1P3: "While commercial clinical electrocardiographs and oscilloscopes include PC interface capabilities, their proprietary software licenses entail a steep recurring cost between <strong>$500 USD and $1,000 USD</strong>. The primary objective of this development was to overcome this financial barrier by conceiving an open-source, accessible, economically viable, and metrologically reliable telemetry system for researchers and clinical laboratories.",
+        sec2Title: "Initial Experimental Characterization: Raw Signal & Factory Records",
+        sec2P1: "Initial baseline trials using standard commercial development hardware yielded unsatisfactory results. The captured signal consisted purely of high-amplitude stochastic noise without any distinguishable cardiac morphology:",
+        fig1CaptionTitle: "Fig. 1: Initial Electrocardiographic Record Obtained",
+        fig1CaptionDesc: "Trace completely dominated by parasitic noise without recognizable biopotential modulation; total absence of ventricular depolarization.",
+        fig2CaptionTitle: "Fig. 2: Standard Theoretical Electrocardiographic Complex",
+        fig2CaptionDesc: "Reference physiological morphology showing the characteristic P, Q, R, S, T, and U waves required for clinical assessment.",
+        sec2P2: "Faced with the absence of physiological components, the guidelines from the official <a href=\"https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">SparkFun AD8232 Hookup Guide ↗</a> and its Processing visualizer were strictly implemented:",
+        fig3CaptionTitle: "Fig. 3: SparkFun AD8232 Analog Front-End Module",
+        fig3CaptionDesc: "Integrated cardiac signal conditioning breakout board with built-in analog bandpass filtering stages.",
+        fig4CaptionTitle: "Fig. 4: Expected Theoretical Record in Processing",
+        fig4CaptionDesc: "Theoretical waveform illustrated in the manufacturer's official documentation under ideal isolated operating conditions.",
+        fig5CaptionTitle: "Fig. 5: Actual Record Obtained with Manufacturer's Code",
+        fig5CaptionDesc: "Best real-world result achieved using the standard factory firmware: trace saturated with high-frequency noise, unacceptable for clinical research.",
+        sec3Title: "Isolation Protocol & Electromagnetic Interference (EMI) Source Characterization",
+        sec3P1: "To systematically isolate noise components, a factorial elimination protocol was designed to identify the contribution of each element in the experimental environment. First, an ideal electromagnetic isolation baseline was evaluated: laptop workstation powered purely by internal DC battery, disconnected from mains, and isolated from active equipment:",
+        fig6CaptionTitle: "Fig. 6: Reference Baseline Record Under Battery Isolation",
+        fig6CaptionDesc: "Isoelectric baseline and QRS complexes clearly resolved when operating the workstation on internal battery without proximal electronic loads.",
+        sec3P2: "However, the realistic clinical setting of an acute cardiac arrest protocol requires active auxiliary equipment: focused halogen lighting, thermal heating pads for peripheral vasodilation, mechanical ventilators, and mobile communication devices. The system was systematically stressed by introducing interference sources one by one:",
+        fig7CaptionTitle: "Fig. 7: Capacitive Coupling from Charging Connector",
+        fig7CaptionDesc: "Laptop charger plugged into the DC jack but unplugged from AC wall outlet; capacitive noise induction along the chassis ground.",
+        fig8CaptionTitle: "Fig. 8: Interference via Wired Ethernet Link",
+        fig8CaptionDesc: "Connection of wired network interface; high-frequency digital switching harmonics coupled to the telemetry station.",
+        fig9CaptionTitle: "Fig. 9: Radiation from Energized Power Brick on the Floor",
+        fig9CaptionDesc: "Power supply brick plugged into mains but disconnected from the PC; ambient 50/60 Hz electromagnetic radiation emitted across the floor.",
+        fig10CaptionTitle: "Fig. 10: Dynamic Baseline Wandering from Proximal Induction",
+        fig10CaptionDesc: "Bringing the transformer close to the electrodes and Arduino board; the signal develops high-amplitude low-frequency baseline oscillation.",
+        sec3P3: "Finally, connecting the workstation to AC mains and operating with all auxiliary devices running simultaneously (lighting, active fan, and mobile phone charging), the physiological biopotential was completely obliterated:",
+        fig11CaptionTitle: "Fig. 11: Cumulative Destructive Noise Saturation",
+        fig11CaptionDesc: "Biopotential signal completely collapsed under concurrent laboratory noise sources; total loss of electrophysiological traceability.",
+        sec4Title: "Dry-Contact Electrode Innovation: 3D Ergonomic Clamps & Einthoven's Triangle",
+        sec4P1: "The disposable silver/silver chloride (Ag/AgCl) wet gel adhesive electrodes included with commercial development kits present critical operational drawbacks: they are single-use, suffer rapid electrolyte desiccation degrading contact impedance, leave sticky residue, and require invasive chest exposure:",
+        fig12CaptionTitle: "Fig. 12: Disposable Wet Gel Electrodes (Ag/AgCl)",
+        fig12CaptionDesc: "Self-adhesive patches exhibiting progressive electrolyte loss and detachment due to subject perspiration or movement.",
+        fig13CaptionTitle: "Fig. 13: Conventional Invasive Precordial Placement",
+        fig13CaptionDesc: "Standard thoracic electrode arrangement on the chest, invasive and time-consuming during repeated laboratory evaluations.",
+        sec4P2: "Under the guidance of the consulting cardiologist, the biophysical principles of <strong>Einthoven's Law and Triangle</strong> were applied: recording bipolar limb leads (Leads I, II, and III) does not strictly require thoracic placement, provided the three electrodes maintain an equilateral triangular geometry with respect to the cardiac dipole. Distal phalanx fingertip placement was clinically validated:",
+        fig14CaptionTitle: "Fig. 14: Distal Phalangeal Acquisition via Einthoven's Principle",
+        fig14CaptionDesc: "Bipolar peripheral lead obtained via dry contact on the index and middle fingertips of both hands.",
+        fig15CaptionTitle: "Fig. 15: Ergonomic Fingertip Configuration",
+        fig15CaptionDesc: "Rapid non-invasive alternative arrangement facilitating serial sample collection without removing clothing.",
+        sec4P3: "This configuration confers diagnostic versatility to the researcher, permitting immediate lead swapping to observe inverted waveforms or explore particular pathological signs. Furthermore, it was verified that the ground reference electrode (GND / Right Leg - RL) can be positioned on the earlobe with exceptional stability:",
+        fig16CaptionTitle: "Fig. 16: Rapid Reversible Bipolar Lead Placement",
+        fig16CaptionDesc: "Controlled lead inversion for direct vector cardiographic examination.",
+        fig17CaptionTitle: "Fig. 17: Ground Reference Electrode (GND) on Earlobe",
+        fig17CaptionDesc: "Ideal equipotential site free of electromyographic interference for the instrumentation amplifier reference.",
+        sec4P4: "To materialize this solution permanently, custom anatomical clamps with calibrated tension were 3D printed, incorporating high-purity electrolytic copper contact strips as dry electrodes:",
+        fig18CaptionTitle: "Fig. 18: 3D-Printed Finger Clamps with Copper Contact Strips",
+        fig18CaptionDesc: "Ergonomic, washable, adhesive-free dry electrodes that are immediately reusable across multiple research subjects.",
+        sec5Title: "Filtering Strategy Evaluation: Analog Hardware vs. Digital Software",
+        sec5P1: "Mains utility frequency is 50 Hz in Argentina and Europe, and 60 Hz in Costa Rica and North America. Biomedical engineering literature describes diverse filter topologies: low-pass, FIR, high-order Butterworth, and moving average filters. Active analog filtering in hardware (additional RC stages and operational amplifiers) was initially evaluated:",
+        fig19CaptionTitle: "Fig. 19: Evaluated Hardware Analog Filter Topologies",
+        fig19CaptionDesc: "Active analog filter circuits tested; they attenuated physiological signal amplitude alongside noise and lacked adaptability to dynamic noise sources.",
+        fig20CaptionTitle: "Fig. 20: Digital Filtering Trials in MatLab / Simulink",
+        fig20CaptionDesc: "Digital implementation in MatLab; while filtering noise, it introduced an unacceptable ~5-second latency incompatible with real-time acute arrest monitoring.",
+        sec5AlertTitle: "⚠️ Filtering Evaluation Conclusions:",
+        sec5AlertItem1: "<strong>Analog Hardware Filtering:</strong> Attenuates noise and physiological signal amplitude simultaneously. Adapting it to dynamic environmental noise required circuit complexity and costs equivalent to a full oscilloscope.",
+        sec5AlertItem2: "<strong>Digital Filtering in MatLab / Simulink:</strong> Processing overhead created a critical 5-second lag between cardiac depolarization and visual display, rendering it unusable for acute monitoring.",
+        sec5AlertItem3: "<strong>Arduino Oversampling Libraries:</strong> The computing bandwidth and ADC sample rate of the ATmega328P microcontroller proved insufficient to sustain simultaneous continuous sampling and digital filtering in real time.",
+        sec6Title: "Definitive Architecture: Soundcard Acquisition (Microphone) & Python DSP",
+        sec6P1: "The defining breakthrough was realizing that low-latency audio acquisition algorithms via the computer soundcard are ideally suited to digitize the cardiac biopotential. Both acoustic audio and the AD8232 sensor output are continuous analog voltages; PC soundcards integrate high-speed ADCs (44.1 kHz / 48 kHz), low-noise preamplifiers, and complete physical decoupling from USB serial bus noise.",
+        sec6P2: "A dedicated <strong>Python</strong> software suite was engineered using <code>PyAudio</code> for low-latency streaming (<50 ms), <code>PyQt5</code> for GUI architecture, and <code>pyqtgraph</code> for accelerated waveform rendering, integrating adaptive digital filtering algorithms with dynamically tunable cutoff frequencies:",
+        fig21CaptionTitle: "Fig. 21: Python Software Interface with 35 Hz Adaptive Filtering",
+        fig21CaptionDesc: "Clean real-time electrocardiographic trace operating under concurrent active interference from all laboratory noise sources.",
+        fig22CaptionTitle: "Fig. 22: Clinical High-Definition Electrodiagnostic Display",
+        fig22CaptionDesc: "Standardized medical grid calibrated to 40 ms per small division (0.04 s) with a 5-second temporal sweep window requested by the cardiologist.",
+        sec7Title: "Biophysical Foundation: Wave Superposition (Young's Effect) & Multispecies Auto-Scaling",
+        sec7P1: "A critical biophysical discovery was observing that the dominant parasitic noise frequency was situated at <strong>35 Hz</strong> rather than the 50 Hz utility mains frequency. This phenomenon obeys wave physics principles established in <a href=\"https://en.wikipedia.org/wiki/Double-slit_experiment\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">Thomas Young's double-slit experiment ↗</a>:",
+        fig23CaptionTitle: "Fig. 23: Constructive and Destructive Wave Interference (Young's Effect)",
+        fig23CaptionDesc: "When multiple electromagnetic wave fronts intersect in space, phase cancellations and summations shift the dominant parasitic beat frequency to 35 Hz.",
+        fig24CaptionTitle: "Fig. 24: Dynamic Auto-Scaling Routine & Oscilloscope-Grade Quality",
+        fig24CaptionDesc: "Automatic voltage gain adjustment accommodating both human biopotentials (~1 mV) and rodent electrophysiology (microvolt laboratory rat ECGs).",
+        sec7P2: "Because ambient electromagnetic sources vary per environment, the Python software incorporates an adaptive frequency slider allowing the researcher to fine-tune cutoff Hz to their specific room. Furthermore, intelligent <strong>voltage auto-scaling</strong> normalizes biopotentials, enabling seamless research on small laboratory rodents whose cardiac amplitudes reside in the microvolt regime.",
+        sec8Title: "Electrical Interconnection Schematic & Hardware Assembly",
+        sec8P1: "Below is the master hardware connection schematic. The Arduino analog pin A0 is not used for USB serial transmission; the conditioned biopotential is taken directly from the AD8232 <strong>OUTPUT</strong> pin and routed into the 3.5 mm TRS audio microphone connector:",
+        fig25CaptionTitle: "Fig. 25: Master Hardware Interconnection Schematic",
+        fig25CaptionDesc: "AD8232 pin mapping to Arduino Nano, analog line routing to 3.5 mm TRS microphone jack, and isolated DC battery supply.",
+        sec8SpecsTitle: "⚡ Technical Wiring Principles:",
+        sec8Item1: "<strong>Isolated DC Battery Supply:</strong> Powered by battery packs to galvanically decouple the system from mains power and USB ground loops, saving the $40 USD cost of an external USB isolator (which only cleans the port, not electrode antenna noise).",
+        sec8Item2: "<strong>Arduino Pins D10 & D11:</strong> Configured as digital inputs connected to AD8232 LO- and LO+ pins to stabilize baseline potentials and monitor lead-off detachment.",
+        sec8Item3: "<strong>Microcontroller Compatibility:</strong> Compatible with Arduino Uno or Nano (Nano chosen for compact footprint). When using CH340 clones, install drivers and select <em>'Old Bootloader'</em> in Arduino IDE.",
+        sec8Item4: "<strong>Simultaneous Comparative Mode:</strong> If desired, the user can compare Arduino Serial Plotter with Python software simultaneously by connecting the USB cable (disconnecting batteries to avoid power conflicts).",
+        sec9Title: "Operating System Audio Subsystem Configuration",
+        sec9P1: "To configure the 3.5 mm TRS jack as a high-fidelity analog acquisition channel, open the Windows Sound settings: right-click taskbar Audio icon &rarr; <em>Sounds</em> &rarr; <em>Recording</em> tab:",
+        fig26CaptionTitle: "Fig. 26: Windows Recording Devices Panel (Initial State)",
+        fig26CaptionDesc: "Identification of default recording audio hardware prior to inserting the analog acquisition connector.",
+        fig27CaptionTitle: "Fig. 27: Immediate Switch to External Microphone Channel",
+        fig27CaptionDesc: "Connecting the TRS jack with Arduino powered off; the operating system automatically switches to the external microphone line.",
+        sec9TipTitle: "💡 Practical Advice on 3.5 mm TRS Connectors:",
+        sec9TipDesc: "To confirm pin mapping (Tip, Ring, Sleeve) towards AD8232 OUTPUT and GND, use a multimeter continuity test. Certain generic male plugs bought in hobby shops are ~0.5 mm wider in barrel diameter, preventing secure contact in laptop sockets; recycling a standard 3.5 mm cable from discarded headphones is highly recommended.",
+        sec10Title: "Arduino Microcontroller Firmware & Lead Color Standardization",
+        sec10P1: "The Arduino microcontroller executes a dedicated baseline stabilization firmware. While the primary biopotential travels through the analog audio line, this firmware maintains reference potential stability and enables cross-validation with the Serial Plotter:",
+        fig28CaptionTitle: "Fig. 28: Arduino Firmware for Baseline Stabilization & Diagnostics",
+        fig28CaptionDesc: "Embedded code managing digital inputs 10 and 11 and reference potentials of the AD8232 sensor.",
+        fig29CaptionTitle: "Fig. 29: Lead Polarity & Wire Color Standardization",
+        fig29CaptionDesc: "Inverting red and black leads on the AD8232 connector to universally standardize the black lead as circuit common/ground (GND).",
+        sec10CodeLinkTitle: "📂 Arduino Source Code:",
+        sec10CodeLinkDesc: "The official Arduino sketch is available on the <a href=\"https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">official GitHub Repository ↗</a>.",
+        sec11Title: "Measurement Protocol, Video Demonstration & Advanced EMI Shielding",
+        sec11P1: "With hardware connected and the audio port recognized, launch the standalone Python executable (~200 MB packaged executable; initial decompression takes ~40 seconds). The subject must remain relaxed and still to prevent electromyographic (EMG) muscle artifacts. In locations lacking dedicated physical earth ground, operate the laptop on internal battery power:",
+        fig30CaptionTitle: "Fig. 30: Real-Time Comparative Demonstration Video",
+        fig30CaptionDesc: "Side-by-side comparison between raw Arduino Serial Plotter and filtered Python DSP software. <a href=\"https://www.youtube.com/watch?v=NcodDkrldqQ&t=8s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">Watch YouTube Demonstration (8 min) ↗</a>.",
+        sec11P2: "To achieve maximum electromagnetic immunity in lab environments crowded with RF noise, four tiers of physical shielding were integrated:",
+        fig31CaptionTitle: "Fig. 31: Balanced Shielded Coaxial Audio Cable",
+        fig31CaptionDesc: "Braided metallic outer shielding that drains induced electromagnetic noise along the transmission line.",
+        fig32CaptionTitle: "Fig. 32: Faraday Cage Wire Mesh Fabrication",
+        fig32CaptionDesc: "Conductive metallic wire mesh enclosure attenuating radiofrequency (RF), Wi-Fi, and cellular interference.",
+        fig33CaptionTitle: "Fig. 33: Full Device Enclosure Inside Faraday Cage",
+        fig33CaptionDesc: "Hardware fully housed within the grounded mesh enclosure. See <a href=\"https://en.wikipedia.org/wiki/Faraday_cage\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">Faraday cage fundamentals ↗</a>.",
+        fig34CaptionTitle: "Fig. 34: Secondary RF Reflective Barrier in Aluminum Foil",
+        fig34CaptionDesc: "Insulated aluminum foil wrapping providing a secondary reflective barrier against residual high-frequency RF telemetry.",
+        fig35CaptionTitle: "Fig. 35: Final 3D-Printed Protective Enclosure Chassis",
+        fig35CaptionDesc: "Ruggedized 3D-printed outer chassis ensuring mechanical protection and insulating internal solder nodes.",
+        sec11WarningTitle: "⚠️ Critical Electrical Insulation Warning:",
+        sec11WarningDesc: "When installing the Faraday cage mesh or aluminum foil, ensure an insulating dielectric layer (electrical tape or plastic base) is interposed under the Arduino board to prevent metallic contact with solder points and destructive short circuits.",
+        sec12Title: "Printed Circuit Board (PCB) Fabrication, Repository & Credits",
+        sec12P1: "To achieve industrial mechanical reliability and eliminate loose breadboard wiring, a single-sided bakelite PCB was designed specifically for the Arduino Nano and AD8232 module:",
+        fig36CaptionTitle: "Fig. 36: PCB Track Layout Ready for Printing & Etching",
+        fig36CaptionDesc: "Scale 1:1 PCB trace template ready for toner transfer or chemical etching onto copper-clad bakelite board.",
+        fig37CaptionTitle: "Fig. 37: PCB Assembly and Component Soldering",
+        fig37CaptionDesc: "Compact integration of Arduino Nano microcontroller and AD8232 sensor soldered onto the single-sided PCB.",
+        fig38CaptionTitle: "Fig. 38: Completed and Operational Electrocardiographic Instrument",
+        fig38CaptionDesc: "Consolidated hardware unit ready for audio port interconnection and research trials.",
+        sec12GhTitle: "Compiled Software & Official Source Code (GPL License)",
+        sec12GhDesc: "Completely free and open-source software under the GNU General Public License (GPL).",
+        sec12P2: "Hardware and software development conducted by Brandon Antonio Segura Torres and Priscilla Vieto Bonilla.",
+        ecgDetailsBtn: "📖 Open Full Technical Guide & Manual →",
+        ecgGithubBtn: "📥 Download on GitHub (v_ecg_monitor) ↗",
+        ecgQuickLabel: "RESEARCH & AUTHORSHIP",
+        ecgDownloadReleaseBtn: "📥 Download Official Software (GitHub) ↗",
+        sec1Title: "Problem Formulation, Clinical Context & Electrical Noise",
+        sec1P1: "In the field of electrophysiological recording, the acquisition of cardiac biopotentials faces critical signal-to-noise ratio (SNR) challenges. As defined in electromagnetic theory, <em>electrical noise</em> encompasses all unwanted interference signals of electrical or inductive origin that couple to the useful biological signal, altering its morphology and introducing distortions that invalidate clinical diagnosis.",
+        sec1P2: "In a high-sensitivity instrument such as an electrocardiograph, multiple environmental parasitic sources converge: discharge or LED lighting, energized conductors, and nearby multi-outlet power strips. These radiate electromagnetic fields that induce high-amplitude hum even when connected appliances remain powered off.",
+        sec1ContextTitle: "🔬 Biomedical Research Context:",
+        sec1ContextDesc: "This project was formulated in response to the request of a cardiologist within the framework of his thesis research on the pathophysiology of acute cardiac arrest and arrhythmias. The experimental protocol required continuous real-time visualization of the electrocardiographic waveform on a laptop to capture high-definition (HD) snapshots and perform offline morphometric analyses of cardiac complexes.",
+        sec1P3: "While commercial clinical electrocardiographs and oscilloscopes include PC interface capabilities, their proprietary software licenses entail a steep recurring cost between <strong>$500 USD and $1,000 USD</strong>. The primary objective of this development was to overcome this financial barrier by conceiving an open-source, accessible, economically viable, and metrologically reliable telemetry system for researchers and clinical laboratories.",
+        sec2Title: "Initial Experimental Characterization: Raw Signal & Factory Records",
+        sec2P1: "Initial baseline trials using standard commercial development hardware yielded unsatisfactory results. The captured signal consisted purely of high-amplitude stochastic noise without any distinguishable cardiac morphology:",
+        fig1CaptionTitle: "Fig. 1: Initial Electrocardiographic Record Obtained",
+        fig1CaptionDesc: "Trace completely dominated by parasitic noise without recognizable biopotential modulation; total absence of ventricular depolarization.",
+        fig2CaptionTitle: "Fig. 2: Standard Theoretical Electrocardiographic Complex",
+        fig2CaptionDesc: "Reference physiological morphology showing the characteristic P, Q, R, S, T, and U waves required for clinical assessment.",
+        sec2P2: "Faced with the absence of physiological components, the guidelines from the official <a href=\"https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">SparkFun AD8232 Hookup Guide ↗</a> and its Processing visualizer were strictly implemented:",
+        fig3CaptionTitle: "Fig. 3: SparkFun AD8232 Analog Front-End Module",
+        fig3CaptionDesc: "Integrated cardiac signal conditioning breakout board with built-in analog bandpass filtering stages.",
+        fig4CaptionTitle: "Fig. 4: Expected Theoretical Record in Processing",
+        fig4CaptionDesc: "Theoretical waveform illustrated in the manufacturer's official documentation under ideal isolated operating conditions.",
+        fig5CaptionTitle: "Fig. 5: Actual Record Obtained with Manufacturer's Code",
+        fig5CaptionDesc: "Best real-world result achieved using the standard factory firmware: trace saturated with high-frequency noise, unacceptable for clinical research.",
+        sec3Title: "Isolation Protocol & Electromagnetic Interference (EMI) Source Characterization",
+        sec3P1: "To systematically isolate noise components, a factorial elimination protocol was designed to identify the contribution of each element in the experimental environment. First, an ideal electromagnetic isolation baseline was evaluated: laptop workstation powered purely by internal DC battery, disconnected from mains, and isolated from active equipment:",
+        fig6CaptionTitle: "Fig. 6: Reference Baseline Record Under Battery Isolation",
+        fig6CaptionDesc: "Isoelectric baseline and QRS complexes clearly resolved when operating the workstation on internal battery without proximal electronic loads.",
+        sec3P2: "However, the realistic clinical setting of an acute cardiac arrest protocol requires active auxiliary equipment: focused halogen lighting, thermal heating pads for peripheral vasodilation, mechanical ventilators, and mobile communication devices. The system was systematically stressed by introducing interference sources one by one:",
+        fig7CaptionTitle: "Fig. 7: Capacitive Coupling from Charging Connector",
+        fig7CaptionDesc: "Laptop charger plugged into the DC jack but unplugged from AC wall outlet; capacitive noise induction along the chassis ground.",
+        fig8CaptionTitle: "Fig. 8: Interference via Wired Ethernet Link",
+        fig8CaptionDesc: "Connection of wired network interface; high-frequency digital switching harmonics coupled to the telemetry station.",
+        fig9CaptionTitle: "Fig. 9: Radiation from Energized Power Brick on the Floor",
+        fig9CaptionDesc: "Power supply brick plugged into mains but disconnected from the PC; ambient 50/60 Hz electromagnetic radiation emitted across the floor.",
+        fig10CaptionTitle: "Fig. 10: Dynamic Baseline Wandering from Proximal Induction",
+        fig10CaptionDesc: "Bringing the transformer close to the electrodes and Arduino board; the signal develops high-amplitude low-frequency baseline oscillation.",
+        sec3P3: "Finally, connecting the workstation to AC mains and operating with all auxiliary devices running simultaneously (lighting, active fan, and mobile phone charging), the physiological biopotential was completely obliterated:",
+        fig11CaptionTitle: "Fig. 11: Cumulative Destructive Noise Saturation",
+        fig11CaptionDesc: "Biopotential signal completely collapsed under concurrent laboratory noise sources; total loss of electrophysiological traceability.",
+        sec4Title: "Dry-Contact Electrode Innovation: 3D Ergonomic Clamps & Einthoven's Triangle",
+        sec4P1: "The disposable silver/silver chloride (Ag/AgCl) wet gel adhesive electrodes included with commercial development kits present critical operational drawbacks: they are single-use, suffer rapid electrolyte desiccation degrading contact impedance, leave sticky residue, and require invasive chest exposure:",
+        fig12CaptionTitle: "Fig. 12: Disposable Wet Gel Electrodes (Ag/AgCl)",
+        fig12CaptionDesc: "Self-adhesive patches exhibiting progressive electrolyte loss and detachment due to subject perspiration or movement.",
+        fig13CaptionTitle: "Fig. 13: Conventional Invasive Precordial Placement",
+        fig13CaptionDesc: "Standard thoracic electrode arrangement on the chest, invasive and time-consuming during repeated laboratory evaluations.",
+        sec4P2: "Under the guidance of the consulting cardiologist, the biophysical principles of <strong>Einthoven's Law and Triangle</strong> were applied: recording bipolar limb leads (Leads I, II, and III) does not strictly require thoracic placement, provided the three electrodes maintain an equilateral triangular geometry with respect to the cardiac dipole. Distal phalanx fingertip placement was clinically validated:",
+        fig14CaptionTitle: "Fig. 14: Distal Phalangeal Acquisition via Einthoven's Principle",
+        fig14CaptionDesc: "Bipolar peripheral lead obtained via dry contact on the index and middle fingertips of both hands.",
+        fig15CaptionTitle: "Fig. 15: Ergonomic Fingertip Configuration",
+        fig15CaptionDesc: "Rapid non-invasive alternative arrangement facilitating serial sample collection without removing clothing.",
+        sec4P3: "This configuration confers diagnostic versatility to the researcher, permitting immediate lead swapping to observe inverted waveforms or explore particular pathological signs. Furthermore, it was verified that the ground reference electrode (GND / Right Leg - RL) can be positioned on the earlobe with exceptional stability:",
+        fig16CaptionTitle: "Fig. 16: Rapid Reversible Bipolar Lead Placement",
+        fig16CaptionDesc: "Controlled lead inversion for direct vector cardiographic examination.",
+        fig17CaptionTitle: "Fig. 17: Ground Reference Electrode (GND) on Earlobe",
+        fig17CaptionDesc: "Ideal equipotential site free of electromyographic interference for the instrumentation amplifier reference.",
+        sec4P4: "To materialize this solution permanently, custom anatomical clamps with calibrated tension were 3D printed, incorporating high-purity electrolytic copper contact strips as dry electrodes:",
+        fig18CaptionTitle: "Fig. 18: 3D-Printed Finger Clamps with Copper Contact Strips",
+        fig18CaptionDesc: "Ergonomic, washable, adhesive-free dry electrodes that are immediately reusable across multiple research subjects.",
+        sec5Title: "Filtering Strategy Evaluation: Analog Hardware vs. Digital Software",
+        sec5P1: "Mains utility frequency is 50 Hz in Argentina and Europe, and 60 Hz in Costa Rica and North America. Biomedical engineering literature describes diverse filter topologies: low-pass, FIR, high-order Butterworth, and moving average filters. Active analog filtering in hardware (additional RC stages and operational amplifiers) was initially evaluated:",
+        fig19CaptionTitle: "Fig. 19: Evaluated Hardware Analog Filter Topologies",
+        fig19CaptionDesc: "Active analog filter circuits tested; they attenuated physiological signal amplitude alongside noise and lacked adaptability to dynamic noise sources.",
+        fig20CaptionTitle: "Fig. 20: Digital Filtering Trials in MatLab / Simulink",
+        fig20CaptionDesc: "Digital implementation in MatLab; while filtering noise, it introduced an unacceptable ~5-second latency incompatible with real-time acute arrest monitoring.",
+        sec5AlertTitle: "⚠️ Filtering Evaluation Conclusions:",
+        sec5AlertItem1: "<strong>Analog Hardware Filtering:</strong> Attenuates noise and physiological signal amplitude simultaneously. Adapting it to dynamic environmental noise required circuit complexity and costs equivalent to a full oscilloscope.",
+        sec5AlertItem2: "<strong>Digital Filtering in MatLab / Simulink:</strong> Processing overhead created a critical 5-second lag between cardiac depolarization and visual display, rendering it unusable for acute monitoring.",
+        sec5AlertItem3: "<strong>Arduino Oversampling Libraries:</strong> The computing bandwidth and ADC sample rate of the ATmega328P microcontroller proved insufficient to sustain simultaneous continuous sampling and digital filtering in real time.",
+        sec6Title: "Definitive Architecture: Soundcard Acquisition (Microphone) & Python DSP",
+        sec6P1: "The defining breakthrough was realizing that low-latency audio acquisition algorithms via the computer soundcard are ideally suited to digitize the cardiac biopotential. Both acoustic audio and the AD8232 sensor output are continuous analog voltages; PC soundcards integrate high-speed ADCs (44.1 kHz / 48 kHz), low-noise preamplifiers, and complete physical decoupling from USB serial bus noise.",
+        sec6P2: "A dedicated <strong>Python</strong> software suite was engineered using <code>PyAudio</code> for low-latency streaming (<50 ms), <code>PyQt5</code> for GUI architecture, and <code>pyqtgraph</code> for accelerated waveform rendering, integrating adaptive digital filtering algorithms with dynamically tunable cutoff frequencies:",
+        fig21CaptionTitle: "Fig. 21: Python Software Interface with 35 Hz Adaptive Filtering",
+        fig21CaptionDesc: "Clean real-time electrocardiographic trace operating under concurrent active interference from all laboratory noise sources.",
+        fig22CaptionTitle: "Fig. 22: Clinical High-Definition Electrodiagnostic Display",
+        fig22CaptionDesc: "Standardized medical grid calibrated to 40 ms per small division (0.04 s) with a 5-second temporal sweep window requested by the cardiologist.",
+        sec7Title: "Biophysical Foundation: Wave Superposition (Young's Effect) & Multispecies Auto-Scaling",
+        sec7P1: "A critical biophysical discovery was observing that the dominant parasitic noise frequency was situated at <strong>35 Hz</strong> rather than the 50 Hz utility mains frequency. This phenomenon obeys wave physics principles established in <a href=\"https://en.wikipedia.org/wiki/Double-slit_experiment\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">Thomas Young's double-slit experiment ↗</a>:",
+        fig23CaptionTitle: "Fig. 23: Constructive and Destructive Wave Interference (Young's Effect)",
+        fig23CaptionDesc: "When multiple electromagnetic wave fronts intersect in space, phase cancellations and summations shift the dominant parasitic beat frequency to 35 Hz.",
+        fig24CaptionTitle: "Fig. 24: Dynamic Auto-Scaling Routine & Oscilloscope-Grade Quality",
+        fig24CaptionDesc: "Automatic voltage gain adjustment accommodating both human biopotentials (~1 mV) and rodent electrophysiology (microvolt laboratory rat ECGs).",
+        sec7P2: "Because ambient electromagnetic sources vary per environment, the Python software incorporates an adaptive frequency slider allowing the researcher to fine-tune cutoff Hz to their specific room. Furthermore, intelligent <strong>voltage auto-scaling</strong> normalizes biopotentials, enabling seamless research on small laboratory rodents whose cardiac amplitudes reside in the microvolt regime.",
+        sec8Title: "Electrical Interconnection Schematic & Hardware Assembly",
+        sec8P1: "Below is the master hardware connection schematic. The Arduino analog pin A0 is not used for USB serial transmission; the conditioned biopotential is taken directly from the AD8232 <strong>OUTPUT</strong> pin and routed into the 3.5 mm TRS audio microphone connector:",
+        fig25CaptionTitle: "Fig. 25: Master Hardware Interconnection Schematic",
+        fig25CaptionDesc: "AD8232 pin mapping to Arduino Nano, analog line routing to 3.5 mm TRS microphone jack, and isolated DC battery supply.",
+        sec8SpecsTitle: "⚡ Technical Wiring Principles:",
+        sec8Item1: "<strong>Isolated DC Battery Supply:</strong> Powered by battery packs to galvanically decouple the system from mains power and USB ground loops, saving the $40 USD cost of an external USB isolator (which only cleans the port, not electrode antenna noise).",
+        sec8Item2: "<strong>Arduino Pins D10 & D11:</strong> Configured as digital inputs connected to AD8232 LO- and LO+ pins to stabilize baseline potentials and monitor lead-off detachment.",
+        sec8Item3: "<strong>Microcontroller Compatibility:</strong> Compatible with Arduino Uno or Nano (Nano chosen for compact footprint). When using CH340 clones, install drivers and select <em>'Old Bootloader'</em> in Arduino IDE.",
+        sec8Item4: "<strong>Simultaneous Comparative Mode:</strong> If desired, the user can compare Arduino Serial Plotter with Python software simultaneously by connecting the USB cable (disconnecting batteries to avoid power conflicts).",
+        sec9Title: "Operating System Audio Subsystem Configuration",
+        sec9P1: "To configure the 3.5 mm TRS jack as a high-fidelity analog acquisition channel, open the Windows Sound settings: right-click taskbar Audio icon &rarr; <em>Sounds</em> &rarr; <em>Recording</em> tab:",
+        fig26CaptionTitle: "Fig. 26: Windows Recording Devices Panel (Initial State)",
+        fig26CaptionDesc: "Identification of default recording audio hardware prior to inserting the analog acquisition connector.",
+        fig27CaptionTitle: "Fig. 27: Immediate Switch to External Microphone Channel",
+        fig27CaptionDesc: "Connecting the TRS jack with Arduino powered off; the operating system automatically switches to the external microphone line.",
+        sec9TipTitle: "💡 Practical Advice on 3.5 mm TRS Connectors:",
+        sec9TipDesc: "To confirm pin mapping (Tip, Ring, Sleeve) towards AD8232 OUTPUT and GND, use a multimeter continuity test. Certain generic male plugs bought in hobby shops are ~0.5 mm wider in barrel diameter, preventing secure contact in laptop sockets; recycling a standard 3.5 mm cable from discarded headphones is highly recommended.",
+        sec10Title: "Arduino Microcontroller Firmware & Lead Color Standardization",
+        sec10P1: "The Arduino microcontroller executes a dedicated baseline stabilization firmware. While the primary biopotential travels through the analog audio line, this firmware maintains reference potential stability and enables cross-validation with the Serial Plotter:",
+        fig28CaptionTitle: "Fig. 28: Arduino Firmware for Baseline Stabilization & Diagnostics",
+        fig28CaptionDesc: "Embedded code managing digital inputs 10 and 11 and reference potentials of the AD8232 sensor.",
+        fig29CaptionTitle: "Fig. 29: Lead Polarity & Wire Color Standardization",
+        fig29CaptionDesc: "Inverting red and black leads on the AD8232 connector to universally standardize the black lead as circuit common/ground (GND).",
+        sec10CodeLinkTitle: "📂 Arduino Source Code:",
+        sec10CodeLinkDesc: "The official Arduino sketch is available on the <a href=\"https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">official GitHub Repository ↗</a>.",
+        sec11Title: "Measurement Protocol, Video Demonstration & Advanced EMI Shielding",
+        sec11P1: "With hardware connected and the audio port recognized, launch the standalone Python executable (~200 MB packaged executable; initial decompression takes ~40 seconds). The subject must remain relaxed and still to prevent electromyographic (EMG) muscle artifacts. In locations lacking dedicated physical earth ground, operate the laptop on internal battery power:",
+        fig30CaptionTitle: "Fig. 30: Real-Time Comparative Demonstration Video",
+        fig30CaptionDesc: "Side-by-side comparison between raw Arduino Serial Plotter and filtered Python DSP software. <a href=\"https://www.youtube.com/watch?v=NcodDkrldqQ&t=8s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">Watch YouTube Demonstration (8 min) ↗</a>.",
+        sec11P2: "To achieve maximum electromagnetic immunity in lab environments crowded with RF noise, four tiers of physical shielding were integrated:",
+        fig31CaptionTitle: "Fig. 31: Balanced Shielded Coaxial Audio Cable",
+        fig31CaptionDesc: "Braided metallic outer shielding that drains induced electromagnetic noise along the transmission line.",
+        fig32CaptionTitle: "Fig. 32: Faraday Cage Wire Mesh Fabrication",
+        fig32CaptionDesc: "Conductive metallic wire mesh enclosure attenuating radiofrequency (RF), Wi-Fi, and cellular interference.",
+        fig33CaptionTitle: "Fig. 33: Full Device Enclosure Inside Faraday Cage",
+        fig33CaptionDesc: "Hardware fully housed within the grounded mesh enclosure. See <a href=\"https://en.wikipedia.org/wiki/Faraday_cage\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ecg-link-inline\">Faraday cage fundamentals ↗</a>.",
+        fig34CaptionTitle: "Fig. 34: Secondary RF Reflective Barrier in Aluminum Foil",
+        fig34CaptionDesc: "Insulated aluminum foil wrapping providing a secondary reflective barrier against residual high-frequency RF telemetry.",
+        fig35CaptionTitle: "Fig. 35: Final 3D-Printed Protective Enclosure Chassis",
+        fig35CaptionDesc: "Ruggedized 3D-printed outer chassis ensuring mechanical protection and insulating internal solder nodes.",
+        sec11WarningTitle: "⚠️ Critical Electrical Insulation Warning:",
+        sec11WarningDesc: "When installing the Faraday cage mesh or aluminum foil, ensure an insulating dielectric layer (electrical tape or plastic base) is interposed under the Arduino board to prevent metallic contact with solder points and destructive short circuits.",
+        sec12Title: "Printed Circuit Board (PCB) Fabrication, Repository & Credits",
+        sec12P1: "To achieve industrial mechanical reliability and eliminate loose breadboard wiring, a single-sided bakelite PCB was designed specifically for the Arduino Nano and AD8232 module:",
+        fig36CaptionTitle: "Fig. 36: PCB Track Layout Ready for Printing & Etching",
+        fig36CaptionDesc: "Scale 1:1 PCB trace template ready for toner transfer or chemical etching onto copper-clad bakelite board.",
+        fig37CaptionTitle: "Fig. 37: PCB Assembly and Component Soldering",
+        fig37CaptionDesc: "Compact integration of Arduino Nano microcontroller and AD8232 sensor soldered onto the single-sided PCB.",
+        fig38CaptionTitle: "Fig. 38: Completed and Operational Electrocardiographic Instrument",
+        fig38CaptionDesc: "Consolidated hardware unit ready for audio port interconnection and research trials.",
+        sec12GhTitle: "Compiled Software & Official Source Code (GPL License)",
+        sec12GhDesc: "Completely free and open-source software under the GNU General Public License (GPL).",
+        sec12P2: "Hardware and software development conducted by Brandon Antonio Segura Torres and Priscilla Vieto Bonilla.",
         ecgDetailsBtn: "📖 Open Full Technical Guide & Manual →",
         ecgGithubBtn: "📥 Download on GitHub (v_ecg_monitor) ↗",
         ecgQuickLabel: "RESEARCH & AUTHORSHIP",
@@ -3469,6 +2952,272 @@
         fig5CaptionTitle: "Fig. 5: Registro Real Obtenido con el Código del Manual",
         fig23CaptionDesc: "Al coincidir múltiples frentes de onda electromagnéticos en el ambiente, se producen cancelaciones y sumatorias de fase que desplazan la frecuencia dominante de interferencia a 35 Hz.",
         fig29CaptionTitle: "Fig. 29: Corrección de Polaridad y Código de Color",
+        fig5CaptionDesc: "Mejor resultado alcanzado mediante el firmware estándar: traza saturada de ruido de alta frecuencia inaceptable para investigación cardiológica.",
+        fig2CaptionTitle: "Fig. 2: Complejo Electrocardiográfico Estándar Teórico",
+        fig1CaptionTitle: "Fig. 1: Primer Registro Electrocardiográfico Obtenido",
+        sec4Title: "Innovación en Electrodos Secos: Pinzas Ergonómicas 3D y Triángulo de Einthoven",
+        sec5AlertItem2: "<strong>Filtrado Digital en MatLab / Simulink:</strong> La sobrecarga de procesamiento introducía un retraso crítico de 5 segundos entre el latido real y su representación visual, inaceptable para eventos agudos.",
+        fig17CaptionDesc: "Punto equipotencial idóneo y de nula interferencia electromiográfica para la referencia del amplificador de instrumentación.",
+        sec4P4: "Para materializar esta solución de forma permanente y reusable, se diseñaron y modelaron en 3D pinzas anatómicas de presión constante equipadas con láminas de cobre electrolítico de alta pureza como contacto seco:",
+        fig34CaptionTitle: "Fig. 34: Barrera Reflectiva Secundaria en Lámina de Aluminio",
+        sec2P1: "Los primeros ensayos realizados con el hardware estándar arrojaron resultados insatisfactorios. La señal registrada consistía exclusivamente en ruido estocástico de alta amplitud sin ninguna morfología cardíaca distinguible:",
+        fig22CaptionTitle: "Fig. 22: Visualización Clínica Estándar en Alta Definición",
+        sec3P3: "Finalmente, al conectar la estación a la red eléctrica y operar con todos los equipos auxiliares en funcionamiento simultáneo (iluminación, ventilación forzada y telefonía celular cargando), la señal biopotencial resultó totalmente enmascarada:",
+        fig13CaptionDesc: "Esquema convencional en el torso humano, invasivo y de colocación lenta durante pruebas de laboratorio reiteradas.",
+        fig21CaptionDesc: "Traza electrocardiográfica limpia en tiempo real operando bajo la influencia de todas las fuentes de interferencia activas concurrentemente.",
+        sec10CodeLinkDesc: "El sketch oficial en lenguaje C/C++ se encuentra disponible en el <a class=\"ecg-link-inline\" href=\"https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor\" rel=\"noopener noreferrer\" target=\"_blank\">repositorio oficial de GitHub ↗</a>.",
+        fig14CaptionTitle: "Fig. 14: Captura en Falanges Distales según Einthoven",
+        ecgGithubBtn: "📥 Descargar en GitHub (v_ecg_monitor) ↗",
+        sec3P2: "No obstante, las condiciones clínicas reales de un protocolo de paro cardíaco demandan equipamiento auxiliar concurrente: iluminación focalizada mediante lámparas halógenas, camilla térmica para vasodilatación periférica en el sujeto, ventilador mecánico y telefonía celular. Se sometió el sistema a pruebas secuenciales agregando fuentes de interferencia una a una:",
+        sec6P2: "Se estructuró una aplicación en <strong>Python</strong> empleando las librerías <code>PyAudio</code> para el streaming de datos a baja latencia (<50 ms), <code>PyQt5</code> para la arquitectura de la interfaz gráfica y <code>pyqtgraph</code> para el renderizado acelerado de la traza, integrando algoritmos de filtrado digital adaptativo con frecuencia de corte sintonizable en tiempo real:",
+        fig33CaptionDesc: "Circuito resguardado en el interior de la jaula. Ver <a class=\"ecg-link-inline\" href=\"https://es.wikipedia.org/wiki/Jaula_de_Faraday\" rel=\"noopener noreferrer\" target=\"_blank\">fundamentos de la Jaula de Faraday ↗</a>.",
+        fig31CaptionTitle: "Fig. 31: Cable Coaxial Apantallado para la Línea de Audio",
+        fig2CaptionDesc: "Morfología fisiológica de referencia exhibiendo las ondas características P, Q, R, S, T y U requeridas para el diagnóstico clínico.",
+        fig24CaptionDesc: "Ajuste automático de ganancia de voltaje apto para biopotenciales humanos (~1 mV) y electrofisiología en modelos murinos (ratas de laboratorio).",
+        sec9P1: "Para garantizar que el sistema operativo reconozca el conector de 3.5 mm como canal de entrada analógica de alta fidelidad, se accede al panel de configuración de sonido: clic derecho sobre el icono de audio de la barra de tareas de Windows → <em>Sonidos</em> → pestaña <em>Grabación</em>:",
+        fig7CaptionDesc: "Cargador insertado en el conector de la PC pero desconectado del tomacorriente de pared; inducción de ruido capacitivo en la línea de tierra.",
+        sec2P2: "Ante la ausencia de componentes fisiológicos, se procedió a implementar estrictamente las recomendaciones de la <a class=\"ecg-link-inline\" href=\"https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide\" rel=\"noopener noreferrer\" target=\"_blank\">Guía de Conexión del sensor AD8232 de SparkFun ↗</a> y su visualizador en Processing:",
+        fig37CaptionTitle: "Fig. 37: Ensamble y Soldadura en Placa de Baquelita",
+        fig38CaptionDesc: "Hardware final consolidado, listo para conexión al puerto analógico de audio y ensayos clínicos.",
+        fig38CaptionTitle: "Fig. 38: Módulo Electrocardiográfico Terminado y Operativo",
+        fig6CaptionDesc: "Línea base y complejos QRS claramente diferenciados al operar la computadora con alimentación interna y sin cargas electrónicas próximas.",
+        sec12GhDesc: "Software totalmente gratuito y de código abierto bajo Licencia Pública General de GNU (GPL).",
+        sec3Title: "Protocolo de Aislamiento y Caracterización de Fuentes de Interferencia Electromagnética",
+        sec7Title: "Fundamento Físico: Superposición de Ondas (Efecto Young) & Autoescala Multiespecie",
+        sec8Title: "Esquema Eléctrico de Interconexión y Montaje de Hardware",
+        sec10CodeLinkTitle: "📂 Código Fuente de Arduino:",
+        fig15CaptionTitle: "Fig. 15: Configuración Dactilar Ergonómica",
+        sec6Title: "Arquitectura Definitiva: Captura por Tarjeta de Audio (Micrófono) & DSP en Python",
+        fig29CaptionDesc: "Inversión de los cables rojo y negro en el conector del AD8232 para estandarizar el cable negro como común/tierra (GND).",
+        fig3CaptionTitle: "Fig. 3: Módulo Front-End Analógico SparkFun AD8232",
+        sec8Item3: "<strong>Compatibilidad de Microcontrolador:</strong> Puede emplearse cualquier Arduino (Uno o Nano). Se seleccionó el Nano por su formato compacto. Para microcontroladores con chip CH340, instalar los controladores correspondientes y seleccionar <em>\"Old Bootloader\"</em> en el IDE de Arduino.",
+        fig3CaptionDesc: "Circuito integrado de acondicionamiento de señales cardíacas con filtrado analógico paso banda integrado.",
+        fig24CaptionTitle: "Fig. 24: Rutina de Autoescala Dinámica y Calidad Superior a Osciloscopio",
+        sec1ContextTitle: "🔬 Contexto de Investigación Biomédica:",
+        fig12CaptionTitle: "Fig. 12: Electrodos Desechables de Gel Húmedo (Ag/AgCl)",
+        sec4P1: "Los electrodos adhesivos de gel húmedo desechables (Ag/AgCl) suministrados comúnmente con los kits de desarrollo presentan severas desventajas prácticas: son de uso único, sufren desecación rápida que degrada la impedancia de contacto, dejan residuos en la piel y exigen la exposición precordial del torso del sujeto, lo cual resulta invasivo y poco ágil en entornos experimentales dinámicos:",
+        fig9CaptionTitle: "Fig. 9: Radiación de Transformador Energizado en el Suelo",
+        sec8SpecsTitle: "⚡ Claves Técnicas de la Conexión:",
+        fig9CaptionDesc: "Cargador conectado a la red eléctrica pero sin conexión a la PC; radiación electromagnética ambiental de 50/60 Hz.",
+        sec9Title: "Configuración del Subsistema de Audio en el Sistema Operativo",
+        fig35CaptionDesc: "Encerramiento mecánico final impreso en 3D para robustez física y protección de los puntos de soldadura.",
+        fig16CaptionTitle: "Fig. 16: Intercambio Rápido de Derivaciones Bipolares",
+        fig6CaptionTitle: "Fig. 6: Registro de Referencia en Condiciones de Aislamiento por Batería",
+        fig10CaptionTitle: "Fig. 10: Deriva Dinámica de Línea Base por Inducción Proximal",
+        fig8CaptionTitle: "Fig. 8: Interferencia por Cable de Red Ethernet",
+        fig22CaptionDesc: "Cuadrícula médica estandarizada calibrada a 40 ms por división (0.04 s) con ventana temporal de barrido de 5 segundos solicitada por el cardiólogo.",
+        fig28CaptionTitle: "Fig. 28: Firmware de Arduino para Referencia y Diagnóstico",
+        sec9TipDesc: "Para verificar la asignación de pines (Tip, Ring, Sleeve) hacia el AD8232 y GND, utilice la función de continuidad de un multímetro. Nótese que ciertos conectores macho genéricos adquiridos en comercios de electrónica presentan diámetros ~0.5 mm mayores que impiden el contacto firme en puertos estándar de laptop; en su lugar, se recomienda reciclar un cable con conector de 3.5 mm de auriculares en desuso.",
+        sec8P1: "A continuación se detalla el esquema de conexión maestro del sistema. El puerto analógico A0 del Arduino no se emplea para transmitir lecturas a la PC por USB; la bioseñal se toma directamente del pin <strong>OUTPUT</strong> del sensor AD8232 y se deriva a la entrada de micrófono (jack TRS 3.5 mm):",
+        fig13CaptionTitle: "Fig. 13: Posicionamiento Precordial Torácico Clásico",
+        sec10Title: "Firmware del Microcontrolador Arduino & Estandarización de Cableado",
+        fig10CaptionDesc: "Aproximación del transformador a los electrodos y la placa; la señal adquiere una oscilación sinusoidal de gran amplitud.",
+        fig17CaptionTitle: "Fig. 17: Electrodo de Referencia (GND) en Lóbulo Auricular",
+        fig11CaptionDesc: "Señal colapsada bajo la suma de todas las fuentes de ruido del laboratorio activo; pérdida total de trazabilidad electrofisiológica.",
+        sec5AlertItem1: "<strong>Filtrado por Hardware Analógico:</strong> Atenúa simétricamente el ruido y la señal fisiológica. Adaptarlo a ruidos ambientales variables exigía una circuitería analógica tan costosa y compleja como fabricar un osciloscopio completo, contradiciendo el objetivo del proyecto.",
+        fig11CaptionTitle: "Fig. 11: Saturación Destructiva Acumulativa",
+        fig20CaptionDesc: "Implementación digital en MatLab; si bien limpiaba la traza, generaba un retardo de ~5 segundos incompatible con la monitorización de paro cardíaco en tiempo real.",
+        sec11WarningDesc: "Al instalar la Jaula de Faraday o el blindaje de aluminio, asegúrese de interponer una capa aislante (cinta dieléctrica o base plástica) que impida el contacto físico de la malla con los puntos de soldadura de la parte inferior de la placa Arduino, a fin de evitar cortocircuitos destructivos.",
+        sec4P3: "Esta configuración confiere versatilidad diagnóstica al investigador, permitiendo invertir rápidamente las derivaciones para registrar morfologías de onda invertidas o explorar signos patológicos particulares. Asimismo, se comprobó experimentalmente que el electrodo de referencia a tierra (GND / Pierna Derecha - RL) puede posicionarse con total estabilidad en el lóbulo de la oreja:",
+        fig31CaptionDesc: "Malla metálica trenzada que drena a masa los campos inducidos a lo largo del trayecto del cable.",
+        sec1P3: "Si bien los electrocardiógrafos y osciloscopios clínicos comerciales disponen de interfaces para enlace con PC, sus licencias de software propietario suponen un costo recurrente de entre <strong>$500 USD y $1,000 USD</strong>. El objetivo prioritario de este desarrollo fue superar dicha barrera económica, concibiendo un sistema de telemetría de código abierto, accesible, económicamente viable y de alta confiabilidad metrológica para cualquier profesional o centro de investigación.",
+        fig34CaptionDesc: "Envoltorio dieléctricamente aislado en lámina de aluminio para atenuar radiaciones electromagnéticas residuales.",
+        fig32CaptionTitle: "Fig. 32: Construcción de Jaula de Faraday",
+        ecgQuickLabel: "INVESTIGACIÓN Y AUTORÍA",
+        sec10P1: "El microcontrolador Arduino ejecuta un firmware básico de estabilización de niveles de entrada. Si bien la bioseñal primaria viaja por el jack analógico, este código permite mantener los potenciales de referencia estables y permite alternar con el Serial Plotter si se desea realizar mediciones de validación cruzada:",
+        fig4CaptionTitle: "Fig. 4: Registro Esperado Teórico en Processing",
+        fig19CaptionDesc: "Circuitos de filtros activos analógicos evaluados; atenuaban la amplitud útil del biopotencial y carecían de adaptabilidad ante fuentes dinámicas.",
+        fig7CaptionTitle: "Fig. 7: Acoplamiento Capacitivo del Conector de Carga",
+        fig25CaptionTitle: "Fig. 25: Diagrama Esquemático de Interconexión General",
+        fig26CaptionDesc: "Identificación del dispositivo de audio predeterminado previo a la inserción del conector analógico.",
+        fig33CaptionTitle: "Fig. 33: Alojamiento Integral en Jaula de Faraday",
+        sec1P2: "En un instrumento de alta sensibilidad como el electrocardiógrafo, convergen múltiples fuentes ambientales parásitas: luminarias de descarga o LED, conductores energizados e incluso regletas multienchufe cercanas, las cuales irradian campos electromagnéticos que inducen zumbidos de gran amplitud aun cuando los dispositivos conectados permanezcan apagados.",
+        sec7P2: "Dado que en cada espacio físico las fuentes electromagnéticas varían, el software en Python incorpora un control dinámico que permite al usuario ajustar con precisión los Hz de filtrado según su entorno particular. Asimismo, la <strong>autoescala de voltaje</strong> normaliza de forma inteligente las lecturas, permitiendo su uso directo en investigaciones con pequeños roedores de laboratorio cuyos biopotenciales presentan amplitudes de microvoltios.",
+        fig19CaptionTitle: "Fig. 19: Topologías de Filtrado Analógico en Hardware Ensayadas",
+        sec7P1: "Un hallazgo biofísico fundamental del proyecto fue comprobar que la frecuencia de ruido dominante a mitigar no se ubicaba en los 50 Hz teóricos de la red eléctrica, sino en <strong>35 Hz</strong>. Este fenómeno responde a las leyes de la física ondulatoria descritas en el <a class=\"ecg-link-inline\" href=\"https://es.wikipedia.org/wiki/Experimento_de_Young\" rel=\"noopener noreferrer\" target=\"_blank\">experimento de la doble ranura de Thomas Young ↗</a>:",
+        sec11P1: "Con el hardware conectado y el conector de audio reconocido, se procede a ejecutar el software en Python compilado (~200 MB con todas las librerías científicas empaquetadas; la descompresión inicial toma aproximadamente 40 segundos). El sujeto debe mantenerse relajado e inmóvil para prevenir artefactos electromiográficos (EMG) generados por temblores musculares. En residencias sin conexión a tierra física, se recomienda operar la computadora con la batería interna:",
+        sec11P2: "Para alcanzar la máxima inmunidad electromagnética en laboratorios con abundante radiación parásita, se integraron cuatro niveles de blindaje físico:",
+        fig26CaptionTitle: "Fig. 26: Panel de Dispositivos de Grabación (Estado Inicial)",
+        sec5P1: "La frecuencia fundamental del ruido de red comercial es de 50 Hz en Argentina y Europa, y de 60 Hz en Costa Rica y Norteamérica. En la literatura de ingeniería biomédica se describen diversas topologías de filtrado: pasa-bajos, FIR, filtros Butterworth de orden superior y promediado móvil. Inicialmente se exploró la implementación de filtros analógicos activos en hardware (etapas RC y operacionales adicionales):",
+        fig20CaptionTitle: "Fig. 20: Ensayos de Filtrado Digital en MatLab / Simulink",
+        fig12CaptionDesc: "Parches autoadhesivos con pérdida progresiva de electrolito y desprendimiento por sudoración o movimiento.",
+        fig37CaptionDesc: "Integración compacta del microcontrolador Arduino Nano y el sensor AD8232 soldados sobre el PCB.",
+        fig18CaptionDesc: "Electrodos secos ergonómicos, lavables, libres de adhesivos e instantáneamente reutilizables.",
+        fig23CaptionTitle: "Fig. 23: Interferencia Constructiva y Destructiva de Ondas (Efecto Young)",
+        sec9TipTitle: "💡 Recomendación Práctica sobre Conectores TRS 3.5 mm:",
+        fig27CaptionDesc: "Conexión del jack TRS con el Arduino apagado; el sistema conmuta automáticamente al micrófono de entrada externa.",
+        fig30CaptionDesc: "Comparativa lado a lado entre el Serial Plotter de Arduino sin filtros y la señal filtrada con el software en Python. <a class=\"ecg-link-inline\" href=\"https://www.youtube.com/watch?v=NcodDkrldqQ&amp;t=8s\" rel=\"noopener noreferrer\" target=\"_blank\">Ver demostración en YouTube (8 min) ↗</a>.",
+        sec12P1: "Para conferir máxima confiabilidad mecánica al instrumento y eliminar cables sueltos en protoboard, se diseñó un circuito impreso (PCB de simple faz en baquelita) optimizado para el Arduino Nano y el módulo AD8232:",
+        fig35CaptionTitle: "Fig. 35: Gabinete de Aislamiento y Carcasa Protectora en 3D",
+        sec5AlertItem3: "<strong>Librerías de Sobremuestreo en Arduino:</strong> El ancho de banda del convertidor analógico-digital (ADC) interno del microcontrolador ATmega328P resultaba insuficiente para sostener simultáneamente el muestreo continuo y el filtrado digital en tiempo real.",
+        sec4P2: "Bajo el asesoramiento del cardiólogo colaborador, se aplicaron los principios biofísicos de la <strong>Ley y Triángulo de Einthoven</strong>: el registro de derivaciones bipolares periféricas (Derivaciones I, II y III) no exige estrictamente una fijación sobre el torso, siempre que los electrodos mantengan una geometría triangular equidistante respecto al vector cardíaco central. En consecuencia, se validó la toma de derivaciones en las falanges distales de los dedos:",
+        sec8Item4: "<strong>Modo Comparativo Simultáneo:</strong> Si el usuario desea comparar simultáneamente el Serial Plotter de Arduino con el software en Python, puede conectar el cable USB desconectando previamente las baterías para evitar conflictos de alimentación.",
+        fig16CaptionDesc: "Inversión controlada de electrodos exploradores para análisis vectorial cardiológico directo.",
+        sec8Item1: "<strong>Alimentación por Baterías DC:</strong> Se emplean baterías para energizar el circuito, desvinculando galvánicamente el sistema de la red eléctrica y del bus USB. Esto ahorra los $40 USD de un aislador de señal USB externo (el cual además sólo aislaría el puerto, no la radiación electromagnética captada por los electrodos que operan como antenas).",
+        fig18CaptionTitle: "Fig. 18: Pinzas Dactilares Impresas en 3D con Lámina de Cobre",
+        sec1ContextDesc: "Este proyecto fue formulado en respuesta a la solicitud de un médico cardiólogo en el marco de su investigación de tesis sobre fisiopatología de paros cardíacos y arritmias agudas. El protocolo experimental requería la visualización continua y en tiempo real de la traza electrocardiográfica en un ordenador portátil para capturar instantáneas en alta resolución (HD) y realizar análisis morfométricos diferidos de los complejos cardíacos.",
+        sec6P1: "El avance determinante del proyecto consistió en comprender que los algoritmos de adquisición de audio de baja latencia a través de la tarjeta de sonido de la computadora eran óptimos para digitalizar la bioseñal cardíaca. Tanto una señal acústica analógica como la salida del sensor AD8232 son variaciones continuas de voltaje; la tarjeta de sonido del ordenador integra convertidores ADC de alta velocidad (44.1 kHz / 48 kHz), preamplificadores de bajo ruido y aislamiento natural del ruido del bus serie USB.",
+        sec12GhTitle: "Software Compilado y Código Fuente Oficial (Licencia GPL)",
+        sec3P1: "Para depurar la señal, se diseñó un protocolo de aislamiento factorial para identificar el aporte individual de cada componente del entorno experimental. En primer término, se evaluó un escenario base de aislamiento electromagnético: estación portátil alimentada exclusivamente con batería interna, desconectada de la red eléctrica y apartada de equipos activos:",
+        sec8Item2: "<strong>Pines D10 y D11 de Arduino:</strong> Se configuran como entradas digitales conectadas a los pines LO- y LO+ del AD8232 para estabilizar las referencias y detectar electrodos desprendidos.",
+        fig32CaptionDesc: "Recinto de malla metálica conductora para atenuar ondas de radiofrecuencia (RF), wifi y telefonía celular.",
+        fig1CaptionDesc: "Traza dominada por ruido parásito sin modulación biopotencial reconocible; ausencia total de despolarización ventricular.",
+        sec1Title: "Planteamiento del Problema, Contexto Clínico y Ruido Eléctrico",
+        fig21CaptionTitle: "Fig. 21: Interfaz del Software en Python con Filtrado Adaptativo a 35 Hz",
+        fig14CaptionDesc: "Derivación bipolar periférica obtenida mediante contacto en los dedos índice y medio de ambas manos.",
+        sec5Title: "Evaluación de Estrategias de Filtrado: Hardware Analógico vs. Software Digital",
+        fig4CaptionDesc: "Gráfica teórica ilustrada en la documentación oficial del fabricante bajo condiciones ideales de aislamiento.",
+        sec11WarningTitle: "⚠️ Advertencia Crítica de Aislamiento Eléctrico:",
+        fig27CaptionTitle: "Fig. 27: Conmutación Inmediata al Canal de Micrófono Externo",
+        fig36CaptionTitle: "Fig. 36: Diseño de Pistas (Layout PCB) para Impresión en Baquelita",
+        sec12Title: "Fabricación de Circuito Impreso (PCB) en Baquelita, Repositorio & Créditos",
+        sec5AlertTitle: "⚠️ Conclusiones de los Ensayos de Filtrado:",
+        fig15CaptionDesc: "Disposición alternativa rápida que facilita la toma de muestras seriadas sin retirar prendas de vestir.",
+        fig36CaptionDesc: "Plantilla de pistas a escala 1:1 lista para transferencia térmica (método del tóner) o grabado químico.",
+        sec1P1: "En el ámbito del registro electrofisiológico, la adquisición de biopotenciales cardíacos enfrenta desafíos críticos de relación señal-ruido (SNR). Tal como se define en la teoría electromagnética, el <em>ruido eléctrico</em> comprende todas aquellas señales de interferencia, de origen eléctrico o inductivo, no deseadas que se acoplan a la señal útil alterando su morfología y produciendo distorsiones que invalidan la lectura clínica.",
+        fig8CaptionDesc: "Conexión de interfaz cableada de red; se aprecian armónicos de conmutación de alta frecuencia acoplados a la estación.",
+        ecgDownloadReleaseBtn: "📥 Descargar Software Oficial (GitHub) ↗",
+        sec2Title: "Caracterización Experimental Inicial: Señal Cruda y Registros de Fábrica",
+        fig30CaptionTitle: "Fig. 30: Video Demostrativo Comparativo en Tiempo Real",
+        fig25CaptionDesc: "Conexión de pines del AD8232 al Arduino Nano, derivación analógica al jack TRS 3.5 mm de micrófono y alimentación por batería DC.",
+        fig28CaptionDesc: "Código embebido para gestión de entradas digitales 10 y 11 y estabilización de potenciales del AD8232.",
+        sec11Title: "Protocolo de Medición, Demostración en Video y Blindaje Electromagnético Avanzado",
+        fig5CaptionTitle: "Fig. 5: Registro Real Obtenido con el Código del Manual",
+        fig23CaptionDesc: "Al coincidir múltiples frentes de onda electromagnéticos en el ambiente, se producen cancelaciones y sumatorias de fase que desplazan la frecuencia dominante de interferencia a 35 Hz.",
+        fig29CaptionTitle: "Fig. 29: Corrección de Polaridad y Código de Color",
+        fig5CaptionDesc: "Mejor resultado alcanzado mediante el firmware estándar: traza saturada de ruido de alta frecuencia inaceptable para investigación cardiológica.",
+        fig2CaptionTitle: "Fig. 2: Complejo Electrocardiográfico Estándar Teórico",
+        fig1CaptionTitle: "Fig. 1: Primer Registro Electrocardiográfico Obtenido",
+        sec4Title: "Innovación en Electrodos Secos: Pinzas Ergonómicas 3D y Triángulo de Einthoven",
+        sec5AlertItem2: "<strong>Filtrado Digital en MatLab / Simulink:</strong> La sobrecarga de procesamiento introducía un retraso crítico de 5 segundos entre el latido real y su representación visual, inaceptable para eventos agudos.",
+        fig17CaptionDesc: "Punto equipotencial idóneo y de nula interferencia electromiográfica para la referencia del amplificador de instrumentación.",
+        sec4P4: "Para materializar esta solución de forma permanente y reusable, se diseñaron y modelaron en 3D pinzas anatómicas de presión constante equipadas con láminas de cobre electrolítico de alta pureza como contacto seco:",
+        fig34CaptionTitle: "Fig. 34: Barrera Reflectiva Secundaria en Lámina de Aluminio",
+        sec2P1: "Los primeros ensayos realizados con el hardware estándar arrojaron resultados insatisfactorios. La señal registrada consistía exclusivamente en ruido estocástico de alta amplitud sin ninguna morfología cardíaca distinguible:",
+        fig22CaptionTitle: "Fig. 22: Visualización Clínica Estándar en Alta Definición",
+        sec3P3: "Finalmente, al conectar la estación a la red eléctrica y operar con todos los equipos auxiliares en funcionamiento simultáneo (iluminación, ventilación forzada y telefonía celular cargando), la señal biopotencial resultó totalmente enmascarada:",
+        fig13CaptionDesc: "Esquema convencional en el torso humano, invasivo y de colocación lenta durante pruebas de laboratorio reiteradas.",
+        fig21CaptionDesc: "Traza electrocardiográfica limpia en tiempo real operando bajo la influencia de todas las fuentes de interferencia activas concurrentemente.",
+        sec10CodeLinkDesc: "El sketch oficial en lenguaje C/C++ se encuentra disponible en el <a class=\"ecg-link-inline\" href=\"https://github.com/BrandonAntonioSeguraTorres/Real-Time-ECG-Monitor-PyQt5-PyAudio-/releases/tag/ecg_monitor\" rel=\"noopener noreferrer\" target=\"_blank\">repositorio oficial de GitHub ↗</a>.",
+        fig14CaptionTitle: "Fig. 14: Captura en Falanges Distales según Einthoven",
+        ecgGithubBtn: "📥 Descargar en GitHub (v_ecg_monitor) ↗",
+        sec3P2: "No obstante, las condiciones clínicas reales de un protocolo de paro cardíaco demandan equipamiento auxiliar concurrente: iluminación focalizada mediante lámparas halógenas, camilla térmica para vasodilatación periférica en el sujeto, ventilador mecánico y telefonía celular. Se sometió el sistema a pruebas secuenciales agregando fuentes de interferencia una a una:",
+        sec6P2: "Se estructuró una aplicación en <strong>Python</strong> empleando las librerías <code>PyAudio</code> para el streaming de datos a baja latencia (<50 ms), <code>PyQt5</code> para la arquitectura de la interfaz gráfica y <code>pyqtgraph</code> para el renderizado acelerado de la traza, integrando algoritmos de filtrado digital adaptativo con frecuencia de corte sintonizable en tiempo real:",
+        fig33CaptionDesc: "Circuito resguardado en el interior de la jaula. Ver <a class=\"ecg-link-inline\" href=\"https://es.wikipedia.org/wiki/Jaula_de_Faraday\" rel=\"noopener noreferrer\" target=\"_blank\">fundamentos de la Jaula de Faraday ↗</a>.",
+        fig31CaptionTitle: "Fig. 31: Cable Coaxial Apantallado para la Línea de Audio",
+        fig2CaptionDesc: "Morfología fisiológica de referencia exhibiendo las ondas características P, Q, R, S, T y U requeridas para el diagnóstico clínico.",
+        fig24CaptionDesc: "Ajuste automático de ganancia de voltaje apto para biopotenciales humanos (~1 mV) y electrofisiología en modelos murinos (ratas de laboratorio).",
+        sec9P1: "Para garantizar que el sistema operativo reconozca el conector de 3.5 mm como canal de entrada analógica de alta fidelidad, se accede al panel de configuración de sonido: clic derecho sobre el icono de audio de la barra de tareas de Windows → <em>Sonidos</em> → pestaña <em>Grabación</em>:",
+        fig7CaptionDesc: "Cargador insertado en el conector de la PC pero desconectado del tomacorriente de pared; inducción de ruido capacitivo en la línea de tierra.",
+        sec2P2: "Ante la ausencia de componentes fisiológicos, se procedió a implementar estrictamente las recomendaciones de la <a class=\"ecg-link-inline\" href=\"https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide\" rel=\"noopener noreferrer\" target=\"_blank\">Guía de Conexión del sensor AD8232 de SparkFun ↗</a> y su visualizador en Processing:",
+        fig37CaptionTitle: "Fig. 37: Ensamble y Soldadura en Placa de Baquelita",
+        fig38CaptionDesc: "Hardware final consolidado, listo para conexión al puerto analógico de audio y ensayos clínicos.",
+        fig38CaptionTitle: "Fig. 38: Módulo Electrocardiográfico Terminado y Operativo",
+        fig6CaptionDesc: "Línea base y complejos QRS claramente diferenciados al operar la computadora con alimentación interna y sin cargas electrónicas próximas.",
+        sec12GhDesc: "Software totalmente gratuito y de código abierto bajo Licencia Pública General de GNU (GPL).",
+        sec3Title: "Protocolo de Aislamiento y Caracterización de Fuentes de Interferencia Electromagnética",
+        sec7Title: "Fundamento Físico: Superposición de Ondas (Efecto Young) & Autoescala Multiespecie",
+        sec8Title: "Esquema Eléctrico de Interconexión y Montaje de Hardware",
+        sec10CodeLinkTitle: "📂 Código Fuente de Arduino:",
+        fig15CaptionTitle: "Fig. 15: Configuración Dactilar Ergonómica",
+        sec6Title: "Arquitectura Definitiva: Captura por Tarjeta de Audio (Micrófono) & DSP en Python",
+        fig29CaptionDesc: "Inversión de los cables rojo y negro en el conector del AD8232 para estandarizar el cable negro como común/tierra (GND).",
+        fig3CaptionTitle: "Fig. 3: Módulo Front-End Analógico SparkFun AD8232",
+        sec8Item3: "<strong>Compatibilidad de Microcontrolador:</strong> Puede emplearse cualquier Arduino (Uno o Nano). Se seleccionó el Nano por su formato compacto. Para microcontroladores con chip CH340, instalar los controladores correspondientes y seleccionar <em>\"Old Bootloader\"</em> en el IDE de Arduino.",
+        fig3CaptionDesc: "Circuito integrado de acondicionamiento de señales cardíacas con filtrado analógico paso banda integrado.",
+        fig24CaptionTitle: "Fig. 24: Rutina de Autoescala Dinámica y Calidad Superior a Osciloscopio",
+        sec1ContextTitle: "🔬 Contexto de Investigación Biomédica:",
+        fig12CaptionTitle: "Fig. 12: Electrodos Desechables de Gel Húmedo (Ag/AgCl)",
+        sec4P1: "Los electrodos adhesivos de gel húmedo desechables (Ag/AgCl) suministrados comúnmente con los kits de desarrollo presentan severas desventajas prácticas: son de uso único, sufren desecación rápida que degrada la impedancia de contacto, dejan residuos en la piel y exigen la exposición precordial del torso del sujeto, lo cual resulta invasivo y poco ágil en entornos experimentales dinámicos:",
+        fig9CaptionTitle: "Fig. 9: Radiación de Transformador Energizado en el Suelo",
+        sec8SpecsTitle: "⚡ Claves Técnicas de la Conexión:",
+        fig9CaptionDesc: "Cargador conectado a la red eléctrica pero sin conexión a la PC; radiación electromagnética ambiental de 50/60 Hz.",
+        sec9Title: "Configuración del Subsistema de Audio en el Sistema Operativo",
+        fig35CaptionDesc: "Encerramiento mecánico final impreso en 3D para robustez física y protección de los puntos de soldadura.",
+        fig16CaptionTitle: "Fig. 16: Intercambio Rápido de Derivaciones Bipolares",
+        fig6CaptionTitle: "Fig. 6: Registro de Referencia en Condiciones de Aislamiento por Batería",
+        fig10CaptionTitle: "Fig. 10: Deriva Dinámica de Línea Base por Inducción Proximal",
+        fig8CaptionTitle: "Fig. 8: Interferencia por Cable de Red Ethernet",
+        fig22CaptionDesc: "Cuadrícula médica estandarizada calibrada a 40 ms por división (0.04 s) con ventana temporal de barrido de 5 segundos solicitada por el cardiólogo.",
+        fig28CaptionTitle: "Fig. 28: Firmware de Arduino para Referencia y Diagnóstico",
+        sec9TipDesc: "Para verificar la asignación de pines (Tip, Ring, Sleeve) hacia el AD8232 y GND, utilice la función de continuidad de un multímetro. Nótese que ciertos conectores macho genéricos adquiridos en comercios de electrónica presentan diámetros ~0.5 mm mayores que impiden el contacto firme en puertos estándar de laptop; en su lugar, se recomienda reciclar un cable con conector de 3.5 mm de auriculares en desuso.",
+        sec8P1: "A continuación se detalla el esquema de conexión maestro del sistema. El puerto analógico A0 del Arduino no se emplea para transmitir lecturas a la PC por USB; la bioseñal se toma directamente del pin <strong>OUTPUT</strong> del sensor AD8232 y se deriva a la entrada de micrófono (jack TRS 3.5 mm):",
+        fig13CaptionTitle: "Fig. 13: Posicionamiento Precordial Torácico Clásico",
+        sec10Title: "Firmware del Microcontrolador Arduino & Estandarización de Cableado",
+        fig10CaptionDesc: "Aproximación del transformador a los electrodos y la placa; la señal adquiere una oscilación sinusoidal de gran amplitud.",
+        fig17CaptionTitle: "Fig. 17: Electrodo de Referencia (GND) en Lóbulo Auricular",
+        fig11CaptionDesc: "Señal colapsada bajo la suma de todas las fuentes de ruido del laboratorio activo; pérdida total de trazabilidad electrofisiológica.",
+        sec5AlertItem1: "<strong>Filtrado por Hardware Analógico:</strong> Atenúa simétricamente el ruido y la señal fisiológica. Adaptarlo a ruidos ambientales variables exigía una circuitería analógica tan costosa y compleja como fabricar un osciloscopio completo, contradiciendo el objetivo del proyecto.",
+        fig11CaptionTitle: "Fig. 11: Saturación Destructiva Acumulativa",
+        fig20CaptionDesc: "Implementación digital en MatLab; si bien limpiaba la traza, generaba un retardo de ~5 segundos incompatible con la monitorización de paro cardíaco en tiempo real.",
+        sec11WarningDesc: "Al instalar la Jaula de Faraday o el blindaje de aluminio, asegúrese de interponer una capa aislante (cinta dieléctrica o base plástica) que impida el contacto físico de la malla con los puntos de soldadura de la parte inferior de la placa Arduino, a fin de evitar cortocircuitos destructivos.",
+        sec4P3: "Esta configuración confiere versatilidad diagnóstica al investigador, permitiendo invertir rápidamente las derivaciones para registrar morfologías de onda invertidas o explorar signos patológicos particulares. Asimismo, se comprobó experimentalmente que el electrodo de referencia a tierra (GND / Pierna Derecha - RL) puede posicionarse con total estabilidad en el lóbulo de la oreja:",
+        fig31CaptionDesc: "Malla metálica trenzada que drena a masa los campos inducidos a lo largo del trayecto del cable.",
+        sec1P3: "Si bien los electrocardiógrafos y osciloscopios clínicos comerciales disponen de interfaces para enlace con PC, sus licencias de software propietario suponen un costo recurrente de entre <strong>$500 USD y $1,000 USD</strong>. El objetivo prioritario de este desarrollo fue superar dicha barrera económica, concibiendo un sistema de telemetría de código abierto, accesible, económicamente viable y de alta confiabilidad metrológica para cualquier profesional o centro de investigación.",
+        fig34CaptionDesc: "Envoltorio dieléctricamente aislado en lámina de aluminio para atenuar radiaciones electromagnéticas residuales.",
+        fig32CaptionTitle: "Fig. 32: Construcción de Jaula de Faraday",
+        ecgQuickLabel: "INVESTIGACIÓN Y AUTORÍA",
+        sec10P1: "El microcontrolador Arduino ejecuta un firmware básico de estabilización de niveles de entrada. Si bien la bioseñal primaria viaja por el jack analógico, este código permite mantener los potenciales de referencia estables y permite alternar con el Serial Plotter si se desea realizar mediciones de validación cruzada:",
+        fig4CaptionTitle: "Fig. 4: Registro Esperado Teórico en Processing",
+        fig19CaptionDesc: "Circuitos de filtros activos analógicos evaluados; atenuaban la amplitud útil del biopotencial y carecían de adaptabilidad ante fuentes dinámicas.",
+        fig7CaptionTitle: "Fig. 7: Acoplamiento Capacitivo del Conector de Carga",
+        fig25CaptionTitle: "Fig. 25: Diagrama Esquemático de Interconexión General",
+        fig26CaptionDesc: "Identificación del dispositivo de audio predeterminado previo a la inserción del conector analógico.",
+        fig33CaptionTitle: "Fig. 33: Alojamiento Integral en Jaula de Faraday",
+        sec1P2: "En un instrumento de alta sensibilidad como el electrocardiógrafo, convergen múltiples fuentes ambientales parásitas: luminarias de descarga o LED, conductores energizados e incluso regletas multienchufe cercanas, las cuales irradian campos electromagnéticos que inducen zumbidos de gran amplitud aun cuando los dispositivos conectados permanezcan apagados.",
+        sec7P2: "Dado que en cada espacio físico las fuentes electromagnéticas varían, el software en Python incorpora un control dinámico que permite al usuario ajustar con precisión los Hz de filtrado según su entorno particular. Asimismo, la <strong>autoescala de voltaje</strong> normaliza de forma inteligente las lecturas, permitiendo su uso directo en investigaciones con pequeños roedores de laboratorio cuyos biopotenciales presentan amplitudes de microvoltios.",
+        fig19CaptionTitle: "Fig. 19: Topologías de Filtrado Analógico en Hardware Ensayadas",
+        sec7P1: "Un hallazgo biofísico fundamental del proyecto fue comprobar que la frecuencia de ruido dominante a mitigar no se ubicaba en los 50 Hz teóricos de la red eléctrica, sino en <strong>35 Hz</strong>. Este fenómeno responde a las leyes de la física ondulatoria descritas en el <a class=\"ecg-link-inline\" href=\"https://es.wikipedia.org/wiki/Experimento_de_Young\" rel=\"noopener noreferrer\" target=\"_blank\">experimento de la doble ranura de Thomas Young ↗</a>:",
+        sec11P1: "Con el hardware conectado y el conector de audio reconocido, se procede a ejecutar el software en Python compilado (~200 MB con todas las librerías científicas empaquetadas; la descompresión inicial toma aproximadamente 40 segundos). El sujeto debe mantenerse relajado e inmóvil para prevenir artefactos electromiográficos (EMG) generados por temblores musculares. En residencias sin conexión a tierra física, se recomienda operar la computadora con la batería interna:",
+        sec11P2: "Para alcanzar la máxima inmunidad electromagnética en laboratorios con abundante radiación parásita, se integraron cuatro niveles de blindaje físico:",
+        fig26CaptionTitle: "Fig. 26: Panel de Dispositivos de Grabación (Estado Inicial)",
+        sec5P1: "La frecuencia fundamental del ruido de red comercial es de 50 Hz en Argentina y Europa, y de 60 Hz en Costa Rica y Norteamérica. En la literatura de ingeniería biomédica se describen diversas topologías de filtrado: pasa-bajos, FIR, filtros Butterworth de orden superior y promediado móvil. Inicialmente se exploró la implementación de filtros analógicos activos en hardware (etapas RC y operacionales adicionales):",
+        fig20CaptionTitle: "Fig. 20: Ensayos de Filtrado Digital en MatLab / Simulink",
+        fig12CaptionDesc: "Parches autoadhesivos con pérdida progresiva de electrolito y desprendimiento por sudoración o movimiento.",
+        fig37CaptionDesc: "Integración compacta del microcontrolador Arduino Nano y el sensor AD8232 soldados sobre el PCB.",
+        fig18CaptionDesc: "Electrodos secos ergonómicos, lavables, libres de adhesivos e instantáneamente reutilizables.",
+        fig23CaptionTitle: "Fig. 23: Interferencia Constructiva y Destructiva de Ondas (Efecto Young)",
+        sec9TipTitle: "💡 Recomendación Práctica sobre Conectores TRS 3.5 mm:",
+        fig27CaptionDesc: "Conexión del jack TRS con el Arduino apagado; el sistema conmuta automáticamente al micrófono de entrada externa.",
+        fig30CaptionDesc: "Comparativa lado a lado entre el Serial Plotter de Arduino sin filtros y la señal filtrada con el software en Python. <a class=\"ecg-link-inline\" href=\"https://www.youtube.com/watch?v=NcodDkrldqQ&amp;t=8s\" rel=\"noopener noreferrer\" target=\"_blank\">Ver demostración en YouTube (8 min) ↗</a>.",
+        sec12P1: "Para conferir máxima confiabilidad mecánica al instrumento y eliminar cables sueltos en protoboard, se diseñó un circuito impreso (PCB de simple faz en baquelita) optimizado para el Arduino Nano y el módulo AD8232:",
+        fig35CaptionTitle: "Fig. 35: Gabinete de Aislamiento y Carcasa Protectora en 3D",
+        sec5AlertItem3: "<strong>Librerías de Sobremuestreo en Arduino:</strong> El ancho de banda del convertidor analógico-digital (ADC) interno del microcontrolador ATmega328P resultaba insuficiente para sostener simultáneamente el muestreo continuo y el filtrado digital en tiempo real.",
+        sec4P2: "Bajo el asesoramiento del cardiólogo colaborador, se aplicaron los principios biofísicos de la <strong>Ley y Triángulo de Einthoven</strong>: el registro de derivaciones bipolares periféricas (Derivaciones I, II y III) no exige estrictamente una fijación sobre el torso, siempre que los electrodos mantengan una geometría triangular equidistante respecto al vector cardíaco central. En consecuencia, se validó la toma de derivaciones en las falanges distales de los dedos:",
+        sec8Item4: "<strong>Modo Comparativo Simultáneo:</strong> Si el usuario desea comparar simultáneamente el Serial Plotter de Arduino con el software en Python, puede conectar el cable USB desconectando previamente las baterías para evitar conflictos de alimentación.",
+        fig16CaptionDesc: "Inversión controlada de electrodos exploradores para análisis vectorial cardiológico directo.",
+        sec8Item1: "<strong>Alimentación por Baterías DC:</strong> Se emplean baterías para energizar el circuito, desvinculando galvánicamente el sistema de la red eléctrica y del bus USB. Esto ahorra los $40 USD de un aislador de señal USB externo (el cual además sólo aislaría el puerto, no la radiación electromagnética captada por los electrodos que operan como antenas).",
+        fig18CaptionTitle: "Fig. 18: Pinzas Dactilares Impresas en 3D con Lámina de Cobre",
+        sec1ContextDesc: "Este proyecto fue formulado en respuesta a la solicitud de un médico cardiólogo en el marco de su investigación de tesis sobre fisiopatología de paros cardíacos y arritmias agudas. El protocolo experimental requería la visualización continua y en tiempo real de la traza electrocardiográfica en un ordenador portátil para capturar instantáneas en alta resolución (HD) y realizar análisis morfométricos diferidos de los complejos cardíacos.",
+        sec6P1: "El avance determinante del proyecto consistió en comprender que los algoritmos de adquisición de audio de baja latencia a través de la tarjeta de sonido de la computadora eran óptimos para digitalizar la bioseñal cardíaca. Tanto una señal acústica analógica como la salida del sensor AD8232 son variaciones continuas de voltaje; la tarjeta de sonido del ordenador integra convertidores ADC de alta velocidad (44.1 kHz / 48 kHz), preamplificadores de bajo ruido y aislamiento natural del ruido del bus serie USB.",
+        sec12GhTitle: "Software Compilado y Código Fuente Oficial (Licencia GPL)",
+        sec3P1: "Para depurar la señal, se diseñó un protocolo de aislamiento factorial para identificar el aporte individual de cada componente del entorno experimental. En primer término, se evaluó un escenario base de aislamiento electromagnético: estación portátil alimentada exclusivamente con batería interna, desconectada de la red eléctrica y apartada de equipos activos:",
+        sec8Item2: "<strong>Pines D10 y D11 de Arduino:</strong> Se configuran como entradas digitales conectadas a los pines LO- y LO+ del AD8232 para estabilizar las referencias y detectar electrodos desprendidos.",
+        fig32CaptionDesc: "Recinto de malla metálica conductora para atenuar ondas de radiofrecuencia (RF), wifi y telefonía celular.",
+        fig1CaptionDesc: "Traza dominada por ruido parásito sin modulación biopotencial reconocible; ausencia total de despolarización ventricular.",
+        sec1Title: "Planteamiento del Problema, Contexto Clínico y Ruido Eléctrico",
+        fig21CaptionTitle: "Fig. 21: Interfaz del Software en Python con Filtrado Adaptativo a 35 Hz",
+        fig14CaptionDesc: "Derivación bipolar periférica obtenida mediante contacto en los dedos índice y medio de ambas manos.",
+        sec5Title: "Evaluación de Estrategias de Filtrado: Hardware Analógico vs. Software Digital",
+        fig4CaptionDesc: "Gráfica teórica ilustrada en la documentación oficial del fabricante bajo condiciones ideales de aislamiento.",
+        sec11WarningTitle: "⚠️ Advertencia Crítica de Aislamiento Eléctrico:",
+        fig27CaptionTitle: "Fig. 27: Conmutación Inmediata al Canal de Micrófono Externo",
+        fig36CaptionTitle: "Fig. 36: Diseño de Pistas (Layout PCB) para Impresión en Baquelita",
+        sec12Title: "Fabricación de Circuito Impreso (PCB) en Baquelita, Repositorio & Créditos",
+        sec5AlertTitle: "⚠️ Conclusiones de los Ensayos de Filtrado:",
+        fig15CaptionDesc: "Disposición alternativa rápida que facilita la toma de muestras seriadas sin retirar prendas de vestir.",
+        fig36CaptionDesc: "Plantilla de pistas a escala 1:1 lista para transferencia térmica (método del tóner) o grabado químico.",
+        sec1P1: "En el ámbito del registro electrofisiológico, la adquisición de biopotenciales cardíacos enfrenta desafíos críticos de relación señal-ruido (SNR). Tal como se define en la teoría electromagnética, el <em>ruido eléctrico</em> comprende todas aquellas señales de interferencia, de origen eléctrico o inductivo, no deseadas que se acoplan a la señal útil alterando su morfología y produciendo distorsiones que invalidan la lectura clínica.",
+        fig8CaptionDesc: "Conexión de interfaz cableada de red; se aprecian armónicos de conmutación de alta frecuencia acoplados a la estación.",
+        ecgDownloadReleaseBtn: "📥 Descargar Software Oficial (GitHub) ↗",
+        sec2Title: "Caracterización Experimental Inicial: Señal Cruda y Registros de Fábrica",
+        fig30CaptionTitle: "Fig. 30: Video Demostrativo Comparativo en Tiempo Real",
+        fig25CaptionDesc: "Conexión de pines del AD8232 al Arduino Nano, derivación analógica al jack TRS 3.5 mm de micrófono y alimentación por batería DC.",
+        fig28CaptionDesc: "Código embebido para gestión de entradas digitales 10 y 11 y estabilización de potenciales del AD8232.",
+        sec11Title: "Protocolo de Medición, Demostración en Video y Blindaje Electromagnético Avanzado",
+        fig5CaptionTitle: "Fig. 5: Registro Real Obtenido con el Código del Manual",
+        fig23CaptionDesc: "Al coincidir múltiples frentes de onda electromagnéticos en el ambiente, se producen cancelaciones y sumatorias de fase que desplazan la frecuencia dominante de interferencia a 35 Hz.",
+        fig29CaptionTitle: "Fig. 29: Corrección de Polaridad y Código de Color",
         ecgAuthorsLabel: "INVESTIGADORES PRINCIPALES",
         ecgAuthorsDept: "Ciencias Biológicas · Ambystoma Technologies",
         ecgWatchYoutubeBtn: "▶ Ver Demostración en Video"
@@ -3536,33 +3285,9 @@
       }
     }
 
-    // Control del Modal ECG Monitor & Telemetría DSP
-    function openEcgModal() {
-      const modal = document.getElementById('ecg-modal');
-      if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeEcgModal() {
-      const modal = document.getElementById('ecg-modal');
-      if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    }
-
-    function closeEcgModalOnBackdrop(event) {
-      if (event.target.id === 'ecg-modal') {
-        closeEcgModal();
-      }
-    }
-
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeCellCountModal();
-        closeEcgModal();
       }
     });
   </script>
