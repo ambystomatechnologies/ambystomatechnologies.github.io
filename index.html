@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title id="meta-title">Ambystoma Technologies · Deep Tech & Scientific Solutions</title>
   <meta name="description" id="meta-desc" content="Ambystoma Technologies is a Deep Tech startup combining hardware and software for laboratory research, scientific computing, and custom technological solutions.">
-  <meta name="keywords" content="ambystoma technologies, startup, cell count, axi ia, brandon antonio segura torres, microscopia, optica, simulador de optica, lector de voz, pdf tools, visor 3d, open galileo, deep tech">
+  <meta name="keywords" content="ambystoma technologies, startup, cell count, axi ia, brandon antonio segura torres, microscopia, optica, simulador de optica, lector de voz, pdf tools, visor 3d, open galileo, ecg monitor, electrocardiograma, ad8232, dsp python, deep tech">
   <meta name="author" content="Ambystoma Technologies">
   <meta name="theme-color" content="#0a0f1d">
 
@@ -447,6 +447,169 @@
       border-color: rgba(56, 189, 248, 0.25);
       color: var(--accent);
       padding: 4px;
+    }
+
+    /* Icono SVG de ECG Biomédico */
+    .card-icon-ecg {
+      background: rgba(239, 68, 68, 0.08);
+      border-color: rgba(239, 68, 68, 0.28);
+      color: #ef4444;
+      padding: 4px;
+    }
+
+    .badge-license.biomedical {
+      background: rgba(239, 68, 68, 0.12);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.32);
+    }
+
+    /* Modal Ampliado para ECG & Ficha Técnica */
+    .modal-card-large {
+      max-width: 900px;
+    }
+
+    .ecg-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .ecg-figure-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.85rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ecg-figure-card:hover {
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .ecg-figure-img-wrap {
+      width: 100%;
+      height: 200px;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ecg-figure-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .ecg-figure-img-wrap.contain-img img {
+      object-fit: contain;
+      background: #0b0f19;
+      padding: 6px;
+    }
+
+    .ecg-figure-card:hover .ecg-figure-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .ecg-figure-caption {
+      padding: 0.85rem 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(15, 23, 42, 0.95);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      flex-grow: 1;
+    }
+
+    .ecg-figure-caption strong {
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .ecg-figure-caption span {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    /* Tabla de Especificaciones Técnicas ECG */
+    .ecg-table-wrap {
+      overflow-x: auto;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 0.5rem;
+    }
+
+    .ecg-spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    .ecg-spec-table th {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      font-weight: 700;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .ecg-spec-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .ecg-spec-table tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .ecg-spec-table tr:hover td {
+      background: rgba(56, 189, 248, 0.04);
+    }
+
+    .ecg-spec-table td:first-child {
+      font-weight: 600;
+      color: #f1f5f9;
+      width: 32%;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .ecg-spec-table td:last-child {
+      color: #cbd5e1;
+    }
+
+    /* Banner de Video y Enlaces */
+    .ecg-video-banner {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(15, 23, 42, 0.85) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 0.85rem;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .ecg-authors-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.5rem 0.9rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      color: #e2e8f0;
     }
 
     .app-card-logo {
@@ -1536,6 +1699,31 @@
         </div>
         <a href="https://ambystomatechnologies.github.io/Open-Galileo/" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
       </article>
+
+      <!-- Proyecto 7: ECG Monitor Electrocardiograma en Tiempo Real -->
+      <article class="card">
+        <div class="card-top">
+          <div class="card-header-top">
+            <div class="card-icon card-icon-ecg" title="Real-Time ECG Monitor">
+              <svg viewBox="0 0 48 48" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="22" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="1.8"/>
+                <path d="M6 24h8l3.5-9 5 18 4.5-12 3 6 3-3h9" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="badge-license biomedical" data-i18n="ecgLicenseBadge">Biomedical &amp; Open Source</span>
+          </div>
+          <h3 class="card-title" data-i18n="ecgTitle">Real-Time ECG Biomedical Monitor</h3>
+          <p class="card-desc" data-i18n="ecgDesc">Non-invasive electrocardiogram telemetry system with AD8232 analog front-end, high-fidelity soundcard acquisition, custom 3D limb electrodes, and real-time Python DSP adaptive noise filtering for cardiovascular research.</p>
+        </div>
+        <div class="card-actions-group">
+          <button type="button" class="card-btn card-btn-play" onclick="openEcgModal()">
+            <span data-i18n="ecgDetailsBtn">ℹ️ Technical Dossier &amp; Specs →</span>
+          </button>
+          <a href="https://www.youtube.com/watch?v=NcodDkrldqQ&t=8s" target="_blank" rel="noopener noreferrer" class="card-btn-secondary" style="text-decoration: none;">
+            <span data-i18n="ecgVideoBtn">▶ Watch Video Demonstration</span>
+          </a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -1815,6 +2003,237 @@
     </div>
   </div>
 
+  <!-- Modal Detallado: ECG Monitor Electrocardiograma & Telemetría DSP -->
+  <div id="ecg-modal" class="modal-overlay" style="display: none;" onclick="closeEcgModalOnBackdrop(event)">
+    <div class="modal-card modal-card-large">
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <div class="card-icon card-icon-ecg" style="width: 52px; height: 52px; font-size: 1.5rem;" title="ECG Monitor">
+            <svg viewBox="0 0 48 48" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="22" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="1.8"/>
+              <path d="M6 24h8l3.5-9 5 18 4.5-12 3 6 3-3h9" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <span class="badge-license biomedical" style="margin-bottom: 0.25rem; display: inline-block;" data-i18n="ecgModalBadge">Biomedical Engineering &amp; Open Source</span>
+            <h3 class="modal-title" data-i18n="ecgModalTitle">Real-Time ECG Biomedical Monitor &amp; Python DSP</h3>
+            <p class="modal-subtitle" data-i18n="ecgModalSubtitle">Ambystoma Technologies · High-Fidelity Soundcard Acquisition &amp; Adaptive Signal Filtering</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal" onclick="closeEcgModal()" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Resumen Científico / Abstract -->
+        <div class="modal-intro-box">
+          <p data-i18n="ecgModalIntro">
+            <strong>The Real-Time Electrocardiogram (ECG) Monitor</strong> is an open-source non-invasive electrophysiology telemetry workstation developed by <strong>Ambystoma Technologies</strong>. Designed specifically in collaboration with cardiovascular research for real-time cardiac arrest analysis, this system overcomes the financial barriers of closed proprietary clinical acquisition software ($500 - $1,000 USD). It integrates an AD8232 analog front-end, high-sampling audio port acquisition, custom dry-contact 3D finger electrodes, and an adaptive digital signal processing (DSP) architecture in Python.
+          </p>
+        </div>
+
+        <!-- Banner de Demostración y Acciones -->
+        <div class="ecg-video-banner">
+          <div>
+            <h5 style="color: #ffffff; font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem;" data-i18n="ecgBannerTitle">Experimental Video Demonstration &amp; Validation</h5>
+            <p style="color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0;" data-i18n="ecgBannerDesc">Real-time side-by-side comparison between unmitigated raw signal vs. adaptive Python DSP filtered biopotential.</p>
+          </div>
+          <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+            <a href="https://www.youtube.com/watch?v=NcodDkrldqQ&t=8s" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-play" style="width: auto; padding: 0.65rem 1.15rem; font-size: 0.88rem; text-decoration: none;">
+              <span data-i18n="ecgWatchYoutube">▶ Watch on YouTube (Demo)</span>
+            </a>
+            <a href="https://github.com/ambystomatechnologies" target="_blank" rel="noopener noreferrer" class="card-btn-secondary" style="width: auto; padding: 0.65rem 1rem; font-size: 0.85rem; text-decoration: none;">
+              <span>📂 GitHub Repository</span>
+            </a>
+          </div>
+        </div>
+
+        <h4 class="section-heading-modal" data-i18n="ecgSecPillars">SYSTEM ARCHITECTURE &amp; ENGINEERING INNOVATIONS</h4>
+
+        <!-- Pilares de Innovación -->
+        <div class="feature-card">
+          <h5 class="feature-title" data-i18n="ecgPillar1Title">🎛️ High-Fidelity Analog Acquisition via Soundcard Interface (TRS 3.5 mm)</h5>
+          <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 0.5rem;" data-i18n="ecgPillar1Desc">
+            To eliminate baud-rate bottlenecks and digital ground noise inherent to USB-serial microcontroller communication, the preconditioned biopotential from the AD8232 is routed directly into the computer's analog audio port (Line-In / Microphone TRS). This leverages the soundcard's high-speed analog-to-digital converter (ADC) and ultra-low noise floor, eliminating the need for expensive external digital USB isolators ($40+ USD).
+          </p>
+          <ul class="feature-list">
+            <li data-i18n="ecgPillar1Item1"><strong>Baseline Stabilization:</strong> Arduino Nano inputs (D10, D11) provide stabilized reference voltage potentials and lead-off detection without injecting USB power-rail noise.</li>
+            <li data-i18n="ecgPillar1Item2"><strong>Instant Hardware Recognition:</strong> Fully integrated with standard OS audio subsystem (Line-In / Microphone channel at high sample rates).</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h5 class="feature-title" data-i18n="ecgPillar2Title">🔋 Galvanic Decoupling &amp; Autonomous DC Power</h5>
+          <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 0;" data-i18n="ecgPillar2Desc">
+            The telemetry module operates on an isolated DC battery pack, completely severing physical connection to the commercial AC electrical grid. This suppresses 50 Hz / 60 Hz mains harmonic induction and ground-loop common-mode currents, which are the primary sources of baseline wandering in clinical telemetry.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h5 class="feature-title" data-i18n="ecgPillar3Title">🖐️ Ergonomic Reusable 3D Dry-Contact Limb Electrodes</h5>
+          <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 0.5rem;" data-i18n="ecgPillar3Desc">
+            Eliminating disposable Ag/AgCl wet gel adhesive pads—which dry out, degrade signal impedance, and require invasive chest placement—we developed custom 3D-printed distal limb clamps with electrolytic copper conductive strips.
+          </p>
+          <ul class="feature-list">
+            <li data-i18n="ecgPillar3Item1"><strong>Einthoven Geometry:</strong> Placed on index and middle fingers to establish stable peripheral Leads I, II, and III with reference ground (earlobe or forearm).</li>
+            <li data-i18n="ecgPillar3Item2"><strong>Hygienic &amp; Immediate:</strong> Rapid non-invasive application, zero skin irritation, washable, and instantly reusable across multiple research subjects.</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h5 class="feature-title" data-i18n="ecgPillar4Title">🐍 Real-Time Python DSP Engine &amp; Adaptive Filtering</h5>
+          <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 0.5rem;" data-i18n="ecgPillar4Desc">
+            Unlike heavy computing environments (such as MatLab/Simulink) which introduced critical 5-second sampling latencies unsuitable for acute cardiac arrest monitoring, our Python DSP pipeline runs with real-time response (&lt;50 ms latency).
+          </p>
+          <ul class="feature-list">
+            <li data-i18n="ecgPillar4Item1"><strong>Adaptive Notch &amp; Butterworth Filtering:</strong> Tunable cutoff frequencies (e.g., 35 Hz to suppress multi-source wave superposition / Young's interference patterns caused by nearby medical lamps, heating blankets, and ventilators).</li>
+            <li data-i18n="ecgPillar4Item2"><strong>Clinical Display Grid:</strong> 5-second observation window with calibrated 40 ms (0.04 s) small divisions for unequivocal P-Q-R-S-T-U complex evaluation.</li>
+            <li data-i18n="ecgPillar4Item3"><strong>Multispecies Dynamic Auto-Scaling:</strong> Automatic amplitude voltage scaling accommodating both human signals (~1 mV) and microvolt rodent electrophysiology (laboratory murine models).</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h5 class="feature-title" data-i18n="ecgPillar5Title">🛡️ Multi-Tier Electromagnetic Shielding (Faraday Enclosure)</h5>
+          <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 0;" data-i18n="ecgPillar5Desc">
+            To safeguard high-impedance biopotential nodes in electronically crowded environments, the instrumentation incorporates balanced shielded coaxial cabling, an integrated grounded metallic mesh Faraday cage, and an internal RF reflective shield, insulating sensitive circuitry from ambient RF telemetry noise.
+          </p>
+        </div>
+
+        <h4 class="section-heading-modal" data-i18n="ecgSecGallery">TECHNICAL DOCUMENTATION &amp; SCHEMATICS GALLERY</h4>
+
+        <!-- Galería de Figuras e Imágenes Técnicas -->
+        <div class="ecg-grid-2">
+          <!-- Figura 1: Comparación de Ruido -->
+          <div class="ecg-figure-card">
+            <div class="ecg-figure-img-wrap contain-img">
+              <img src="ecg-assets/image21.png" alt="Filtered ECG Signal on Clinical Grid">
+            </div>
+            <div class="ecg-figure-caption">
+              <strong data-i18n="fig1Title">Fig. 1: Clinical High-Definition ECG Trace</strong>
+              <span data-i18n="fig1Desc">Filtered cardiac biopotential in Python with adaptive 35 Hz filtering across a 40 ms medical grid and 5 s window.</span>
+            </div>
+          </div>
+
+          <!-- Figura 2: Ruido Sin Mitigación -->
+          <div class="ecg-figure-card">
+            <div class="ecg-figure-img-wrap contain-img">
+              <img src="ecg-assets/image1.png" alt="Raw Unfiltered Signal under EMI Noise">
+            </div>
+            <div class="ecg-figure-caption">
+              <strong data-i18n="fig2Title">Fig. 2: Unfiltered Signal Under Ambient EMI</strong>
+              <span data-i18n="fig2Desc">Electromagnetic induction and common-mode noise before applying soundcard acquisition and adaptive DSP.</span>
+            </div>
+          </div>
+
+          <!-- Figura 3: Diagrama de Conexiones -->
+          <div class="ecg-figure-card">
+            <div class="ecg-figure-img-wrap contain-img">
+              <img src="ecg-assets/image25.jpeg" alt="AD8232, Arduino Nano &amp; Soundcard Interconnection Diagram">
+            </div>
+            <div class="ecg-figure-caption">
+              <strong data-i18n="fig3Title">Fig. 3: System Interconnection Schematic</strong>
+              <span data-i18n="fig3Desc">Analog biopotential routed to TRS 3.5 mm microphone port, reference baseline inputs, and isolated battery source.</span>
+            </div>
+          </div>
+
+          <!-- Figura 4: Electrodos Secos 3D -->
+          <div class="ecg-figure-card">
+            <div class="ecg-figure-img-wrap">
+              <img src="ecg-assets/image14.jpeg" alt="3D-Printed Reusable Dry-Contact Finger Clamps">
+            </div>
+            <div class="ecg-figure-caption">
+              <strong data-i18n="fig4Title">Fig. 4: Ergonomic 3D Limb Electrodes</strong>
+              <span data-i18n="fig4Desc">Non-invasive reusable finger clamps with electrolytic copper contact strips replacing disposable wet gel pads.</span>
+            </div>
+          </div>
+
+          <!-- Figura 5: Jaula de Faraday -->
+          <div class="ecg-figure-card">
+            <div class="ecg-figure-img-wrap">
+              <img src="ecg-assets/image32.jpeg" alt="Faraday Cage Electromagnetic Mesh Shielding">
+            </div>
+            <div class="ecg-figure-caption">
+              <strong data-i18n="fig5Title">Fig. 5: Faraday Cage Mesh Shielding</strong>
+              <span data-i18n="fig5Desc">Grounded metal mesh enclosure attenuating ambient RF interference from surrounding electronic instruments.</span>
+            </div>
+          </div>
+
+          <!-- Figura 6: PCB y Módulo Ensamblado -->
+          <div class="ecg-figure-card">
+            <div class="ecg-figure-img-wrap">
+              <img src="ecg-assets/image37.jpeg" alt="Assembled Hardware on Custom Single-Sided PCB">
+            </div>
+            <div class="ecg-figure-caption">
+              <strong data-i18n="fig6Title">Fig. 6: Assembled Hardware Module</strong>
+              <span data-i18n="fig6Desc">Ruggedized Arduino Nano and AD8232 integrated onto a single-sided custom copper-clad bakelite PCB.</span>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="section-heading-modal" data-i18n="ecgSecSpecs">TECHNICAL SPECIFICATIONS</h4>
+
+        <!-- Tabla de Especificaciones Técnicas -->
+        <div class="ecg-table-wrap">
+          <table class="ecg-spec-table">
+            <tbody>
+              <tr>
+                <td data-i18n="spec1Label">Analog Front-End (AFE)</td>
+                <td data-i18n="spec1Val">Analog Devices AD8232 (SparkFun Heart Rate Monitor) with integrated 2-pole high-pass and 3-pole low-pass filters</td>
+              </tr>
+              <tr>
+                <td data-i18n="spec2Label">Reference Controller</td>
+                <td data-i18n="spec2Val">Arduino Nano (ATmega328P) for logic-level reference, baseline stabilization, and lead-off detection</td>
+              </tr>
+              <tr>
+                <td data-i18n="spec3Label">Signal Acquisition Channel</td>
+                <td data-i18n="spec3Val">3.5 mm TRS Analog Audio Interface (Line-In / Microphone ADC) delivering high sampling frequency and low noise floor</td>
+              </tr>
+              <tr>
+                <td data-i18n="spec4Label">Power Isolation</td>
+                <td data-i18n="spec4Val">Autonomous DC Battery Pack (100% galvanic isolation from AC electrical grid and USB ground loops)</td>
+              </tr>
+              <tr>
+                <td data-i18n="spec5Label">Biopotential Electrodes</td>
+                <td data-i18n="spec5Val">Reusable 3D-printed ergonomic distal clamps with high-conductivity copper strips (Einthoven peripheral Leads I, II, III)</td>
+              </tr>
+              <tr>
+                <td data-i18n="spec6Label">DSP Pipeline &amp; Filtering</td>
+                <td data-i18n="spec6Val">Real-time Python engine, dynamic adaptive notch filtering (35 Hz - 60 Hz), high-order Butterworth low-pass stage (&lt;50 ms latency)</td>
+              </tr>
+              <tr>
+                <td data-i18n="spec7Label">Clinical Display Standard</td>
+                <td data-i18n="spec7Val">High-contrast monochrome, 5.0 s sweep window, calibrated 40 ms (0.04 s) division grid, HD snapshot capture for research</td>
+              </tr>
+              <tr>
+                <td data-i18n="spec8Label">Multispecies Compatibility</td>
+                <td data-i18n="spec8Val">Dynamic voltage auto-scaling: calibrated for human ECG (~1 mV) and microvolt murine electrophysiology (laboratory rats)</td>
+              </tr>
+              <tr>
+                <td data-i18n="spec9Label">Shielding Architecture</td>
+                <td data-i18n="spec9Val">Balanced shielded audio cable, grounded metallic Faraday mesh cage, and secondary RF reflective barrier</td>
+              </tr>
+              <tr>
+                <td data-i18n="spec10Label">Software License</td>
+                <td data-i18n="spec10Val">Open Source under GNU General Public License (GPL)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Investigadores & Créditos -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1rem; background: rgba(30, 41, 59, 0.4); border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.08); margin-top: 0.5rem;">
+          <div>
+            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); font-weight: 700; display: block; margin-bottom: 0.2rem;" data-i18n="ecgAuthorsLabel">RESEARCHERS &amp; INVESTIGATORS</span>
+            <strong style="color: #ffffff; font-size: 0.95rem;">Brandon Antonio Segura Torres &amp; Priscilla Vieto Bonilla</strong>
+            <span style="display: block; font-size: 0.82rem; color: var(--text-muted);" data-i18n="ecgAuthorsDept">Biological Sciences · Ambystoma Technologies</span>
+          </div>
+          <a href="https://www.youtube.com/watch?v=NcodDkrldqQ&t=8s" target="_blank" rel="noopener noreferrer" class="btn-play-store" style="padding: 0.65rem 1.25rem; font-size: 0.88rem;">
+            <span data-i18n="ecgWatchYoutubeBtn">▶ Watch Video Demonstration</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Pie de página -->
   <footer>
     <div class="footer-links">
@@ -1927,7 +2346,75 @@
         disclaimerItem2: "<strong>NOT A MEDICAL DEVICE:</strong> It is not certified for diagnosis, treatment, or monitoring of any medical condition in humans or animals.",
         disclaimerItem3: "Any clinical or industrial use is the sole responsibility of the user. Automated or assisted counts are estimates and must be verified independently before use in production (such as brewing fermentations) or diagnostic decisions.",
         modalOutro: "Optimize your microscope sessions and take control of your cultures to the next level with <strong>Cell Count (Axi IA)</strong>. Download it now!",
-        modalInstallBtn: "📲 Install from Google Play Store"
+        modalInstallBtn: "📲 Install from Google Play Store",
+        // ECG Project & Modal (English)
+        ecgLicenseBadge: "Biomedical & Open Source",
+        ecgTitle: "Real-Time ECG Biomedical Monitor",
+        ecgDesc: "Non-invasive electrocardiogram telemetry system with AD8232 analog front-end, high-fidelity soundcard acquisition, custom 3D limb electrodes, and real-time Python DSP adaptive noise filtering for cardiovascular research.",
+        ecgDetailsBtn: "ℹ️ Technical Dossier & Specs →",
+        ecgVideoBtn: "▶ Watch Video Demonstration",
+        ecgModalBadge: "Biomedical Engineering & Open Source",
+        ecgModalTitle: "Real-Time ECG Biomedical Monitor & Python DSP",
+        ecgModalSubtitle: "Ambystoma Technologies · High-Fidelity Soundcard Acquisition & Adaptive Signal Filtering",
+        ecgModalIntro: "<strong>The Real-Time Electrocardiogram (ECG) Monitor</strong> is an open-source non-invasive electrophysiology telemetry workstation developed by <strong>Ambystoma Technologies</strong>. Designed specifically in collaboration with cardiovascular research for real-time cardiac arrest analysis, this system overcomes the financial barriers of closed proprietary clinical acquisition software ($500 - $1,000 USD). It integrates an AD8232 analog front-end, high-sampling audio port acquisition, custom dry-contact 3D finger electrodes, and an adaptive digital signal processing (DSP) architecture in Python.",
+        ecgBannerTitle: "Experimental Video Demonstration & Validation",
+        ecgBannerDesc: "Real-time side-by-side comparison between unmitigated raw signal vs. adaptive Python DSP filtered biopotential.",
+        ecgWatchYoutube: "▶ Watch on YouTube (Demo)",
+        ecgSecPillars: "SYSTEM ARCHITECTURE & ENGINEERING INNOVATIONS",
+        ecgPillar1Title: "🎛️ High-Fidelity Analog Acquisition via Soundcard Interface (TRS 3.5 mm)",
+        ecgPillar1Desc: "To eliminate baud-rate bottlenecks and digital ground noise inherent to USB-serial microcontroller communication, the preconditioned biopotential from the AD8232 is routed directly into the computer's analog audio port (Line-In / Microphone TRS). This leverages the soundcard's high-speed analog-to-digital converter (ADC) and ultra-low noise floor, eliminating the need for expensive external digital USB isolators ($40+ USD).",
+        ecgPillar1Item1: "<strong>Baseline Stabilization:</strong> Arduino Nano inputs (D10, D11) provide stabilized reference voltage potentials and lead-off detection without injecting USB power-rail noise.",
+        ecgPillar1Item2: "<strong>Instant Hardware Recognition:</strong> Fully integrated with standard OS audio subsystem (Line-In / Microphone channel at high sample rates).",
+        ecgPillar2Title: "🔋 Galvanic Decoupling & Autonomous DC Power",
+        ecgPillar2Desc: "The telemetry module operates on an isolated DC battery pack, completely severing physical connection to the commercial AC electrical grid. This suppresses 50 Hz / 60 Hz mains harmonic induction and ground-loop common-mode currents, which are the primary sources of baseline wandering in clinical telemetry.",
+        ecgPillar3Title: "🖐️ Ergonomic Reusable 3D Dry-Contact Limb Electrodes",
+        ecgPillar3Desc: "Eliminating disposable Ag/AgCl wet gel adhesive pads—which dry out, degrade signal impedance, and require invasive chest placement—we developed custom 3D-printed distal limb clamps with electrolytic copper conductive strips.",
+        ecgPillar3Item1: "<strong>Einthoven Geometry:</strong> Placed on index and middle fingers to establish stable peripheral Leads I, II, and III with reference ground (earlobe or forearm).",
+        ecgPillar3Item2: "<strong>Hygienic & Immediate:</strong> Rapid non-invasive application, zero skin irritation, washable, and instantly reusable across multiple research subjects.",
+        ecgPillar4Title: "🐍 Real-Time Python DSP Engine & Adaptive Filtering",
+        ecgPillar4Desc: "Unlike heavy computing environments (such as MatLab/Simulink) which introduced critical 5-second sampling latencies unsuitable for acute cardiac arrest monitoring, our Python DSP pipeline runs with real-time response (<50 ms latency).",
+        ecgPillar4Item1: "<strong>Adaptive Notch & Butterworth Filtering:</strong> Tunable cutoff frequencies (e.g., 35 Hz to suppress multi-source wave superposition / Young's interference patterns caused by nearby medical lamps, heating blankets, and ventilators).",
+        ecgPillar4Item2: "<strong>Clinical Display Grid:</strong> 5-second observation window with calibrated 40 ms (0.04 s) small divisions for unequivocal P-Q-R-S-T-U complex evaluation.",
+        ecgPillar4Item3: "<strong>Multispecies Dynamic Auto-Scaling:</strong> Automatic amplitude voltage scaling accommodating both human signals (~1 mV) and microvolt rodent electrophysiology (laboratory murine models).",
+        ecgPillar5Title: "🛡️ Multi-Tier Electromagnetic Shielding (Faraday Enclosure)",
+        ecgPillar5Desc: "To safeguard high-impedance biopotential nodes in electronically crowded environments, the instrumentation incorporates balanced shielded coaxial cabling, an integrated grounded metallic mesh Faraday cage, and an internal RF reflective shield, insulating sensitive circuitry from ambient RF telemetry noise.",
+        ecgSecGallery: "TECHNICAL DOCUMENTATION & SCHEMATICS GALLERY",
+        fig1Title: "Fig. 1: Clinical High-Definition ECG Trace",
+        fig1Desc: "Filtered cardiac biopotential in Python with adaptive 35 Hz filtering across a 40 ms medical grid and 5 s window.",
+        fig2Title: "Fig. 2: Unfiltered Signal Under Ambient EMI",
+        fig2Desc: "Electromagnetic induction and common-mode noise before applying soundcard acquisition and adaptive DSP.",
+        fig3Title: "Fig. 3: System Interconnection Schematic",
+        fig3Desc: "Analog biopotential routed to TRS 3.5 mm microphone port, reference baseline inputs, and isolated battery source.",
+        fig4Title: "Fig. 4: Ergonomic 3D Limb Electrodes",
+        fig4Desc: "Non-invasive reusable finger clamps with electrolytic copper contact strips replacing disposable wet gel pads.",
+        fig5Title: "Fig. 5: Faraday Cage Mesh Shielding",
+        fig5Desc: "Grounded metal mesh enclosure attenuating ambient RF interference from surrounding electronic instruments.",
+        fig6Title: "Fig. 6: Assembled Hardware Module",
+        fig6Desc: "Ruggedized Arduino Nano and AD8232 integrated onto a single-sided custom copper-clad bakelite PCB.",
+        ecgSecSpecs: "TECHNICAL SPECIFICATIONS",
+        spec1Label: "Analog Front-End (AFE)",
+        spec2Label: "Reference Controller",
+        spec3Label: "Signal Acquisition Channel",
+        spec4Label: "Power Isolation",
+        spec5Label: "Biopotential Electrodes",
+        spec6Label: "DSP Pipeline & Filtering",
+        spec7Label: "Clinical Display Standard",
+        spec8Label: "Multispecies Compatibility",
+        spec9Label: "Shielding Architecture",
+        spec10Label: "Software License",
+        spec1Val: "Analog Devices AD8232 (SparkFun Heart Rate Monitor) with integrated 2-pole high-pass and 3-pole low-pass filters",
+        spec2Val: "Arduino Nano (ATmega328P) for logic-level reference, baseline stabilization, and lead-off detection",
+        spec3Val: "3.5 mm TRS Analog Audio Interface (Line-In / Microphone ADC) delivering high sampling frequency and low noise floor",
+        spec4Val: "Autonomous DC Battery Pack (100% galvanic isolation from AC electrical grid and USB ground loops)",
+        spec5Val: "Reusable 3D-printed ergonomic distal clamps with high-conductivity copper strips (Einthoven peripheral Leads I, II, III)",
+        spec6Val: "Real-time Python engine, dynamic adaptive notch filtering (35 Hz - 60 Hz), high-order Butterworth low-pass stage (<50 ms latency)",
+        spec7Val: "High-contrast monochrome, 5.0 s sweep window, calibrated 40 ms (0.04 s) division grid, HD snapshot capture for research",
+        spec8Val: "Dynamic voltage auto-scaling: calibrated for human ECG (~1 mV) and microvolt murine electrophysiology (laboratory rats)",
+        spec9Val: "Balanced shielded audio cable, grounded metallic Faraday mesh cage, and secondary RF reflective barrier",
+        spec10Val: "Open Source under GNU General Public License (GPL)",
+        ecgAuthorsLabel: "RESEARCHERS & INVESTIGATORS",
+        ecgAuthorsDept: "Biological Sciences · Ambystoma Technologies",
+        ecgWatchYoutubeBtn: "▶ Watch Video Demonstration"
       },
       es: {
         pageTitle: "Ambystoma Technologies · Soluciones Científicas & Deep Tech",
@@ -2025,7 +2512,75 @@
         disclaimerItem2: "<strong>NO ES UN DISPOSITIVO MÉDICO:</strong> No está certificada para el diagnóstico, tratamiento o monitoreo de ninguna condición médica en humanos o animales.",
         disclaimerItem3: "Cualquier uso clínico o industrial es responsabilidad exclusiva del usuario. Los recuentos automáticos o asistidos son estimaciones y deben ser verificados de manera manual e independiente antes de su aplicación en procesos de producción (como fermentaciones de cerveza) o toma de decisiones diagnósticas.",
         modalOutro: "Optimiza tus jornadas en el microscopio y lleva el control de tus cultivos al siguiente nivel con <strong>Cell Count (Axi IA)</strong>. ¡Descárgala ahora!",
-        modalInstallBtn: "📲 Instalar desde Google Play Store"
+        modalInstallBtn: "📲 Instalar desde Google Play Store",
+        // ECG Project & Modal (Español)
+        ecgLicenseBadge: "Biomédica & Open Source",
+        ecgTitle: "Monitor Electrocardiograma en Tiempo Real (ECG)",
+        ecgDesc: "Sistema de telemetría electrocardiográfica no invasiva con front-end analógico AD8232, captura por tarjeta de audio de alta fidelidad, electrodos 3D secos y filtrado digital DSP adaptativo en Python para investigación cardiovascular.",
+        ecgDetailsBtn: "ℹ️ Documentación Técnica & Ficha →",
+        ecgVideoBtn: "▶ Ver Demostración en Video",
+        ecgModalBadge: "Ingeniería Biomédica & Open Source",
+        ecgModalTitle: "Monitor Electrocardiograma en Tiempo Real (ECG) & DSP en Python",
+        ecgModalSubtitle: "Ambystoma Technologies · Adquisición por Puerto de Audio de Alta Fidelidad & Filtrado Adaptativo",
+        ecgModalIntro: "<strong>El Monitor Electrocardiograma en Tiempo Real (ECG)</strong> es una plataforma de telemetría electrofisiológica no invasiva y de código abierto desarrollada por <strong>Ambystoma Technologies</strong>. Diseñado en estrecha colaboración con investigación cardiológica aplicada para el análisis de paradas cardíacas y arritmias, el sistema supera la barrera económica de los software comerciales de adquisición ($500 - $1,000 USD), integrando acondicionamiento analógico AD8232, captura de audio a alta tasa de muestreo, electrodos secos dactilares 3D y un motor de procesamiento digital de señales (DSP) en Python.",
+        ecgBannerTitle: "Demostración Experimental y Validación en Video",
+        ecgBannerDesc: "Comparativa simultánea en tiempo real entre la señal cruda ruidosa y la bioseñal filtrada mediante el pipeline DSP en Python.",
+        ecgWatchYoutube: "▶ Ver en YouTube (Demostración)",
+        ecgSecPillars: "ARQUITECTURA DEL SISTEMA E INNOVACIONES DE INGENIERÍA",
+        ecgPillar1Title: "🎛️ Adquisición Analógica de Alta Resolución por Puerto de Audio (TRS 3.5 mm)",
+        ecgPillar1Desc: "Para sortear el ruido de conmutación digital y las limitaciones de tasa de muestreo del bus serie USB, la señal analógica preamplificada por el sensor AD8232 se canaliza directamente hacia la entrada de audio analógica (Line-In / Micrófono TRS de 3.5 mm) de la computadora. Este método explota la alta frecuencia de muestreo y el piso de bajo ruido de los convertidores analógico-digitales (ADC) de audio, evitando costosos aisladores USB externos ($40+ USD).",
+        ecgPillar1Item1: "<strong>Estabilización de Línea Base:</strong> Pines digitales del Arduino Nano (D10, D11) proporcionan niveles de referencia y detección de desprendimiento de electrodos sin inyectar ruido parásito.",
+        ecgPillar1Item2: "<strong>Reconocimiento Inmediato:</strong> Integración plug-and-play directa con el subsistema de audio estándar del sistema operativo.",
+        ecgPillar2Title: "🔋 Desacople Galvánico y Alimentación Autónoma por Batería",
+        ecgPillar2Desc: "El módulo opera mediante un banco de baterías DC independiente, desvinculando por completo el circuito de la red eléctrica comercial. Esto suprime la inducción de armónicos de 50 Hz / 60 Hz y las corrientes de modo común de bucles de masa, causas principales del desplazamiento errático de la línea base.",
+        ecgPillar3Title: "🖐️ Electrodos Secos Dactilares Ergonómicos Impresos en 3D",
+        ecgPillar3Desc: "Sustituyendo los parches tradicionales de gel adhesivo desechables (Ag/AgCl)—que sufren desecación rápida, degradan la impedancia y requieren colocación precordial invasiva—, se diseñaron pinzas dactilares anatómicas en 3D con láminas conductoras de cobre electrolítico.",
+        ecgPillar3Item1: "<strong>Geometría de Einthoven:</strong> Fijación sobre las falanges distales para derivaciones bipolares periféricas I, II y III con referencia de tierra en lóbulo de la oreja o antebrazo.",
+        ecgPillar3Item2: "<strong>Higiene y Reutilización:</strong> Colocación no invasiva instantánea, sin irritación dérmica, lavable y reutilizable indefinidamente.",
+        ecgPillar4Title: "🐍 Motor DSP en Python y Filtrado Digital Adaptativo",
+        ecgPillar4Desc: "A diferencia de entornos de simulación pesados (como MatLab/Simulink) que provocaban retardos críticos de hasta 5 segundos incompatibles con la monitorización de eventos agudos, nuestro pipeline en Python procesa el flujo en tiempo real (latencia <50 ms).",
+        ecgPillar4Item1: "<strong>Filtros Notch y Butterworth Adaptativos:</strong> Frecuencias de corte sintonizables (ej. 35 Hz para anular interferencias compuestas resultantes de la superposición de ondas / efecto Young de instrumental clínico concurrente).",
+        ecgPillar4Item2: "<strong>Cuadrícula de Grado Clínico:</strong> Ventana de visualización de 5 segundos con escala estándar de 40 ms (0.04 s) por división menor para la evaluación nítida del complejo P-Q-R-S-T-U.",
+        ecgPillar4Item3: "<strong>Autoescala Dinámica Multiespecie:</strong> Calibración automática de voltaje apta tanto para registros humanos (~1 mV) como para electrofisiología murina (estudios en ratas de laboratorio).",
+        ecgPillar5Title: "🛡️ Blindaje Electromagnético Multicapa (Jaula de Faraday)",
+        ecgPillar5Desc: "Para blindar las etapas de alta impedancia en entornos saturados de radiación electromagnética, el instrumental incorpora cable coaxial balanceado, Jaula de Faraday de malla metálica conectada a masa y barrera reflectiva de RF, aislando los nodos sensibles de transmisiones inalámbricas.",
+        ecgSecGallery: "DOCUMENTACIÓN TÉCNICA Y GALERÍA DE ESQUEMAS",
+        fig1Title: "Fig. 1: Traza ECG en Alta Definición Clínica",
+        fig1Desc: "Biopotencial cardíaco filtrado en Python con rechazo adaptativo a 35 Hz sobre cuadrícula médica de 40 ms y ventana de 5 s.",
+        fig2Title: "Fig. 2: Señal Sin Procesar Bajo Interferencia EMI",
+        fig2Desc: "Inducción electromagnética y ruido de modo común previo a la captura por tarjeta de audio y filtrado DSP.",
+        fig3Title: "Fig. 3: Esquema de Interconexión del Sistema",
+        fig3Desc: "Señal analógica derivada al puerto TRS 3.5 mm de micrófono, referencias de línea base y alimentación por batería.",
+        fig4Title: "Fig. 4: Electrodos Ergonómicos 3D",
+        fig4Desc: "Pinzas dactilares reutilizables no invasivas con superficie conductora de cobre sustituyendo parches de gel húmedo.",
+        fig5Title: "Fig. 5: Jaula de Faraday con Malla Metálica",
+        fig5Desc: "Recinto apantallado a tierra que atenúa interferencias de radiofrecuencia provenientes de equipamiento activo cercano.",
+        fig6Title: "Fig. 6: Módulo de Hardware Ensamblado en PCB",
+        fig6Desc: "Integración compacta y robusta de Arduino Nano y módulo AD8232 sobre circuito impreso de baquelita de simple faz.",
+        ecgSecSpecs: "ESPECIFICACIONES TÉCNICAS",
+        spec1Label: "Front-End Analógico (AFE)",
+        spec2Label: "Controlador de Referencia",
+        spec3Label: "Canal de Adquisición de Señal",
+        spec4Label: "Aislamiento Eléctrico",
+        spec5Label: "Electrodos de Biopotencial",
+        spec6Label: "Pipeline DSP y Filtrado",
+        spec7Label: "Estándar de Visualización",
+        spec8Label: "Compatibilidad Multiespecie",
+        spec9Label: "Estructura de Blindaje",
+        spec10Label: "Licencia de Software",
+        spec1Val: "Analog Devices AD8232 (SparkFun Heart Rate Monitor) con filtros activos pasa-altos de 2 polos y pasa-bajos de 3 polos",
+        spec2Val: "Arduino Nano (ATmega328P) para niveles lógicos de referencia, estabilización de línea base y detección de electrodos desconectados",
+        spec3Val: "Interfaz analógica de audio TRS 3.5 mm (ADC de entrada de línea / micrófono) con alta tasa de muestreo y bajo piso de ruido",
+        spec4Val: "Banco autónomo de baterías DC (aislamiento galvánico total de la red eléctrica y de bucles de masa USB)",
+        spec5Val: "Pinzas anatómicas 3D reutilizables con láminas de cobre de alta conductividad (derivaciones periféricas I, II y III de Einthoven)",
+        spec6Val: "Motor en Python en tiempo real, filtro notch adaptativo dinámico (35 Hz - 60 Hz) y etapa pasa-bajos Butterworth (<50 ms de latencia)",
+        spec7Val: "Monocromo de alto contraste, ventana de barrido de 5.0 s, cuadrícula calibrada a 40 ms (0.04 s) y captura instantánea HD para investigación",
+        spec8Val: "Autoescala dinámica de voltaje: calibrado para ECG humano (~1 mV) y electrofisiología murina en microvoltios (ratas de laboratorio)",
+        spec9Val: "Cable de audio coaxial blindado, Jaula de Faraday de malla metálica conectada a masa y barrera secundaria reflectora de RF",
+        spec10Val: "Código y diseño abierto bajo Licencia Pública General de GNU (GPL)",
+        ecgAuthorsLabel: "INVESTIGADORES PRINCIPALES",
+        ecgAuthorsDept: "Ciencias Biológicas · Ambystoma Technologies",
+        ecgWatchYoutubeBtn: "▶ Ver Demostración en Video"
       }
     };
 
@@ -2090,9 +2645,33 @@
       }
     }
 
+    // Control del Modal ECG Monitor & Telemetría DSP
+    function openEcgModal() {
+      const modal = document.getElementById('ecg-modal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeEcgModal() {
+      const modal = document.getElementById('ecg-modal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeEcgModalOnBackdrop(event) {
+      if (event.target.id === 'ecg-modal') {
+        closeEcgModal();
+      }
+    }
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeCellCountModal();
+        closeEcgModal();
       }
     });
   </script>
