@@ -7,7 +7,7 @@
   <meta name="description" id="meta-desc" content="Ambystoma Technologies is a Deep Tech startup combining hardware and software for laboratory research, scientific computing, and custom technological solutions.">
   <meta name="keywords" content="ambystoma technologies, startup, cell count, axi ia, brandon antonio segura torres, microscopia, optica, simulador de optica, lector de voz, pdf tools, visor 3d, open galileo, ecg monitor, electrocardiograma, ad8232, dsp python, deep tech">
   <meta name="author" content="Ambystoma Technologies">
-  <meta name="theme-color" content="#0a0f1d">
+  <meta name="theme-color" content="#030712">
 
   <!-- Favicon Oficial -->
   <link rel="icon" type="image/png" href="favicon_logo.png?v=20260925_03">
@@ -58,9 +58,9 @@
 
   <style>
     :root {
-      --bg: #0a0f1d;
-      --card-bg: rgba(17, 24, 39, 0.85);
-      --card-bg-elevated: rgba(26, 36, 56, 0.85);
+      --bg: #030712;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-bg-elevated: rgba(23, 33, 53, 0.8);
       --card-border: rgba(255, 255, 255, 0.08);
       --card-border-hover: rgba(56, 189, 248, 0.45);
       --accent: #38bdf8;
@@ -90,10 +90,7 @@
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background-color: var(--bg);
-      background-image: 
-        radial-gradient(at 15% 15%, rgba(37, 99, 235, 0.15) 0px, transparent 45%),
-        radial-gradient(at 85% 30%, rgba(6, 182, 212, 0.12) 0px, transparent 45%),
-        radial-gradient(at 50% 85%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
+      background-image: none;
       color: var(--text);
       min-height: 100vh;
       display: flex;
@@ -103,19 +100,18 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Header & Navegación */
+    /* Header & Navegación - Sutil, transparente y en el flujo del top */
     header {
-      padding: 0.35rem 1.75rem;
-      border-bottom: 1px solid var(--card-border);
-      background: rgba(10, 15, 29, 0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      padding: 1.25rem 1.75rem 0.5rem;
+      border-bottom: none;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: relative;
+      z-index: 10;
       width: 100%;
       transition: padding 0.2s ease;
     }
@@ -837,7 +833,7 @@
 
     /* Sección About Us */
     .about-section {
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(10, 15, 29, 0.95) 100%);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(3, 7, 18, 0.85) 100%);
       border-top: 1px solid var(--card-border);
       position: relative;
     }
@@ -1515,7 +1511,7 @@
       color: var(--text-muted);
       font-size: 0.9rem;
       margin-top: auto;
-      background: rgba(10, 15, 29, 0.98);
+      background: rgba(3, 7, 18, 0.98);
     }
 
     .footer-links {
@@ -1548,7 +1544,7 @@
 
     @media (max-width: 768px) {
       header {
-        padding: 0.35rem 1rem;
+        padding: 0.85rem 1rem 0.25rem;
       }
       .logo {
         height: 48px;
@@ -1591,9 +1587,30 @@
         display: none;
       }
     }
+
+    /* Fondo Interactivo de Partículas (particles.js) */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero,
+    .section-wrap,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Contenedor del Efecto de Partículas en Movimiento -->
+  <div id="particles-js"></div>
 
   <!-- Encabezado Superior Sticky con Navegación de StartUp -->
   <header id="main-header">
@@ -3852,6 +3869,10 @@
       }
     });
   </script>
+
+  <!-- Efecto de Fondo de Partículas en Movimiento (FalconMasters / particles.js) -->
+  <script src="particles.min.js"></script>
+  <script src="particles-config.js"></script>
 
 </body>
 </html>
