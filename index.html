@@ -468,6 +468,14 @@
       overflow: hidden;
     }
 
+    /* Icono de Open-Galileo */
+    .card-icon-galileo {
+      background: rgba(56, 189, 248, 0.06);
+      border-color: rgba(56, 189, 248, 0.2);
+      padding: 4px;
+      overflow: hidden;
+    }
+
     
     /* Modal de Guía Técnica Completa para ECG */
     .modal-card-guide {
@@ -1778,13 +1786,15 @@
       <article class="card">
         <div class="card-top">
           <div class="card-header-top">
-            <div class="card-icon">🔭</div>
+            <div class="card-icon card-icon-galileo" title="Open-Galileo">
+              <img src="open-galileo-logo.png?v=20260926_01" alt="Open-Galileo" style="width: 38px; height: 38px; object-fit: contain; border-radius: 8px;">
+            </div>
             <span class="badge-license opensource" data-i18n="galileoLicenseBadge">Open Source & Free</span>
           </div>
           <h3 class="card-title">Open-Galileo</h3>
           <p class="card-desc" data-i18n="galileoDesc">Astronomy, scientific computing, and collaborative open technological research platform. Free and open source.</p>
         </div>
-        <a href="https://ambystomatechnologies.github.io/Open-Galileo/" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
+        <a href="https://github.com/BrandonAntonioSeguraTorres/Open-Galileo/releases/tag/Open-Galileo" target="_blank" rel="noopener noreferrer" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
       </article>
 
       <!-- Proyecto 7: ECG Monitor Electrocardiograma en Tiempo Real -->
