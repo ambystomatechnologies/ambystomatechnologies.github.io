@@ -59,9 +59,9 @@
   <style>
     :root {
       --bg: #030712;
-      --card-bg: rgba(15, 23, 42, 0.75);
-      --card-bg-elevated: rgba(23, 33, 53, 0.8);
-      --card-border: rgba(255, 255, 255, 0.08);
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-bg-elevated: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.12);
       --card-border-hover: rgba(56, 189, 248, 0.45);
       --accent: #38bdf8;
       --accent-glow: rgba(56, 189, 248, 0.35);
@@ -402,24 +402,25 @@
     }
 
     .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 1rem;
       padding: 1.6rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
       position: relative;
       overflow: hidden;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      border-color: var(--card-border-hover);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
     }
 
     .card-top {
@@ -737,13 +738,16 @@
     }
 
     .card-featured {
-      border-color: rgba(56, 189, 248, 0.35);
-      background: linear-gradient(180deg, rgba(20, 32, 54, 0.92) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
       box-shadow: 0 0 25px rgba(56, 189, 248, 0.08);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     .card-featured:hover {
-      border-color: rgba(56, 189, 248, 0.65);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(56, 189, 248, 0.5);
       box-shadow: 0 16px 40px rgba(56, 189, 248, 0.2);
     }
 
@@ -833,8 +837,8 @@
 
     /* Sección About Us */
     .about-section {
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(3, 7, 18, 0.85) 100%);
-      border-top: 1px solid var(--card-border);
+      background: transparent;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       position: relative;
     }
 
@@ -846,8 +850,8 @@
     }
 
     .about-story-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 1.25rem;
       padding: 2.2rem;
       display: flex;
@@ -855,6 +859,14 @@
       gap: 1.25rem;
       position: relative;
       overflow: hidden;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .about-story-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
     .about-story-card::before {
@@ -914,14 +926,22 @@
 
     /* Flagship Product Showcase */
     .flagship-showcase {
-      background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.85) 100%);
-      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.3);
       border-radius: 1.25rem;
       padding: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 1.25rem;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .flagship-showcase:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(56, 189, 248, 0.5);
     }
 
     .flagship-top {
@@ -971,14 +991,22 @@
     }
 
     .founder-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 1.25rem;
       padding: 1.75rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 1.25rem;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .founder-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
     .founder-header {
@@ -1046,14 +1074,22 @@
 
     /* Tarjeta Divulgación Científica */
     .outreach-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 1.25rem;
       padding: 1.75rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 1.25rem;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .outreach-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
     .outreach-badge {
@@ -1106,20 +1142,21 @@
 
     /* Tarjeta Charla TEDx con Miniatura y Play Button */
     .tedx-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(239, 68, 68, 0.25);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 1.25rem;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
     .tedx-card:hover {
       transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.08);
       border-color: rgba(239, 68, 68, 0.5);
-      box-shadow: 0 14px 35px rgba(239, 68, 68, 0.15);
     }
 
     .tedx-thumbnail-wrap {
