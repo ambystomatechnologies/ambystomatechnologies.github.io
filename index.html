@@ -209,50 +209,53 @@
       box-shadow: 0 4px 12px rgba(220, 39, 67, 0.4);
     }
 
-    /* Selector de Idiomas */
+    /* Selector de Idiomas (ENG / SPA) */
     .lang-switch {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
       background: rgba(255, 255, 255, 0.05);
-      padding: 3px 6px;
+      padding: 3px;
       border-radius: 9999px;
       border: 1px solid var(--card-border);
+      gap: 3px;
     }
 
     .lang-btn {
-      width: 26px;
+      min-width: 40px;
       height: 26px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      padding: 0;
+      padding: 0 8px;
+      border-radius: 9999px;
+      border: 1px solid transparent;
       background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-      opacity: 0.6;
+      transition: all 0.2s ease;
+      opacity: 0.75;
+      user-select: none;
     }
 
     .lang-btn:hover {
       opacity: 1;
-      transform: scale(1.12);
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-1px);
     }
 
     .lang-btn.active {
       opacity: 1;
-      border-color: var(--accent);
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
-      transform: scale(1.06);
-    }
-
-    .lang-btn svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-      border-radius: 50%;
-      pointer-events: none;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.28) 0%, rgba(37, 99, 235, 0.28) 100%);
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+      font-weight: 800;
+      transform: none;
     }
 
     /* Hero Principal de StartUp */
@@ -317,20 +320,22 @@
       justify-content: center;
       gap: 0.5rem;
       padding: 0.85rem 1.75rem;
-      background: var(--accent-gradient);
+      background: rgba(56, 189, 248, 0.1);
       color: #ffffff;
       font-weight: 700;
       font-size: 0.95rem;
       border-radius: 0.65rem;
       text-decoration: none;
-      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
       transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .btn-hero-primary:hover {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
       transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(2, 132, 199, 0.55);
     }
 
     .btn-hero-secondary {
@@ -1667,51 +1672,10 @@
         </svg>
       </a>
 
-      <!-- Selector de Idiomas con Banderas Circulares -->
+      <!-- Selector de Idiomas con Iniciales ENG / SPA -->
       <div class="lang-switch" role="group" aria-label="Language selector">
-        <!-- Bandera US (Inglés - Default) -->
-        <button type="button" class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')" title="English" aria-label="English">
-          <svg viewBox="0 0 32 32" width="26" height="26">
-            <clipPath id="portal-flag-us"><circle cx="16" cy="16" r="16"/></clipPath>
-            <g clip-path="url(#portal-flag-us)">
-              <rect width="32" height="32" fill="#b22234"/>
-              <path d="M0 4.92h32M0 9.85h32M0 14.77h32M0 19.69h32M0 24.62h32M0 29.54h32" stroke="#ffffff" stroke-width="2.46"/>
-              <rect width="14" height="17.23" fill="#3c3b6e"/>
-              <g fill="#ffffff">
-                <circle cx="3" cy="3" r="0.9"/>
-                <circle cx="7" cy="3" r="0.9"/>
-                <circle cx="11" cy="3" r="0.9"/>
-                <circle cx="5" cy="6" r="0.9"/>
-                <circle cx="9" cy="6" r="0.9"/>
-                <circle cx="3" cy="9" r="0.9"/>
-                <circle cx="7" cy="9" r="0.9"/>
-                <circle cx="11" cy="9" r="0.9"/>
-                <circle cx="5" cy="12" r="0.9"/>
-                <circle cx="9" cy="12" r="0.9"/>
-                <circle cx="3" cy="15" r="0.9"/>
-                <circle cx="7" cy="15" r="0.9"/>
-                <circle cx="11" cy="15" r="0.9"/>
-              </g>
-            </g>
-          </svg>
-        </button>
-
-        <!-- Bandera España (Español) -->
-        <button type="button" class="lang-btn" id="btn-lang-es" onclick="setLanguage('es')" title="Español" aria-label="Español">
-          <svg viewBox="0 0 32 32" width="26" height="26">
-            <clipPath id="portal-flag-es"><circle cx="16" cy="16" r="16"/></clipPath>
-            <g clip-path="url(#portal-flag-es)">
-              <rect width="32" height="32" fill="#aa151b"/>
-              <rect y="8" width="32" height="16" fill="#f1bf00"/>
-              <g transform="translate(6.5, 10.5) scale(0.68)">
-                <path d="M4 1h8v6c0 3-4 5-4 5s-4-2-4-5V1z" fill="#aa151b" stroke="#f1bf00" stroke-width="0.8"/>
-                <circle cx="8" cy="3" r="1.3" fill="#f1bf00"/>
-                <rect x="2" y="2" width="1.2" height="9" fill="#94a3b8"/>
-                <rect x="12.8" y="2" width="1.2" height="9" fill="#94a3b8"/>
-              </g>
-            </g>
-          </svg>
-        </button>
+        <button type="button" class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')" title="English" aria-label="English">ENG</button>
+        <button type="button" class="lang-btn" id="btn-lang-es" onclick="setLanguage('es')" title="Español" aria-label="Español">SPA</button>
       </div>
     </div>
   </header>
@@ -3859,7 +3823,7 @@
         }
       });
 
-      // Actualizar estado activo en los botones de banderas circulares
+      // Actualizar estado activo en los botones de idioma ENG / SPA
       const btnEn = document.getElementById('btn-lang-en');
       const btnEs = document.getElementById('btn-lang-es');
       if (btnEn && btnEs) {
