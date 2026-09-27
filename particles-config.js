@@ -9,10 +9,13 @@ function initAmbystomaParticles() {
     return;
   }
 
+  var isMobile = (window.innerWidth <= 768) || (window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+  var particleCount = isMobile ? 150 : 300;
+
   particlesJS('particles-js', {
     particles: {
       number: {
-        value: 300,
+        value: particleCount,
         density: {
           enable: true,
           value_area: 850
