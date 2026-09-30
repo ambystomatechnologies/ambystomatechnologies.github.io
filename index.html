@@ -338,6 +338,30 @@
       transform: translateY(-2px);
     }
 
+    .btn-hero-accent {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.35) 0%, rgba(56, 189, 248, 0.2) 100%);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 0.65rem;
+      text-decoration: none;
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-accent:hover {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.55) 0%, rgba(56, 189, 248, 0.35) 100%);
+      border-color: rgba(56, 189, 248, 0.85);
+      box-shadow: 0 0 28px rgba(56, 189, 248, 0.35);
+      transform: translateY(-2px);
+    }
+
     .btn-hero-secondary {
       display: inline-flex;
       align-items: center;
@@ -1431,6 +1455,168 @@
       flex-wrap: wrap;
     }
 
+    /* SECCIÓN DE DESARROLLO A MEDIDA PARA CIENTÍFICOS */
+    .custom-solutions-section {
+      position: relative;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 1.15rem;
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .service-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
+    }
+
+    .service-card.highlight-ai {
+      background: rgba(56, 189, 248, 0.05);
+      border-color: rgba(56, 189, 248, 0.28);
+    }
+
+    .service-card.highlight-ai:hover {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.25);
+    }
+
+    .service-card.highlight-hw {
+      background: rgba(168, 85, 247, 0.05);
+      border-color: rgba(168, 85, 247, 0.28);
+    }
+
+    .service-card.highlight-hw:hover {
+      background: rgba(168, 85, 247, 0.1);
+      border-color: rgba(168, 85, 247, 0.5);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(168, 85, 247, 0.25);
+    }
+
+    .service-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-bottom: 1.25rem;
+      color: #38bdf8;
+      flex-shrink: 0;
+    }
+
+    .service-card.highlight-hw .service-icon-wrap {
+      background: rgba(168, 85, 247, 0.12);
+      border-color: rgba(168, 85, 247, 0.35);
+      color: #c084fc;
+    }
+
+    .service-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #38bdf8;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+
+    .service-card.highlight-hw .service-eyebrow {
+      color: #c084fc;
+    }
+
+    .service-title {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 0.75rem;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Banner de Colaboración y Propuesta */
+    .custom-cta-card {
+      margin-top: 2.75rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 1.25rem;
+      padding: 2.25rem 2.5rem;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3), 0 0 25px rgba(56, 189, 248, 0.1);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .custom-cta-text {
+      width: 100%;
+    }
+
+    .custom-cta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 0.32rem 0.8rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.85rem;
+    }
+
+    .custom-cta-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      line-height: 1.35;
+    }
+
+    .custom-cta-desc {
+      font-size: 1rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    @media (max-width: 860px) {
+      .custom-cta-card {
+        padding: 1.6rem 1.4rem;
+      }
+    }
+
     /* Modal Cell Count */
     .modal-overlay {
       position: fixed;
@@ -1792,9 +1978,10 @@
   <section class="hero" id="hero">
     <div class="startup-pill" data-i18n="heroBadge">Deep Tech & Applied Science StartUp</div>
     <h1 data-i18n="heroTitle">Ambystoma Technologies</h1>
-    <p data-i18n="heroDesc">Developing cutting-edge technology solutions, combining hardware and software with a strong scientific focus to transform how complex challenges in laboratories and research are solved.</p>
+    <p data-i18n="heroDesc">We develop cutting-edge technological solutions: custom scientific software (Desktop &amp; Mobile), dedicated Artificial Intelligence models, and experimental hardware tailored for research laboratories.</p>
     <div class="hero-actions">
       <a href="#suite" class="btn-hero-primary" data-i18n="ctaExploreSuite">Explore Official Suite</a>
+      <a href="#custom-solutions" class="btn-hero-accent" data-i18n="ctaCustomSolutions">Tailored Software &amp; Hardware →</a>
       <a href="#about" class="btn-hero-secondary" data-i18n="ctaLearnAbout">About Our StartUp →</a>
     </div>
   </section>
@@ -1970,6 +2157,76 @@
     </div>
   </section>
 
+  <!-- SECCIÓN: DESARROLLO A MEDIDA PARA CIENTÍFICOS & HARDWARE EXPERIMENTAL -->
+  <section class="custom-solutions-section" id="custom-solutions">
+    <div class="section-wrap">
+      <div class="section-header-block">
+        <span class="section-tag" data-i18n="customTag">TAILORED SCIENTIFIC R&amp;D &amp; ENGINEERING</span>
+        <h2 class="section-title" data-i18n="customTitle">¿Sos investigador y necesitás un programa o hardware desarrollado específicamente para tu proyecto?</h2>
+        <p class="section-desc" data-i18n="customSubtitle">Ofrecemos servicios integrales de desarrollo de software personalizado (tailored apps para PC y Móvil), modelos de Inteligencia Artificial dedicados e instrumentación de hardware experimental, diseñados estrictamente en función del flujo de tu investigación científica.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Servicio 1: Registros de campo -->
+        <article class="service-card">
+          <div class="service-icon-wrap">📋</div>
+          <span class="service-eyebrow" data-i18n="servFieldEyebrow">APLICACIONES PC &amp; MÓVIL</span>
+          <h3 class="service-title" data-i18n="servFieldTitle">Toma de Registros de Campo</h3>
+          <p class="service-desc" data-i18n="servFieldDesc">Desarrollo de herramientas optimizadas para captura de datos in-situ, toma de muestras georreferenciadas, protocolos sin conexión (offline) y exportación limpia de datos estructurados.</p>
+        </article>
+
+        <!-- Servicio 2: Captura fotográfica + análisis -->
+        <article class="service-card">
+          <div class="service-icon-wrap">📸</div>
+          <span class="service-eyebrow" data-i18n="servVisionEyebrow">VISIÓN COMPUTACIONAL &amp; PROCESAMIENTO</span>
+          <h3 class="service-title" data-i18n="servVisionTitle">Captura Fotográfica + Análisis Automatizado</h3>
+          <p class="service-desc" data-i18n="servVisionDesc">Integración directa de cámaras, microscopios y sensores ópticos con pipelines automáticos de preprocesamiento, calibración espacial, conteo, segmentación y extracción cuantitativa de datos en tiempo real.</p>
+        </article>
+
+        <!-- Servicio 3: Interfaces adaptadas -->
+        <article class="service-card">
+          <div class="service-icon-wrap">🧪</div>
+          <span class="service-eyebrow" data-i18n="servUiEyebrow">UX PARA PROTOCOLOS REALES</span>
+          <h3 class="service-title" data-i18n="servUiTitle">Interfaces Diseñadas al Flujo de tu Estudio</h3>
+          <p class="service-desc" data-i18n="servUiDesc">Software con interfaces concebidas en función de la dinámica real de tu experimento, laboratorio o ensayo clínico, eliminando planillas manuales engorrosas y reduciendo el margen de error.</p>
+        </article>
+
+        <!-- Servicio 4: Automatización de tareas -->
+        <article class="service-card">
+          <div class="service-icon-wrap">⚡</div>
+          <span class="service-eyebrow" data-i18n="servAutoEyebrow">ALGORITMOS &amp; AUTOMATIZACIÓN</span>
+          <h3 class="service-title" data-i18n="servAutoTitle">Automatización de Tareas Repetitivas</h3>
+          <p class="service-desc" data-i18n="servAutoDesc">Rutinas algorítmicas de procesamiento por lotes que estandarizan cálculos matemáticos complejos, filtrado de bioseñales y generación de reportes y gráficas listos para publicación.</p>
+        </article>
+
+        <!-- Servicio 5: IA & Redes Neuronales (Destacada) -->
+        <article class="service-card highlight-ai">
+          <div class="service-icon-wrap">🧠</div>
+          <span class="service-eyebrow" data-i18n="servAiEyebrow">INTELIGENCIA ARTIFICIAL &amp; DEEP LEARNING</span>
+          <h3 class="service-title" data-i18n="servAiTitle">IAs y Redes Neuronales para Objetivos Concretos</h3>
+          <p class="service-desc" data-i18n="servAiDesc">Desarrollo de redes neuronales entrenadas específicamente para los requerimientos de tu estudio. Se pueden alimentar con tus propios datos experimentales o, si lo necesitás, puedo ayudarte a crear y etiquetar nuevas bases de datos desde cero.</p>
+        </article>
+
+        <!-- Servicio 6: Hardware Personalizado (Destacada) -->
+        <article class="service-card highlight-hw">
+          <div class="service-icon-wrap">⚙️</div>
+          <span class="service-eyebrow" data-i18n="servHwEyebrow">INSTRUMENTACIÓN &amp; HARDWARE CIENTÍFICO</span>
+          <h3 class="service-title" data-i18n="servHwTitle">Hardware Personalizado para Experimentos</h3>
+          <p class="service-desc" data-i18n="servHwDesc">Diseño y prototipado de bancos de prueba, sensores biomédicos, circuitos de acondicionamiento de señales, blindajes y piezas impresas en 3D para acoplar y automatizar tu instrumental de laboratorio.</p>
+        </article>
+      </div>
+
+      <!-- Banner de Contacto / Colaboración -->
+      <div class="custom-cta-card">
+        <div class="custom-cta-text">
+          <span class="custom-cta-tag" data-i18n="customCtaTag">ABIERTOS A COLABORACIONES Y DESARROLLOS COMPLETOS</span>
+          <h3 class="custom-cta-title" data-i18n="customCtaTitle">¿Creés que un software, una IA o un hardware a medida podría potenciar tu proyecto?</h3>
+          <p class="custom-cta-desc" data-i18n="customCtaDesc">Si estás desarrollando una investigación, tesis o proyecto tecnológico y necesitás un desarrollo específico, asesoría o consultoría técnica, escríbeme. Abierto a colaboraciones, consultorías o desarrollos completos llave en mano.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SECCIÓN 2: ABOUT US (STARTUP DEEP TECH) -->
   <section class="about-section" id="about">
     <div class="section-wrap">
@@ -1985,10 +2242,10 @@
         <article class="about-story-card">
           <h3 class="about-story-title" data-i18n="storyTitle">Science & Applied Engineering in Synergy</h3>
           <p class="about-story-p" data-i18n="storyP1">
-            Ambystoma Technologies is a technology StartUp founded by robotics professor <strong>Brandon Antonio Segura Torres</strong>. We develop cutting-edge technology solutions, combining hardware and software with a strong scientific focus to transform how complex challenges in laboratories and research are solved.
+            Ambystoma Technologies is a Deep Tech StartUp founded by robotics professor <strong>Brandon Antonio Segura Torres</strong>. We specialize in custom scientific software development (Desktop &amp; Mobile), applied Artificial Intelligence, and tailored experimental hardware to transform how complex challenges in laboratories and research are solved.
           </p>
           <p class="about-story-p" data-i18n="storyP2">
-            Our mission is to bridge the gap between science and applied technology by creating efficient, accurate, and accessible tools. While our core DNA is deeply rooted in scientific and technological innovation, we also design and build custom solutions tailored to meet our users' specific needs.
+            Our core mission is to bridge the gap between scientific discovery and applied engineering. We engineer bespoke, robust tools tailored to the exact experimental protocols of scientists, researchers, and technical institutions.
           </p>
 
           <div class="about-pillars">
@@ -2250,6 +2507,7 @@
   <footer>
     <div class="footer-links">
       <a href="#suite" data-i18n="navSuite">Official Suite</a>
+      <a href="#custom-solutions" data-i18n="navCustom">Custom Solutions</a>
       <a href="#about" data-i18n="navAbout">About Us</a>
       <a href="https://www.linkedin.com/in/brandon-antonio-segura-torres/" target="_blank" rel="noopener noreferrer">LinkedIn (Founder)</a>
       <a href="https://www.instagram.com/micro.cosmonauta/" target="_blank" rel="noopener noreferrer">@micro.cosmonauta</a>
@@ -2264,13 +2522,15 @@
     const I18N = {
       en: {
         pageTitle: "Ambystoma Technologies · Deep Tech & Scientific Solutions",
-        pageDesc: "Ambystoma Technologies is a Deep Tech startup combining hardware and software for laboratory research, scientific computing, and custom technological solutions.",
+        pageDesc: "Ambystoma Technologies is a Deep Tech startup combining hardware and software for laboratory research, custom scientific computing, tailored apps, and applied experimental solutions.",
         navSuite: "Official Suite",
+        navCustom: "Custom Scientific Solutions",
         navAbout: "About Us",
         heroBadge: "Deep Tech & Applied Science StartUp",
         heroTitle: "Ambystoma Technologies",
-        heroDesc: "At Ambystoma Technologies, we develop cutting-edge technology solutions, combining hardware and software with a strong scientific focus to transform how complex challenges in laboratories and research are solved.",
+        heroDesc: "We develop cutting-edge technological solutions: custom scientific software (Desktop & Mobile), dedicated Artificial Intelligence models, and experimental hardware tailored for research laboratories.",
         ctaExploreSuite: "Explore Official Suite",
+        ctaCustomSolutions: "Tailored Software & Hardware →",
         ctaLearnAbout: "About Our StartUp →",
         // Suite Section
         suiteTag: "PORTFOLIO",
@@ -2307,13 +2567,38 @@
         openAppBtn: "Open Application →",
         viewProjectBtn: "View Project →",
         exploreBtn: "Explore Project →",
+        // Custom Scientific Solutions Section (English)
+        customTag: "TAILORED SCIENTIFIC R&D & ENGINEERING",
+        customTitle: "Are you a researcher in need of software or hardware built specifically for your project?",
+        customSubtitle: "We provide end-to-end custom software development (desktop & mobile tailored apps), dedicated Artificial Intelligence models, and experimental scientific hardware built specifically around your research workflow.",
+        servFieldTitle: "Field Logs & Mobile Sampling",
+        servFieldEyebrow: "DESKTOP & MOBILE APPS",
+        servFieldDesc: "Tailored apps for in-situ field data collection, structured experimental parameters, offline protocols, and immediate structured data sync.",
+        servVisionTitle: "Photographic Capture + Automated Analysis",
+        servVisionEyebrow: "COMPUTER VISION & SIGNAL PROCESSING",
+        servVisionDesc: "Direct integration with microscope cameras, photodetectors, and optical sensors with real-time morphometry, spectral processing, and automated measurement pipelines.",
+        servUiTitle: "Interfaces Built Around Your Experimental Flow",
+        servUiEyebrow: "EXPERIMENT-CENTRIC UX",
+        servUiDesc: "Custom software layouts tailored precisely to each stage of your scientific study or clinical trial, eliminating error-prone spreadsheets and fragmented notes.",
+        servAutoTitle: "Repetitive Task & Complex Data Automation",
+        servAutoEyebrow: "ALGORITHMIC AUTOMATION",
+        servAutoDesc: "Accelerate data processing pipelines that analyze hundreds of samples in seconds, standardizing mathematical modeling, statistical validation, and publication-ready graphs.",
+        servAiTitle: "Dedicated AI & Trained Neural Networks",
+        servAiEyebrow: "MACHINE LEARNING & DEEP LEARNING",
+        servAiDesc: "Custom neural networks and computer vision models trained specifically for your research goals. They can be trained using your own experimental data, or I can help you create and curate custom labeled datasets from scratch.",
+        servHwTitle: "Custom Hardware for Scientific Experiments",
+        servHwEyebrow: "EMBEDDED HARDWARE & INSTRUMENTATION",
+        servHwDesc: "Design and prototyping of custom laboratory test rigs, biosignal conditioning circuits, 3D-printed optical couplings, and microcontroller DAQ systems seamlessly bridged with your PC software.",
+        customCtaTag: "OPEN FOR RESEARCH COLLABORATIONS & CUSTOM CONTRACTS",
+        customCtaTitle: "Could custom software, AI, or hardware empower your research?",
+        customCtaDesc: "Whether you are conducting a PhD study, running an experimental research lab, or developing a technological prototype, we can build the exact solution you need—from lightweight tools to turnkey hardware/software setups.",
         // About Section
         aboutTag: "STARTUP PROFILE",
         aboutTitle: "About Ambystoma Technologies",
         aboutSubtitle: "Bridging the gap between scientific discovery and applied engineering.",
         storyTitle: "Science & Applied Engineering in Synergy",
-        storyP1: "Ambystoma Technologies is a technology StartUp founded by robotics professor <strong>Brandon Antonio Segura Torres</strong>. We develop cutting-edge technology solutions, combining hardware and software with a strong scientific focus to transform how complex challenges in laboratories and research are solved.",
-        storyP2: "Our mission is to bridge the gap between science and applied technology by creating efficient, accurate, and accessible tools. While our core DNA is deeply rooted in scientific and technological innovation, we also design and build custom solutions tailored to meet our users' specific needs.",
+        storyP1: "Ambystoma Technologies is a Deep Tech StartUp founded by robotics professor <strong>Brandon Antonio Segura Torres</strong>. We specialize in custom scientific software development (Desktop & Mobile), applied Artificial Intelligence, and tailored experimental hardware to transform how complex challenges in laboratories and research are solved.",
+        storyP2: "Our core mission is to bridge the gap between scientific discovery and applied engineering. We engineer bespoke, robust tools tailored to the exact experimental protocols of scientists, researchers, and technical institutions.",
         pillar1Name: "Scientific Focus",
         pillar1Desc: "Algorithms engineered with high accuracy for rigorous experimental workflows.",
         pillar2Name: "Hardware & Software",
@@ -3117,13 +3402,15 @@
       },
       es: {
         pageTitle: "Ambystoma Technologies · Soluciones Científicas & Deep Tech",
-        pageDesc: "Ambystoma Technologies es una StartUp de base tecnológica que combina hardware y software para investigación de laboratorio, computación científica y desarrollos a medida.",
+        pageDesc: "Ambystoma Technologies es una StartUp de base tecnológica que combina hardware y software para investigación de laboratorio, software científico a medida, IA y desarrollos experimentales.",
         navSuite: "Suite Oficial",
+        navCustom: "Desarrollo a Medida",
         navAbout: "Sobre Nosotros",
         heroBadge: "StartUp de Ciencia Aplicada & Deep Tech",
         heroTitle: "Ambystoma Technologies",
-        heroDesc: "En Ambystoma Technologies desarrollamos soluciones tecnológicas de vanguardia, combinando hardware y software con un sólido enfoque científico para transformar la manera en que se resuelven desafíos complejos en laboratorios e investigación.",
+        heroDesc: "Desarrollamos soluciones tecnológicas de vanguardia: software científico a medida (PC y Móvil), Inteligencia Artificial aplicada e instrumentación de hardware personalizado para laboratorios e investigación experimental.",
         ctaExploreSuite: "Explorar Suite Oficial",
+        ctaCustomSolutions: "Software y Hardware a Medida →",
         ctaLearnAbout: "Conoce Nuestra StartUp →",
         // Suite Section
         suiteTag: "PORTAFOLIO",
@@ -3160,13 +3447,38 @@
         openAppBtn: "Abrir Aplicación →",
         viewProjectBtn: "Ver Proyecto →",
         exploreBtn: "Explorar Proyecto →",
+        // Sección de Desarrollo Científico a Medida (Español)
+        customTag: "DESARROLLO CIENTÍFICO A MEDIDA & CONSULTORÍA",
+        customTitle: "¿Sos investigador y necesitás un programa o hardware desarrollado específicamente para tu proyecto?",
+        customSubtitle: "Ofrecemos servicios integrales de desarrollo de software personalizado (tailored apps para PC y Móvil), modelos de Inteligencia Artificial dedicados e instrumentación de hardware experimental, diseñados estrictamente en función del flujo de tu investigación científica.",
+        servFieldTitle: "Toma de Registros de Campo",
+        servFieldEyebrow: "APLICACIONES PC & MÓVIL",
+        servFieldDesc: "Desarrollo de herramientas optimizadas para captura de datos in-situ, toma de muestras georreferenciadas, protocolos sin conexión (offline) y exportación limpia de datos estructurados.",
+        servVisionTitle: "Captura Fotográfica + Análisis Automatizado",
+        servVisionEyebrow: "VISIÓN COMPUTACIONAL & PROCESAMIENTO",
+        servVisionDesc: "Integración directa de cámaras, microscopios y sensores ópticos con pipelines automáticos de preprocesamiento, calibración espacial, conteo, segmentación y extracción cuantitativa de datos en tiempo real.",
+        servUiTitle: "Interfaces Diseñadas al Flujo de tu Estudio",
+        servUiEyebrow: "UX PARA PROTOCOLOS REALES",
+        servUiDesc: "Software con interfaces concebidas en función de la dinámica real de tu experimento, laboratorio o ensayo clínico, eliminando planillas manuales engorrosas y reduciendo el margen de error.",
+        servAutoTitle: "Automatización de Tareas Repetitivas",
+        servAutoEyebrow: "ALGORITMOS & AUTOMATIZACIÓN",
+        servAutoDesc: "Rutinas algorítmicas de procesamiento por lotes que estandarizan cálculos matemáticos complejos, filtrado de bioseñales y generación de reportes y gráficas listos para publicación.",
+        servAiTitle: "IAs y Redes Neuronales para Objetivos Concretos",
+        servAiEyebrow: "INTELIGENCIA ARTIFICIAL & DEEP LEARNING",
+        servAiDesc: "Desarrollo de redes neuronales entrenadas específicamente para los requerimientos de tu estudio. Se pueden alimentar con tus propios datos experimentales o, si lo necesitás, puedo ayudarte a crear y etiquetar nuevas bases de datos desde cero.",
+        servHwTitle: "Hardware Personalizado para Experimentos",
+        servHwEyebrow: "INSTRUMENTACIÓN & HARDWARE CIENTÍFICO",
+        servHwDesc: "Diseño y prototipado de bancos de prueba, sensores biomédicos, circuitos de acondicionamiento de señales, blindajes y piezas impresas en 3D para acoplar y automatizar tu instrumental de laboratorio.",
+        customCtaTag: "ABIERTOS A COLABORACIONES Y DESARROLLOS COMPLETOS",
+        customCtaTitle: "¿Creés que un software, una IA o un hardware a medida podría potenciar tu proyecto?",
+        customCtaDesc: "Si estás desarrollando una investigación, tesis o proyecto tecnológico y necesitás un desarrollo específico, asesoría o consultoría técnica, escríbeme. Abierto a colaboraciones, consultorías o desarrollos completos llave en mano.",
         // About Section
         aboutTag: "PERFIL DE STARTUP",
         aboutTitle: "Sobre Ambystoma Technologies",
         aboutSubtitle: "Tendiendo un puente entre la ciencia de vanguardia y la tecnología aplicada.",
         storyTitle: "Ciencia y Tecnología en Movimiento",
-        storyP1: "Ambystoma Technologies es una StartUp tecnológica fundada por el profesor de robótica <strong>Brandon Antonio Segura Torres</strong>. Desarrollamos soluciones tecnológicas de vanguardia, combinando hardware y software con un sólido enfoque científico para transformar la manera en que se resuelven desafíos complejos en laboratorios e investigación.",
-        storyP2: "Nuestra misión es tender un puente entre la ciencia y la tecnología aplicada mediante la creación de herramientas eficientes, precisas y accesibles. Si bien nuestro ADN central está profundamente arraigado en la innovación científica y tecnológica, también diseñamos y construimos soluciones a medida adaptadas a las necesidades específicas de nuestros usuarios.",
+        storyP1: "Ambystoma Technologies es una StartUp de Deep Tech fundada por el profesor de robótica <strong>Brandon Antonio Segura Torres</strong>. Nos especializamos en el desarrollo de software científico a medida (PC y Móvil), Inteligencia Artificial aplicada e instrumentación de hardware experimental para transformar la manera en que se resuelven desafíos complejos en laboratorios e investigación.",
+        storyP2: "Nuestra misión central es tender un puente entre el descubrimiento científico y la ingeniería aplicada. Desarrollamos herramientas robustas y personalizadas, adaptadas con precisión a los protocolos experimentales de investigadores, científicos e instituciones.",
         pillar1Name: "Enfoque Científico",
         pillar1Desc: "Algoritmos estructurados con rigor analítico para flujos de trabajo experimental exigentes.",
         pillar2Name: "Hardware & Software",
