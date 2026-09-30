@@ -398,6 +398,114 @@
       line-height: 1.55;
     }
 
+    /* Grupos de Categorías del Portafolio */
+    .portfolio-group {
+      margin-bottom: 3.5rem;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .portfolio-group:last-child {
+      margin-bottom: 1.5rem;
+    }
+
+    .category-header-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.15rem 1.5rem;
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.08) 0%, rgba(15, 23, 42, 0.5) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-left: 4px solid #38bdf8;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      gap: 1.25rem;
+    }
+
+    #group-web .category-header-banner {
+      background: linear-gradient(90deg, rgba(168, 85, 247, 0.08) 0%, rgba(15, 23, 42, 0.5) 100%);
+      border-color: rgba(168, 85, 247, 0.2);
+      border-left: 4px solid #a855f7;
+    }
+
+    .category-header-info {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .category-header-icon {
+      font-size: 1.6rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      flex-shrink: 0;
+      color: #38bdf8;
+    }
+
+    .category-header-icon.web {
+      background: rgba(168, 85, 247, 0.12);
+      border-color: rgba(168, 85, 247, 0.3);
+      color: #c084fc;
+    }
+
+    .category-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #38bdf8;
+      text-transform: uppercase;
+      margin-bottom: 0.18rem;
+    }
+
+    #group-web .category-eyebrow {
+      color: #c084fc;
+    }
+
+    .category-heading {
+      font-size: 1.28rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .category-subheading {
+      font-size: 0.86rem;
+      color: #94a3b8;
+      margin: 0.25rem 0 0 0;
+      line-height: 1.45;
+    }
+
+    .category-counter-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .category-header-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1.15rem;
+      }
+      .category-counter-tag {
+        align-self: flex-start;
+      }
+    }
+
     /* Grilla de Aplicaciones / Desarrollos */
     .grid {
       display: grid;
@@ -1699,139 +1807,166 @@
       <p class="section-desc" data-i18n="suiteSubtitle">Explore our ecosystem of applications, laboratory instrumentation, and scientific tools.</p>
     </div>
 
-    <div class="grid">
-      <!-- Proyecto 1 (Destacado): Cell Count (Axi IA) -->
-      <article class="card card-featured">
-        <div class="card-top">
-          <div class="card-header-top">
-            <img src="cellcount-logo.png" alt="Cell Count (Axi IA) Logo" class="app-card-logo">
-            <span class="badge-license free-app" data-i18n="cellcountLicenseBadge">📱 Free Android App</span>
+    <!-- GRUPO 1: Herramientas Científicas -->
+    <div class="portfolio-group" id="group-scientific" data-category="scientific">
+      <div class="category-header-banner">
+        <div class="category-header-info">
+          <div class="category-header-icon">🔬</div>
+          <div>
+            <div class="category-eyebrow" data-i18n="catScientificEyebrow">RESEARCH &amp; INSTRUMENTATION</div>
+            <h3 class="category-heading" data-i18n="catScientificTitle">Scientific Tools</h3>
+            <p class="category-subheading" data-i18n="catScientificSub">Advanced solutions for optical physics, AI cell counting, 3D visualization, scientific stacking, and biomedical signals.</p>
           </div>
-          <h3 class="card-title">Cell Count (Axi IA)</h3>
-          <p class="card-desc" data-i18n="cellcountDesc">The definitive tool for students, researchers, brewers, and lab professionals. Cell counting on images, Neubauer Chamber, hematology, yeast viability, and 100% local processing with smart algorithms. Free-to-use Android application.</p>
         </div>
-        <div class="card-actions-group">
-          <a href="https://play.google.com/store/apps/details?id=com.cellcount.axiia&hl=es_PA" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-play" title="Download on Google Play Store">
-            <span data-i18n="cellcountPlayBtn">📲 Download on Google Play →</span>
-          </a>
-          <button type="button" class="card-btn-secondary" onclick="openCellCountModal()">
-            <span data-i18n="cellcountDetailsBtn">ℹ️ View details & full features</span>
-          </button>
-        </div>
-      </article>
+        <span class="category-counter-tag" data-i18n="catScientificCount">5 Developments</span>
+      </div>
 
-      <!-- Proyecto 2: Simulador de Óptica 2D (Icono serio de lente física) -->
-      <article class="card">
-        <div class="card-top">
-          <div class="card-header-top">
-            <div class="card-icon card-icon-svg" title="Optical Physics Lens">
-              <svg viewBox="0 0 48 48" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="lensGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#38bdf8"/>
-                    <stop offset="100%" stop-color="#0284c7"/>
-                  </linearGradient>
-                  <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.5"/>
-                    <stop offset="60%" stop-color="#38bdf8"/>
-                    <stop offset="100%" stop-color="#ffffff"/>
-                  </linearGradient>
-                </defs>
-                <!-- Lente biconvexa óptica central -->
-                <path d="M24 5 C32 16 32 32 24 43 C16 32 16 16 24 5 Z" fill="url(#lensGradient)" fill-opacity="0.25" stroke="#38bdf8" stroke-width="2.2" stroke-linejoin="round"/>
-                <line x1="24" y1="8" x2="24" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 2"/>
-                <!-- Rayo superior refractándose a foco -->
-                <path d="M4 14 L20 14 L42 24" stroke="url(#beamGradient)" stroke-width="2" stroke-linecap="round"/>
-                <!-- Rayo medio incidente directo -->
-                <path d="M2 24 L44 24" stroke="#a5f3fc" stroke-width="1.8" stroke-linecap="round"/>
-                <!-- Rayo inferior refractándose a foco -->
-                <path d="M4 34 L20 34 L42 24" stroke="url(#beamGradient)" stroke-width="2" stroke-linecap="round"/>
-                <!-- Foco luminoso -->
-                <circle cx="42" cy="24" r="2.5" fill="#ffffff"/>
-                <circle cx="42" cy="24" r="5.5" fill="#38bdf8" fill-opacity="0.4"/>
-              </svg>
+      <div class="grid">
+        <!-- Proyecto 1 (Destacado): Cell Count (Axi IA) -->
+        <article class="card card-featured">
+          <div class="card-top">
+            <div class="card-header-top">
+              <img src="cellcount-logo.png" alt="Cell Count (Axi IA) Logo" class="app-card-logo">
+              <span class="badge-license free-app" data-i18n="cellcountLicenseBadge">📱 Free Android App</span>
             </div>
-            <span class="badge-license opensource" data-i18n="opticsLicenseBadge">Open Source & Free</span>
+            <h3 class="card-title">Cell Count (Axi IA)</h3>
+            <p class="card-desc" data-i18n="cellcountDesc">The definitive tool for students, researchers, brewers, and lab professionals. Cell counting on images, Neubauer Chamber, hematology, yeast viability, and 100% local processing with smart algorithms. Free-to-use Android application.</p>
           </div>
-          <h3 class="card-title" data-i18n="opticsTitle">2D Optics Simulator</h3>
-          <p class="card-desc" data-i18n="opticsDesc">Interactive ray tracer & optics simulator: 7-color spectral refraction, deformable custom lenses, prisms, mirrors, and 12 physics demos. Free and open source.</p>
-        </div>
-        <a href="https://ambystomatechnologies.github.io/optic-simulator/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
-      </article>
-
-      <!-- Proyecto 3: Lector de Voz & Transcripciones -->
-      <article class="card">
-        <div class="card-top">
-          <div class="card-header-top">
-            <div class="card-icon">🔊</div>
-            <span class="badge-license opensource" data-i18n="ttsLicenseBadge">Open Source & Free</span>
+          <div class="card-actions-group">
+            <a href="https://play.google.com/store/apps/details?id=com.cellcount.axiia&hl=es_PA" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-play" title="Download on Google Play Store">
+              <span data-i18n="cellcountPlayBtn">📲 Download on Google Play →</span>
+            </a>
+            <button type="button" class="card-btn-secondary" onclick="openCellCountModal()">
+              <span data-i18n="cellcountDetailsBtn">ℹ️ View details & full features</span>
+            </button>
           </div>
-          <h3 class="card-title" data-i18n="ttsTitle">Voice Reader &amp; Transcriptions</h3>
-          <p class="card-desc" data-i18n="ttsDesc">Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber. Free and open source.</p>
-        </div>
-        <a href="https://ambystomatechnologies.github.io/lector-de-voz-y-transcripciones-gratis/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
-      </article>
+        </article>
 
-      <!-- Proyecto 4: PDF Tools Studio -->
-      <article class="card">
-        <div class="card-top">
-          <div class="card-header-top">
-            <div class="card-icon">📄</div>
-            <span class="badge-license opensource" data-i18n="pdfLicenseBadge">Open Source & Free</span>
-          </div>
-          <h3 class="card-title">PDF Tools Studio</h3>
-          <p class="card-desc" data-i18n="pdfToolsDesc">Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF. Free and open source.</p>
-        </div>
-        <a href="https://ambystomatechnologies.github.io/pdf-tools-ambystoma-studio/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
-      </article>
-
-      <!-- Proyecto 5: Visor 3D Interactivo -->
-      <article class="card">
-        <div class="card-top">
-          <div class="card-header-top">
-            <div class="card-icon card-icon-vertebra" title="Visor 3D Interactivo">
-              <img src="favicon vertebra.png?v=20260925_01" alt="Visor 3D Interactivo" style="width: 38px; height: 38px; object-fit: contain;">
+        <!-- Proyecto 2: Simulador de Óptica 2D -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-header-top">
+              <div class="card-icon card-icon-svg" title="Optical Physics Lens">
+                <svg viewBox="0 0 48 48" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="lensGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#38bdf8"/>
+                      <stop offset="100%" stop-color="#0284c7"/>
+                    </linearGradient>
+                    <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.5"/>
+                      <stop offset="60%" stop-color="#38bdf8"/>
+                      <stop offset="100%" stop-color="#ffffff"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M24 5 C32 16 32 32 24 43 C16 32 16 16 24 5 Z" fill="url(#lensGradient)" fill-opacity="0.25" stroke="#38bdf8" stroke-width="2.2" stroke-linejoin="round"/>
+                  <line x1="24" y1="8" x2="24" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 2"/>
+                  <path d="M4 14 L20 14 L42 24" stroke="url(#beamGradient)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M2 24 L44 24" stroke="#a5f3fc" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M4 34 L20 34 L42 24" stroke="url(#beamGradient)" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="42" cy="24" r="2.5" fill="#ffffff"/>
+                  <circle cx="42" cy="24" r="5.5" fill="#38bdf8" fill-opacity="0.4"/>
+                </svg>
+              </div>
+              <span class="badge-license opensource" data-i18n="opticsLicenseBadge">Open Source & Free</span>
             </div>
-            <span class="badge-license opensource" data-i18n="viewer3dLicenseBadge">Open Source & Free</span>
+            <h3 class="card-title" data-i18n="opticsTitle">2D Optics Simulator</h3>
+            <p class="card-desc" data-i18n="opticsDesc">Interactive ray tracer & optics simulator: 7-color spectral refraction, deformable custom lenses, prisms, mirrors, and 12 physics demos.</p>
           </div>
-          <h3 class="card-title" data-i18n="viewer3dTitle">Interactive 3D Viewer</h3>
-          <p class="card-desc" data-i18n="viewer3dDesc">Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering. Free and open source.</p>
-        </div>
-        <a href="https://ambystomatechnologies.github.io/visor-3d/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
-      </article>
+          <a href="https://ambystomatechnologies.github.io/optic-simulator/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
+        </article>
 
-      <!-- Proyecto 6: Open-Galileo -->
-      <article class="card">
-        <div class="card-top">
-          <div class="card-header-top">
-            <div class="card-icon card-icon-galileo" title="Open-Galileo">
-              <img src="open-galileo-logo.png?v=20260926_01" alt="Open-Galileo" style="width: 38px; height: 38px; object-fit: contain; border-radius: 8px;">
+        <!-- Proyecto 5: Visor 3D Interactivo -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-header-top">
+              <div class="card-icon card-icon-vertebra" title="Visor 3D Interactivo">
+                <img src="favicon vertebra.png?v=20260925_01" alt="Visor 3D Interactivo" style="width: 38px; height: 38px; object-fit: contain;">
+              </div>
+              <span class="badge-license opensource" data-i18n="viewer3dLicenseBadge">Open Source & Free</span>
             </div>
-            <span class="badge-license opensource" data-i18n="galileoLicenseBadge">Open Source & Free</span>
+            <h3 class="card-title" data-i18n="viewer3dTitle">Interactive 3D Viewer</h3>
+            <p class="card-desc" data-i18n="viewer3dDesc">Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering.</p>
           </div>
-          <h3 class="card-title">Open-Galileo</h3>
-          <p class="card-desc" data-i18n="galileoDesc">Software for scientific image stacking (focus stacking) and advanced signal integration designed for macro photography, microscopy, and astrophotography. Free and open source.</p>
-        </div>
-        <a href="https://github.com/BrandonAntonioSeguraTorres/Open-Galileo/releases/tag/Open-Galileo" target="_blank" rel="noopener noreferrer" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
-      </article>
+          <a href="https://ambystomatechnologies.github.io/visor-3d/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
+        </article>
 
-      <!-- Proyecto 7: ECG Monitor Electrocardiograma en Tiempo Real -->
-      <article class="card">
-        <div class="card-top">
-          <div class="card-header-top">
-            <div class="card-icon card-icon-ecg" title="Real-Time ECG Monitor">
-              <svg viewBox="0 0 48 48" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="22" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="1.8"/>
-                <path d="M6 24h8l3.5-9 5 18 4.5-12 3 6 3-3h9" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+        <!-- Proyecto 6: Open-Galileo -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-header-top">
+              <div class="card-icon card-icon-galileo" title="Open-Galileo">
+                <img src="open-galileo-logo.png?v=20260926_01" alt="Open-Galileo" style="width: 38px; height: 38px; object-fit: contain; border-radius: 8px;">
+              </div>
+              <span class="badge-license opensource" data-i18n="galileoLicenseBadge">Open Source & Free</span>
             </div>
-            <span class="badge-license biomedical" data-i18n="ecgLicenseBadge">Biomédica &amp; Open Source</span>
+            <h3 class="card-title">Open-Galileo</h3>
+            <p class="card-desc" data-i18n="galileoDesc">Software for scientific image stacking (focus stacking) and advanced signal integration designed for macro photography, microscopy, and astrophotography.</p>
           </div>
-          <h3 class="card-title" data-i18n="ecgTitle">Monitor Electrocardiograma en Tiempo Real (ECG)</h3>
-          <p class="card-desc" data-i18n="ecgDesc">Guía completa y sistema de telemetría electrofisiológica no invasiva: acondicionamiento AD8232, adquisición analógica por tarjeta de audio de alta fidelidad, electrodos secos 3D, blindaje electromagnético por Jaula de Faraday y procesamiento digital DSP adaptativo en Python para investigación cardiovascular.</p>
+          <a href="https://github.com/BrandonAntonioSeguraTorres/Open-Galileo/releases/tag/Open-Galileo" target="_blank" rel="noopener noreferrer" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
+        </article>
+
+        <!-- Proyecto 7: ECG Monitor Electrocardiograma en Tiempo Real -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-header-top">
+              <div class="card-icon card-icon-ecg" title="Real-Time ECG Monitor">
+                <svg viewBox="0 0 48 48" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="22" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="1.8"/>
+                  <path d="M6 24h8l3.5-9 5 18 4.5-12 3 6 3-3h9" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="badge-license biomedical" data-i18n="ecgLicenseBadge">Biomédica &amp; Open Source</span>
+            </div>
+            <h3 class="card-title" data-i18n="ecgTitle">Monitor Electrocardiograma en Tiempo Real (ECG)</h3>
+            <p class="card-desc" data-i18n="ecgDesc">Guía completa y sistema de telemetría electrofisiológica no invasiva: acondicionamiento AD8232, adquisición analógica por tarjeta de audio de alta fidelidad, electrodos secos 3D, blindaje electromagnético por Jaula de Faraday y procesamiento digital DSP adaptativo en Python para investigación cardiovascular.</p>
+          </div>
+          <a href="https://ambystomatechnologies.github.io/Real_Time_ECG_Monitor/" class="card-btn" data-i18n="viewProjectBtn">Ver Proyecto →</a>
+        </article>
+      </div>
+    </div>
+
+    <!-- GRUPO 2: Herramientas Web -->
+    <div class="portfolio-group" id="group-web" data-category="web">
+      <div class="category-header-banner">
+        <div class="category-header-info">
+          <div class="category-header-icon web">🌐</div>
+          <div>
+            <div class="category-eyebrow" data-i18n="catWebEyebrow">BROWSER UTILITIES</div>
+            <h3 class="category-heading" data-i18n="catWebTitle">Web Tools</h3>
+            <p class="category-subheading" data-i18n="catWebSub">High-efficiency client-side browser utilities for speech synthesis, voice transcription, and PDF processing.</p>
+          </div>
         </div>
-        <a href="https://ambystomatechnologies.github.io/Real_Time_ECG_Monitor/" class="card-btn" data-i18n="viewProjectBtn">Ver Proyecto →</a>
-      </article>
+        <span class="category-counter-tag" data-i18n="catWebCount">2 Developments</span>
+      </div>
+
+      <div class="grid">
+        <!-- Proyecto 3: Lector de Voz & Transcripciones -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-header-top">
+              <div class="card-icon">🔊</div>
+              <span class="badge-license opensource" data-i18n="ttsLicenseBadge">Open Source & Free</span>
+            </div>
+            <h3 class="card-title" data-i18n="ttsTitle">Voice Reader &amp; Transcriptions</h3>
+            <p class="card-desc" data-i18n="ttsDesc">Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber.</p>
+          </div>
+          <a href="https://ambystomatechnologies.github.io/lector-de-voz-y-transcripciones-gratis/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
+        </article>
+
+        <!-- Proyecto 4: PDF Tools Studio -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-header-top">
+              <div class="card-icon">📄</div>
+              <span class="badge-license opensource" data-i18n="pdfLicenseBadge">Open Source & Free</span>
+            </div>
+            <h3 class="card-title">PDF Tools Studio</h3>
+            <p class="card-desc" data-i18n="pdfToolsDesc">Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF.</p>
+          </div>
+          <a href="https://ambystomatechnologies.github.io/pdf-tools-ambystoma-studio/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -2141,23 +2276,34 @@
         suiteTag: "PORTFOLIO",
         suiteTitle: "Official Suite & Developments",
         suiteSubtitle: "Explore our ecosystem of applications, laboratory instrumentation, and scientific tools.",
+        catFilterAll: "All Developments",
+        catFilterScientific: "Scientific Tools",
+        catFilterWeb: "Web Tools",
+        catScientificEyebrow: "RESEARCH & INSTRUMENTATION",
+        catScientificTitle: "Scientific Tools",
+        catScientificSub: "Advanced solutions for optical physics, AI cell counting, 3D visualization, scientific stacking, and biomedical signals.",
+        catScientificCount: "5 Developments",
+        catWebEyebrow: "BROWSER UTILITIES",
+        catWebTitle: "Web Tools",
+        catWebSub: "High-efficiency client-side browser utilities for speech synthesis, voice transcription, and PDF processing.",
+        catWebCount: "2 Developments",
         cellcountLicenseBadge: "📱 Free Android App",
         cellcountDesc: "The definitive tool for students, researchers, brewers, and lab professionals. Cell counting on images, Neubauer Chamber, hematology, yeast viability, and 100% local processing with smart algorithms. Free-to-use Android application.",
         cellcountPlayBtn: "📲 Download on Google Play →",
         cellcountDetailsBtn: "ℹ️ View details & full features",
         opticsLicenseBadge: "Open Source & Free",
         opticsTitle: "2D Optics Simulator",
-        opticsDesc: "Interactive ray tracer & optics simulator: 7-color spectral refraction, deformable custom lenses, prisms, mirrors, and 12 physics demos. Free and open source.",
+        opticsDesc: "Interactive ray tracer & optics simulator: 7-color spectral refraction, deformable custom lenses, prisms, mirrors, and 12 physics demos.",
         ttsLicenseBadge: "Open Source & Free",
         ttsTitle: "Voice Reader & Transcriptions",
-        ttsDesc: "Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber. Free and open source.",
+        ttsDesc: "Text-to-speech suite with custom phonetic correction and smart client-side audio transcriber.",
         pdfLicenseBadge: "Open Source & Free",
-        pdfToolsDesc: "Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF. Free and open source.",
+        pdfToolsDesc: "Professional tools to merge multiple PDF documents, cut specific pages, and convert images to PDF.",
         viewer3dLicenseBadge: "Open Source & Free",
         viewer3dTitle: "Interactive 3D Viewer",
-        viewer3dDesc: "Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering. Free and open source.",
+        viewer3dDesc: "Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering.",
         galileoLicenseBadge: "Open Source & Free",
-        galileoDesc: "Software for scientific image stacking (focus stacking) and advanced signal integration designed for macro photography, microscopy, and astrophotography. Free and open source.",
+        galileoDesc: "Software for scientific image stacking (focus stacking) and advanced signal integration designed for macro photography, microscopy, and astrophotography.",
         openAppBtn: "Open Application →",
         viewProjectBtn: "View Project →",
         exploreBtn: "Explore Project →",
@@ -2983,23 +3129,34 @@
         suiteTag: "PORTAFOLIO",
         suiteTitle: "Suite Oficial & Desarrollos",
         suiteSubtitle: "Explora nuestro ecosistema de aplicaciones, instrumentación y utilidades científicas.",
+        catFilterAll: "Todos los Desarrollos",
+        catFilterScientific: "Herramientas Científicas",
+        catFilterWeb: "Herramientas Web",
+        catScientificEyebrow: "INVESTIGACIÓN E INSTRUMENTACIÓN",
+        catScientificTitle: "Herramientas Científicas",
+        catScientificSub: "Soluciones avanzadas para física óptica, conteo celular con IA, visualización 3D, macrofotografía científica y bioseñales.",
+        catScientificCount: "5 Desarrollos",
+        catWebEyebrow: "UTILIDADES EN EL NAVEGADOR",
+        catWebTitle: "Herramientas Web",
+        catWebSub: "Utilidades web ligeras y 100% en el navegador para síntesis de voz, transcripción de audio y procesamiento de documentos PDF.",
+        catWebCount: "2 Desarrollos",
         cellcountLicenseBadge: "📱 App Android Gratuita",
         cellcountDesc: "Herramienta definitiva para estudiantes, investigadores, cerveceros y profesionales de laboratorio. Conteo celular en imágenes, Cámara de Neubauer, hematología, viabilidad de levaduras y procesamiento 100% local con algoritmos inteligentes. Aplicación Android de uso gratuito.",
         cellcountPlayBtn: "📲 Descargar en Google Play →",
         cellcountDetailsBtn: "ℹ️ Ver ficha y características completas",
         opticsLicenseBadge: "OpenSource y gratuito",
         opticsTitle: "Simulador de Óptica 2D",
-        opticsDesc: "Simulador interactivo de física óptica y trazador de rayos: dispersión espectral en 7 colores, lentes deformables personalizadas, prismas, espejos y 12 demos de física. OpenSource y gratuito.",
+        opticsDesc: "Simulador interactivo de física óptica y trazador de rayos: dispersión espectral en 7 colores, lentes deformables personalizadas, prismas, espejos y 12 demos de física.",
         ttsLicenseBadge: "OpenSource y gratuito",
         ttsTitle: "Lector de Voz & Transcripciones",
-        ttsDesc: "Suite de texto a voz con corrección fonética personalizada y transcriptor de audio inteligente en el navegador. OpenSource y gratuito.",
+        ttsDesc: "Suite de texto a voz con corrección fonética personalizada y transcriptor de audio inteligente en el navegador.",
         pdfLicenseBadge: "Open Source y gratuito",
-        pdfToolsDesc: "Herramientas profesionales para combinar múltiples documentos PDF, recortar páginas específicas y convertir imágenes a PDF. Open Source y gratuito.",
+        pdfToolsDesc: "Herramientas profesionales para combinar múltiples documentos PDF, recortar páginas específicas y convertir imágenes a PDF.",
         viewer3dLicenseBadge: "OpenSource y gratuito",
         viewer3dTitle: "Visor 3D Interactivo",
-        viewer3dDesc: "Visualizador web interactivo para modelos 3D con corte transversal por planos, modo turntable y renderizado WebGL en tiempo real. OpenSource y gratuito.",
+        viewer3dDesc: "Visualizador web interactivo para modelos 3D con corte transversal por planos, modo turntable y renderizado WebGL en tiempo real.",
         galileoLicenseBadge: "Open Source y Gratuito",
-        galileoDesc: "Software de apilamiento y procesamiento de imágenes (focus stacking) e integración avanzada de señales para fotografía científica, macrofotografía, microscopía y astrofotografía. Open Source y gratuito.",
+        galileoDesc: "Software de apilamiento y procesamiento de imágenes (focus stacking) e integración avanzada de señales para fotografía científica, macrofotografía, microscopía y astrofotografía.",
         openAppBtn: "Abrir Aplicación →",
         viewProjectBtn: "Ver Proyecto →",
         exploreBtn: "Explorar Proyecto →",
