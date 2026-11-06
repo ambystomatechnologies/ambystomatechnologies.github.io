@@ -2781,7 +2781,7 @@
                 </span>
                 <div class="fluid-li-controls">
                   <button type="button" class="fluid-li-nav-btn" onclick="stepFluidLiPreview(-1)" title="Comentario anterior" aria-label="Previous comment">‹</button>
-                  <span class="fluid-li-counter" id="fluid-li-preview-counter">1/12</span>
+                  <span class="fluid-li-counter" id="fluid-li-preview-counter">1/5</span>
                   <button type="button" class="fluid-li-nav-btn" onclick="stepFluidLiPreview(1)" title="Siguiente comentario" aria-label="Next comment">›</button>
                 </div>
               </div>
@@ -5375,7 +5375,7 @@
     // URL oficial de la publicación de LinkedIn donde residen los comentarios reales
     const FLUID_LINKEDIN_POST_URL = "https://www.linkedin.com/feed/update/urn:li:activity:7511228754309021697/";
 
-    // Base de datos de comentarios destacados verificados en la publicación de LinkedIn
+    // Base de datos de comentarios 100% reales y positivos verificados en la publicación de LinkedIn
     const FLUID_LINKEDIN_REVIEWS = [
       {
         initials: "II",
@@ -5405,8 +5405,8 @@
           es: "🎓 Sorbonne Université (Doctorado en Flujos Multifásicos)"
         },
         comment: {
-          en: "\"Looks cool, interesting choice of methods. I had done something along similar lines at the beginning of the year by porting my old Fortran / C++ CUDA fluid dynamics codes to WebGPU so that it runs on the client-side GPU.\"",
-          es: "\"Se ve genial, muy interesante elección de métodos numéricos. Realicé un desarrollo en una línea similar portando mis códigos de dinámica de fluidos en Fortran / C++ CUDA hacia WebGPU para su ejecución en tiempo real en el navegador.\""
+          en: "\"Looks cool, interesting choice of methods. I had done something along similar lines at the beginning of the year by porting my old Fortran / C++ Cuda codes to webgpu, so that it runs on the client side GPU.\"",
+          es: "\"Se ve genial, interesante elección de métodos. Hice algo en una línea similar a principios de año portando mis antiguos códigos en Fortran / C++ CUDA a WebGPU para que se ejecute en la GPU del cliente.\""
         }
       },
       {
@@ -5421,8 +5421,8 @@
           es: "🎓 Universiti Malaya · Facultad de Entorno Construido"
         },
         comment: {
-          en: "\"Hi, thanks for the insightful post! Can we upload complex perforated facades in it and test? I have been trying ANSYS Fluent fluid flow before, looking for a more agile solution.\"",
-          es: "\"¡Hola, gracias por esta publicación tan enriquecedora! ¿Podemos cargar geometrías de fachadas perforadas y evaluarlas? He estado trabajando previamente con flujos en ANSYS Fluent y buscaba una solución interactiva más ágil.\""
+          en: "\"Hi, thanks for the insightful post, can we upload complex 3D perforated facade in it and test? I have been trying ansys fluent fluid flow before but it was quite challenging to get a result for a simple small room, looking for a better solution\"",
+          es: "\"Hola, gracias por esta publicación tan enriquecedora, ¿podemos subir fachadas perforadas complejas y probarlas? He estado intentando usar ANSYS Fluent antes, pero era bastante complejo obtener un resultado para una habitación pequeña, buscando una mejor solución.\""
         }
       },
       {
@@ -5437,24 +5437,8 @@
           es: "🏛️ MACK Rides GmbH & Co KG · Alemania"
         },
         comment: {
-          en: "\"Wow…. How long did you work on this? Have you performed cross checks and tests to see if the results are correct?\"",
-          es: "\"¡Wow…! ¿Cuánto tiempo te llevó desarrollar este simulador? ¿Has realizado validaciones cruzadas y ensayos comparativos sobre los resultados?\""
-        }
-      },
-      {
-        initials: "DL",
-        name: "Diego López 🇨🇴",
-        role: {
-          en: "Mechatronics & Automation Engineer",
-          es: "Ingeniero Mecatrónico y de Automatización"
-        },
-        university: {
-          en: "🎓 Universidad Nacional de Colombia (UNAL)",
-          es: "🎓 Universidad Nacional de Colombia (UNAL)"
-        },
-        comment: {
-          en: "\"Nice work! Which architecture and model did you use for the coding?\"",
-          es: "\"¡Excelente trabajo! ¿Qué arquitectura utilizaste para la programación del simulador?\""
+          en: "\"Wow…. How long did you work on this ? Have you performed cross checks and test to see if the results are correct?\"",
+          es: "\"Wow…. ¿Cuánto tiempo trabajaste en esto? ¿Has realizado validaciones cruzadas y pruebas para verificar los resultados?\""
         }
       },
       {
@@ -5466,107 +5450,11 @@
         },
         university: {
           en: "🌊 Hydrodynamic Shaping & Foil Research · Brazil",
-          es: "🌊 Investigación en Hidrodinámica de Perfiles · Brasil"
+          es: "🌊 Diseño e Hidrodinámica de Perfiles · Brasil"
         },
         comment: {
-          en: "\"I'm curious about how shapers and designers around the world could use this simulator to understand surfboard fins and hydrodynamic tails...\"",
-          es: "\"Qué interesante cómo diseñadores de todo el mundo podrían utilizar este simulador para analizar el flujo hidrodinámico en quillas y perfiles...\""
-        }
-      },
-      {
-        initials: "AS",
-        name: "Ahmed Said 🇪🇬",
-        role: {
-          en: "Aerospace & Aerodynamics Engineer",
-          es: "Ingeniero Aeroespacial y de Aerodinámica"
-        },
-        university: {
-          en: "🎓 Cairo University · Faculty of Engineering",
-          es: "🎓 Universidad de El Cairo · Facultad de Ingeniería"
-        },
-        comment: {
-          en: "\"Impressive browser solver! What's the accuracy in comparison with real wind tunnel results or experimental measurements across different Reynolds regimes?\"",
-          es: "\"¡Impresionante solver en el navegador! ¿Cómo se comporta la precisión comparada con ensayos en túnel de viento real y mediciones experimentales en distintos regímenes de Reynolds?\""
-        }
-      },
-      {
-        initials: "PW",
-        name: "Dr.-Ing. Paul Werner 🇩🇪",
-        role: {
-          en: "CTO & Co-Founder · Fluid Systems & Hydroacoustics",
-          es: "CTO y Cofundador · Sistemas de Fluidos e Hidroacústica"
-        },
-        university: {
-          en: "🏛️ Hydronauten GmbH · TU Berlin Alumni",
-          es: "🏛️ Hydronauten GmbH · Doctor en Ingeniería (Alemania)"
-        },
-        comment: {
-          en: "\"Every simulation is an approximation, and interactive solvers like this are remarkably useful under the right boundary conditions to build physical intuition.\"",
-          es: "\"Todo modelo numérico es una aproximación, y contar con simuladores interactivos bajo condiciones de contorno bien planteadas resulta sumamente valioso para el análisis físico.\""
-        }
-      },
-      {
-        initials: "MK",
-        name: "Dr. Markus Keller 🇨🇭",
-        role: {
-          en: "Computational Fluid Dynamics (CFD) Lecturer",
-          es: "Docente e Investigador en Dinámica de Fluidos Computacional (CFD)"
-        },
-        university: {
-          en: "🎓 ETH Zürich · Department of Mechanical Engineering",
-          es: "🎓 ETH Zürich · Departamento de Ingeniería Mecánica"
-        },
-        comment: {
-          en: "\"Combining an Eulerian Navier-Stokes solver with a D2Q9 Lattice Boltzmann engine running at 60 FPS directly in WebGL/JS without external installations is fantastic for university lectures.\"",
-          es: "\"Combinar un solver euleriano de Navier-Stokes con un motor Lattice Boltzmann D2Q9 corriendo en tiempo real directamente en el navegador sin instalar software pesado es fantástico para cátedras universitarias.\""
-        }
-      },
-      {
-        initials: "LC",
-        name: "Lucas Cavalcanti 🇧🇷",
-        role: {
-          en: "Aerodynamics & Motorsport Engineer",
-          es: "Ingeniero en Aerodinámica y Motorsport"
-        },
-        university: {
-          en: "🎓 Universidade de São Paulo (USP) · EESC",
-          es: "🎓 Universidade de São Paulo (USP) · Ingeniería Aeronáutica"
-        },
-        comment: {
-          en: "\"The live Cl/Cd polar telemetry and Von Kármán vortex street visualization around custom NACA airfoils works seamlessly. Great open-source contribution!\"",
-          es: "\"La telemetría en vivo de coeficientes de sustentación y arrastre (Cl/Cd) junto con el desprendimiento de vórtices de Von Kármán sobre perfiles NACA funciona con total fluidez. ¡Gran aporte Open Source!\""
-        }
-      },
-      {
-        initials: "HT",
-        name: "Hiroshi Tanaka 🇯🇵",
-        role: {
-          en: "Fluid Physics & Microfluidics Researcher",
-          es: "Investigador en Física de Fluidos y Microfluídica"
-        },
-        university: {
-          en: "🎓 Okinawa Institute of Science and Technology (OIST)",
-          es: "🎓 Okinawa Institute of Science and Technology (OIST)"
-        },
-        comment: {
-          en: "\"The vorticity confinement implementation preserves small-scale rotational structures remarkably well for a real-time browser simulation. Very clean interface and telemetry.\"",
-          es: "\"La implementación del confinamiento de vorticidad preserva las estructuras rotacionales de pequeña escala notablemente bien para una simulación en tiempo real en navegador. Interfaz y telemetría impecables.\""
-        }
-      },
-      {
-        initials: "EV",
-        name: "Elena Vance, MSc 🇺🇸",
-        role: {
-          en: "Aerospace Propulsion & Wind Tunnel Test Engineer",
-          es: "Ingeniera de Propulsión Aeroespacial y Ensayos en Túnel de Viento"
-        },
-        university: {
-          en: "🎓 Georgia Institute of Technology · Aerospace Engineering",
-          es: "🎓 Georgia Institute of Technology · Ingeniería Aeroespacial"
-        },
-        comment: {
-          en: "\"Being able to import custom 2D CAD geometries and immediately inspect pressure fields, streamlines, and Strouhal shedding frequencies in the browser is brilliant for rapid prototyping.\"",
-          es: "\"Poder importar geometrías personalizadas y visualizar de inmediato campos de presión, líneas de corriente y frecuencias de desprendimiento de Strouhal en el navegador es brillante para prototipado rápido.\""
+          en: "\"I´m curious about how shapers around the world could use that to understand surfboard fins and tails...\"",
+          es: "\"Tengo curiosidad por ver cómo los diseñadores de todo el mundo podrían usar esto para comprender las quillas y colas de tablas de surf...\""
         }
       }
     ];
