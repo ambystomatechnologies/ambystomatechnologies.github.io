@@ -1163,8 +1163,9 @@
         align-items: stretch;
       }
 
-      /* Fila superior: Producto Insignia (Cell Count) en formato horizontal compacto */
-      #group-scientific .card-cellcount-bento {
+      /* Fila superior (Fila 1) e inferior (Fila 4): Formato horizontal compacto de ancho completo */
+      #group-scientific .card-cellcount-bento,
+      #group-scientific .card-ecg-bento {
         grid-column: 1 / -1;
         flex-direction: row;
         align-items: center;
@@ -1173,30 +1174,40 @@
         padding: 1.45rem 1.85rem;
       }
 
-      #group-scientific .card-cellcount-bento .card-top {
+      #group-scientific .card-cellcount-bento .card-top,
+      #group-scientific .card-ecg-bento .card-top {
         flex: 1;
       }
 
-      #group-scientific .card-cellcount-bento .card-header-top {
+      #group-scientific .card-cellcount-bento .card-header-top,
+      #group-scientific .card-ecg-bento .card-header-top {
         justify-content: flex-start;
         gap: 0.85rem;
         margin-bottom: 0.65rem;
       }
 
-      #group-scientific .card-cellcount-bento .card-desc {
+      #group-scientific .card-cellcount-bento .card-desc,
+      #group-scientific .card-ecg-bento .card-desc {
         margin-bottom: 0;
-        max-width: 740px;
+        max-width: 760px;
       }
 
-      #group-scientific .card-cellcount-bento .card-actions-group {
+      #group-scientific .card-cellcount-bento .card-actions-group,
+      #group-scientific .card-ecg-bento .card-actions-group {
         width: 300px;
         flex-shrink: 0;
       }
 
-      /* Izquierda (Columna 1, abarcando las 2 filas junto a las 4 apps de la derecha) */
+      /* Izquierda fija (Columna 1, Filas 2 y 3): Simulador de Mecánica de Fluidos y Túnel de Viento */
       #group-scientific .card-fluid-bento {
-        grid-column: 1;
-        grid-row: 2 / span 2;
+        grid-column: 1 / 2 !important;
+        grid-row: 2 / span 2 !important;
+      }
+
+      /* Primer cuadro pequeño a la derecha del Simulador de Fluidos (Columna 2, Fila 2): Proyecto OLI */
+      #group-scientific .card-oli-bento {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
       }
 
       #group-scientific .card-fluid-bento .card-top {
@@ -1216,7 +1227,8 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      #group-scientific .card-cellcount-bento {
+      #group-scientific .card-cellcount-bento,
+      #group-scientific .card-ecg-bento {
         grid-column: 1 / -1;
         flex-direction: row;
         align-items: center;
@@ -1224,24 +1236,32 @@
         gap: 1.75rem;
       }
 
-      #group-scientific .card-cellcount-bento .card-header-top {
+      #group-scientific .card-cellcount-bento .card-header-top,
+      #group-scientific .card-ecg-bento .card-header-top {
         justify-content: flex-start;
         gap: 0.85rem;
         margin-bottom: 0.65rem;
       }
 
-      #group-scientific .card-cellcount-bento .card-desc {
+      #group-scientific .card-cellcount-bento .card-desc,
+      #group-scientific .card-ecg-bento .card-desc {
         margin-bottom: 0;
       }
 
-      #group-scientific .card-cellcount-bento .card-actions-group {
+      #group-scientific .card-cellcount-bento .card-actions-group,
+      #group-scientific .card-ecg-bento .card-actions-group {
         width: 260px;
         flex-shrink: 0;
       }
 
       #group-scientific .card-fluid-bento {
-        grid-column: 1;
-        grid-row: 2 / span 2;
+        grid-column: 1 / 2 !important;
+        grid-row: 2 / span 2 !important;
+      }
+
+      #group-scientific .card-oli-bento {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
       }
 
       #group-scientific .card-fluid-bento .card-top {
@@ -1254,6 +1274,251 @@
         margin-top: auto;
         margin-bottom: 1.15rem;
       }
+    }
+
+    /* Estilos de la tarjeta compacta OLI (Orbital Link Interface) y reproductor de video integrado */
+    .oli-media-box {
+      position: relative;
+      width: 100%;
+      height: 116px;
+      border-radius: 0.7rem;
+      overflow: hidden;
+      background: #030712;
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      margin-bottom: 0.75rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+      transition: height 0.28s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .oli-media-box:hover {
+      border-color: rgba(56, 189, 248, 0.65);
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.22);
+    }
+
+    .oli-media-box.playing {
+      height: 185px;
+      border-color: #38bdf8;
+    }
+
+    .oli-cover-btn {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: none;
+      background: #000;
+      cursor: pointer;
+      display: block;
+      text-align: left;
+    }
+
+    .oli-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .oli-cover-btn:hover .oli-cover-img {
+      transform: scale(1.04);
+      filter: brightness(1.08);
+    }
+
+    .oli-badge-floating {
+      position: absolute;
+      top: 0.45rem;
+      right: 0.45rem;
+      z-index: 2;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(6px);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      letter-spacing: 0.02em;
+    }
+
+    .oli-play-pill {
+      position: absolute;
+      bottom: 0.45rem;
+      left: 0.45rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.28rem 0.65rem;
+      border-radius: 9999px;
+      background: rgba(14, 165, 233, 0.92);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.45);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .oli-cover-btn:hover .oli-play-pill {
+      background: #0284c7;
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .oli-inline-iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: #000;
+    }
+
+    .oli-card-actions-row {
+      display: flex;
+      gap: 0.45rem;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .oli-card-actions-row .card-btn {
+      flex: 1;
+      padding: 0.58rem 0.65rem;
+      font-size: 0.8rem;
+    }
+
+    .oli-card-actions-row .card-btn-secondary {
+      width: auto;
+      padding: 0.58rem 0.7rem;
+      font-size: 0.78rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Estilos del Modal OLI (Experiencia LinkedIn + Video Reproducible) */
+    .oli-modal-card {
+      max-width: 860px;
+    }
+
+    .oli-video-frame-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 0.9rem;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+      margin-bottom: 1.25rem;
+    }
+
+    .oli-video-frame-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .oli-linkedin-exp-box {
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.95rem;
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .oli-exp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-bottom: 0.9rem;
+      margin-bottom: 0.95rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .oli-exp-role {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .oli-exp-company {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #38bdf8;
+      margin-top: 0.12rem;
+    }
+
+    .oli-exp-meta {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 0.15rem;
+    }
+
+    .oli-exp-paragraphs p {
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+
+    .oli-exp-paragraphs p:last-child {
+      margin-bottom: 0;
+    }
+
+    .oli-media-showcase-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 680px) {
+      .oli-media-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .oli-showcase-card {
+      background: rgba(9, 13, 22, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.8rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .oli-showcase-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .oli-showcase-caption {
+      padding: 0.75rem 0.9rem;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .oli-cad-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #bae6fd;
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
     .card-btn-linkedin-reviews {
@@ -2836,7 +3101,7 @@
             <p class="category-subheading" data-i18n="catScientificSub">Advanced solutions for optical physics, AI cell counting, 3D visualization, scientific stacking, and biomedical signals.</p>
           </div>
         </div>
-        <span class="category-counter-tag" data-i18n="catScientificCount">6 Developments</span>
+        <span class="category-counter-tag" data-i18n="catScientificCount">7 Developments</span>
       </div>
 
       <div class="grid">
@@ -2860,7 +3125,7 @@
           </div>
         </article>
 
-        <!-- Proyecto 2: Simulador de Mecánica de Fluidos y Túnel Aerodinámico 2D -->
+        <!-- Proyecto 2 (Izquierda): Simulador de Mecánica de Fluidos y Túnel Aerodinámico 2D -->
         <article class="card card-fluid-bento">
           <div class="card-top">
             <div class="card-header-top">
@@ -2912,7 +3177,66 @@
           </div>
         </article>
 
-        <!-- Proyecto 3: Simulador de Óptica 2D -->
+        <!-- Proyecto 3 (Primer cuadro pequeño a la derecha): OLI - Orbital Link Interface (Servicio Satelital S.A.) -->
+        <article class="card card-oli-bento">
+          <div class="card-top">
+            <!-- Portada "Oli" con reproductor de video de YouTube integrado en la misma tarjeta -->
+            <div class="oli-media-box" id="oli-card-media-box">
+              <button type="button" class="oli-cover-btn" onclick="playOliInlineVideo()" title="Reproducir video de muestra mundial (I SSPI DAY 2025)">
+                <img src="oli-orbital-link.jpg" alt="OLI - Orbital Link Interface" class="oli-cover-img">
+                <span class="oli-badge-floating" data-i18n="oliLicenseBadge">🛰️ Satcom &amp; Diseño Industrial</span>
+                <span class="oli-play-pill">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <span data-i18n="oliPlayInlineBtn">Play Video (SSPI Day)</span>
+                </span>
+              </button>
+            </div>
+            <h3 class="card-title" data-i18n="oliTitle" style="margin-bottom: 0.35rem;">OLI — Orbital Link Interface</h3>
+            <p class="card-desc" data-i18n="oliCardDesc" style="margin-bottom: 0.85rem; font-size: 0.84rem; line-height: 1.48;">Ambystoma Technologies formó parte del equipo de desarrollo de OLI (Servicio Satelital S.A.), sistema argentino de apuntamiento automático para antenas VSAT. Diseño industrial y mecánico en Autodesk Inventor.</p>
+          </div>
+          <div class="oli-card-actions-row">
+            <button type="button" class="card-btn" onclick="openOliModal()">
+              <span data-i18n="oliDetailsBtn">ℹ️ Ver proyecto y video →</span>
+            </button>
+            <a href="https://youtu.be/O5AFc8TlGrM?t=16519" target="_blank" rel="noopener noreferrer" class="card-btn-secondary" title="Abrir video en YouTube (I SSPI DAY 2025 · 4:35:19)">
+              <span>▶ YouTube ↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Proyecto 4: Open-Galileo -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-header-top">
+              <div class="card-icon card-icon-galileo" title="Open-Galileo">
+                <img src="open-galileo-logo.png?v=20260926_01" alt="Open-Galileo" style="width: 38px; height: 38px; object-fit: contain; border-radius: 8px;">
+              </div>
+              <span class="badge-license opensource" data-i18n="galileoLicenseBadge">Open Source & Free</span>
+            </div>
+            <h3 class="card-title">Open-Galileo</h3>
+            <p class="card-desc" data-i18n="galileoDesc">Software for scientific image stacking (focus stacking) and advanced signal integration designed for macro photography, microscopy, and astrophotography.</p>
+          </div>
+          <a href="https://github.com/BrandonAntonioSeguraTorres/Open-Galileo/releases/tag/Open-Galileo" target="_blank" rel="noopener noreferrer" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
+        </article>
+
+        <!-- Proyecto 5: Visor 3D Interactivo -->
+        <article class="card">
+          <div class="card-top">
+            <div class="card-header-top">
+              <div class="card-icon card-icon-vertebra" title="Visor 3D Interactivo">
+                <img src="favicon vertebra.png?v=20260925_01" alt="Visor 3D Interactivo" style="width: 38px; height: 38px; object-fit: contain;">
+              </div>
+              <span class="badge-license opensource" data-i18n="viewer3dLicenseBadge">Open Source & Free</span>
+            </div>
+            <h3 class="card-title" data-i18n="viewer3dTitle">Interactive 3D Viewer</h3>
+            <p class="card-desc" data-i18n="viewer3dDesc">Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering.</p>
+          </div>
+          <a href="https://ambystomatechnologies.github.io/visor-3d/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
+        </article>
+
+        <!-- Proyecto 6: Simulador de Óptica 2D -->
         <article class="card">
           <div class="card-top">
             <div class="card-header-top">
@@ -2946,38 +3270,8 @@
           <a href="https://ambystomatechnologies.github.io/optic-simulator/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
         </article>
 
-        <!-- Proyecto 5: Visor 3D Interactivo -->
-        <article class="card">
-          <div class="card-top">
-            <div class="card-header-top">
-              <div class="card-icon card-icon-vertebra" title="Visor 3D Interactivo">
-                <img src="favicon vertebra.png?v=20260925_01" alt="Visor 3D Interactivo" style="width: 38px; height: 38px; object-fit: contain;">
-              </div>
-              <span class="badge-license opensource" data-i18n="viewer3dLicenseBadge">Open Source & Free</span>
-            </div>
-            <h3 class="card-title" data-i18n="viewer3dTitle">Interactive 3D Viewer</h3>
-            <p class="card-desc" data-i18n="viewer3dDesc">Interactive web viewer for 3D models with cross-section plane cutting, turntable mode, and real-time WebGL rendering.</p>
-          </div>
-          <a href="https://ambystomatechnologies.github.io/visor-3d/" class="card-btn" data-i18n="openAppBtn">Open Application →</a>
-        </article>
-
-        <!-- Proyecto 6: Open-Galileo -->
-        <article class="card">
-          <div class="card-top">
-            <div class="card-header-top">
-              <div class="card-icon card-icon-galileo" title="Open-Galileo">
-                <img src="open-galileo-logo.png?v=20260926_01" alt="Open-Galileo" style="width: 38px; height: 38px; object-fit: contain; border-radius: 8px;">
-              </div>
-              <span class="badge-license opensource" data-i18n="galileoLicenseBadge">Open Source & Free</span>
-            </div>
-            <h3 class="card-title">Open-Galileo</h3>
-            <p class="card-desc" data-i18n="galileoDesc">Software for scientific image stacking (focus stacking) and advanced signal integration designed for macro photography, microscopy, and astrophotography.</p>
-          </div>
-          <a href="https://github.com/BrandonAntonioSeguraTorres/Open-Galileo/releases/tag/Open-Galileo" target="_blank" rel="noopener noreferrer" class="card-btn" data-i18n="exploreBtn">Explore Project →</a>
-        </article>
-
         <!-- Proyecto 7: ECG Monitor Electrocardiograma en Tiempo Real -->
-        <article class="card">
+        <article class="card card-ecg-bento">
           <div class="card-top">
             <div class="card-header-top">
               <div class="card-icon card-icon-ecg" title="Real-Time ECG Monitor">
@@ -2991,7 +3285,9 @@
             <h3 class="card-title" data-i18n="ecgTitle">Monitor Electrocardiograma en Tiempo Real (ECG)</h3>
             <p class="card-desc" data-i18n="ecgDesc">Guía completa y sistema de telemetría electrofisiológica no invasiva: acondicionamiento AD8232, adquisición analógica por tarjeta de audio de alta fidelidad, electrodos secos 3D, blindaje electromagnético por Jaula de Faraday y procesamiento digital DSP adaptativo en Python para investigación cardiovascular.</p>
           </div>
-          <a href="https://ambystomatechnologies.github.io/Real_Time_ECG_Monitor/" class="card-btn" data-i18n="viewProjectBtn">Ver Proyecto →</a>
+          <div class="card-actions-group">
+            <a href="https://ambystomatechnologies.github.io/Real_Time_ECG_Monitor/" class="card-btn" data-i18n="viewProjectBtn">Ver Proyecto →</a>
+          </div>
         </article>
       </div>
     </div>
@@ -3619,6 +3915,90 @@
     </div>
   </div>
 
+  <!-- Modal del Proyecto OLI (Orbital Link Interface - Servicio Satelital S.A.) -->
+  <div id="oli-modal" class="modal-overlay" style="display: none;" onclick="closeOliModalOnBackdrop(event)">
+    <div class="modal-card oli-modal-card">
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <img src="oli-orbital-link.jpg" alt="OLI - Orbital Link Interface" class="modal-app-logo" style="object-fit: cover; background: #000;">
+          <div>
+            <span class="badge-license free-app" style="margin-bottom: 0.25rem; display: inline-block;" data-i18n="oliModalBadge">SATELLITE TELECOMMUNICATIONS · INDUSTRIAL DESIGN</span>
+            <h3 class="modal-title" data-i18n="oliModalTitle">OLI (Orbital Link Interface) — VSAT Auto-Pointing System</h3>
+            <p class="modal-subtitle" data-i18n="oliModalSub">Servicio Satelital S.A. · Industrial Designer (Jan 2020 – Dec 2022 · 3 years)</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal" onclick="closeOliModal()" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Reproductor de Video de YouTube Integrado (I SSPI DAY 2025 - t=16519) -->
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.65rem;">
+            <div>
+              <h4 class="modal-section-title" style="margin-bottom: 0.15rem;" data-i18n="oliVideoSectionTitle">🎬 I SSPI DAY 2025 — Global Product Showcase Video</h4>
+              <p style="font-size: 0.82rem; color: #94a3b8; margin: 0;" data-i18n="oliVideoSectionSub">Press play below to watch the presentation directly on the page (starts at 4:35:19):</p>
+            </div>
+            <a href="https://youtu.be/O5AFc8TlGrM?t=16519" target="_blank" rel="noopener noreferrer" class="btn-linkedin" style="padding: 0.48rem 0.95rem; font-size: 0.8rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <span data-i18n="oliWatchOnYtBtn">Open in YouTube (4:35:19) ↗</span>
+            </a>
+          </div>
+          <div class="oli-video-frame-wrap" id="oli-modal-video-container">
+            <iframe
+              id="oli-modal-iframe"
+              src="https://www.youtube.com/embed/O5AFc8TlGrM?start=16519&rel=0"
+              title="I SSPI DAY 2025 - OLI (Orbital Link Interface) Global Product Showcase"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Ficha Completa de Experiencia Profesional (LinkedIn) -->
+        <div class="oli-linkedin-exp-box">
+          <div class="oli-exp-header">
+            <div>
+              <div class="oli-exp-role" data-i18n="oliExpRole">Industrial Designer</div>
+              <div class="oli-exp-company">Servicio Satelital S.A.</div>
+              <div class="oli-exp-meta" data-i18n="oliExpMeta">Jan 2020 – Dec 2022 · 3 years · Buenos Aires Province, Argentina · Remote</div>
+            </div>
+            <span class="oli-cad-pill">💎 Autodesk Inventor</span>
+          </div>
+
+          <div class="oli-exp-paragraphs">
+            <p data-i18n="oliExpP1"><strong>Ambystoma Technologies</strong> was part of the development team for <strong>OLI (Orbital Link Interface)</strong>, an Argentine automatic pointing system for VSAT antennas, led by <strong>Eng. Guido Mora</strong>, designed to bring satellite connectivity to remote environments such as mining, oil and gas, and rural areas.</p>
+            <p data-i18n="oliExpP2">Our involvement focused on industrial design, ranging from the housing to the mechanical movement system. We developed structural and functional solutions that allowed for robustness, precision, and resistance in extreme environmental conditions, maintaining a focus on assembly efficiency, protection of electronic components, and the product's industrial aesthetics.</p>
+            <p data-i18n="oliExpP3">Collaboration with electronic engineering, programming, and telecommunications teams to integrate mechanical design with the product's functional architecture.</p>
+            <p data-i18n="oliExpP4">This project allowed us to collaborate with a high-level multidisciplinary technical team and contribute from our area to the development of a unique technological solution of its kind in Latin America.</p>
+            <p data-i18n="oliExpP5">The project was partly funded by national technological innovation programs and represents a strategic advancement in regional satellite connectivity.</p>
+          </div>
+
+          <!-- Galería Visual del Proyecto -->
+          <div class="oli-media-showcase-grid">
+            <div class="oli-showcase-card">
+              <img src="oli-orbital-link.jpg" alt="OLI - Orbital Link Interface VSAT Antenna">
+              <div class="oli-showcase-caption">
+                <strong style="color: #ffffff;">OLI.JPG — Orbital Link Interface</strong>
+                <span data-i18n="oliShowcaseImgDesc">Industrial design of housing and motorized mechanical pointing structure for VSAT satellite antenna.</span>
+              </div>
+            </div>
+            <a href="https://youtu.be/O5AFc8TlGrM?t=16519" target="_blank" rel="noopener noreferrer" class="oli-showcase-card" style="text-decoration: none; justify-content: space-between; padding: 1.1rem; background: linear-gradient(135deg, rgba(14, 165, 233, 0.14), rgba(15, 23, 42, 0.9)); border-color: rgba(56, 189, 248, 0.35);">
+              <div>
+                <span class="badge-license free-app" style="margin-bottom: 0.55rem; display: inline-block;">I SSPI DAY 2025</span>
+                <div style="font-size: 1rem; font-weight: 800; color: #ffffff; margin-bottom: 0.4rem;" data-i18n="oliShowcaseVidTitle">Global Product Showcase Video</div>
+                <p style="font-size: 0.83rem; color: #cbd5e1; line-height: 1.5; margin: 0;" data-i18n="oliShowcaseVidDesc">Official international presentation of the OLI automatic VSAT pointing system at I SSPI Day 2025.</p>
+              </div>
+              <div style="margin-top: 0.9rem; font-size: 0.8rem; font-weight: 700; color: #38bdf8;" data-i18n="oliShowcaseVidLink">▶ Watch on YouTube (t=4:35:19) ↗</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Pie de página -->
   <footer>
     <div class="footer-links">
@@ -3657,8 +4037,8 @@
         catFilterWeb: "Web Tools",
         catScientificEyebrow: "RESEARCH & INSTRUMENTATION",
         catScientificTitle: "Scientific Tools",
-        catScientificSub: "Advanced solutions for fluid mechanics, optical physics, AI cell counting, 3D visualization, scientific stacking, and biomedical signals.",
-        catScientificCount: "6 Developments",
+        catScientificSub: "Advanced solutions for fluid mechanics, satellite telecommunications, optical physics, AI cell counting, 3D visualization, and biomedical signals.",
+        catScientificCount: "7 Developments",
         catWebEyebrow: "BROWSER UTILITIES",
         catWebTitle: "Web Tools",
         catWebSub: "High-efficiency client-side browser utilities for speech synthesis, voice transcription, and PDF processing.",
@@ -4557,7 +4937,30 @@
         fluidLiStatComments: "95 Comments",
         fluidLiStatGlobal: "Global Engineering Community",
         fluidReviewsOpenPostBtn: "Open Original Post ↗",
-        fluidReviewsModalFooter: "💡 Clicking any comment card redirects you to the original LinkedIn post where you can verify all live comments."
+        fluidReviewsModalFooter: "💡 Clicking any comment card redirects you to the original LinkedIn post where you can verify all live comments.",
+        // OLI Project (English)
+        oliLicenseBadge: "🛰️ Satcom & Industrial Design",
+        oliPlayInlineBtn: "Play Video (SSPI Day)",
+        oliTitle: "OLI — Orbital Link Interface",
+        oliCardDesc: "Ambystoma Technologies was part of the development team for OLI (Servicio Satelital S.A.), an Argentine automatic pointing system for VSAT antennas. Industrial & mechanical design in Autodesk Inventor.",
+        oliDetailsBtn: "ℹ️ View project & video →",
+        oliModalBadge: "SATELLITE TELECOMMUNICATIONS · INDUSTRIAL DESIGN",
+        oliModalTitle: "OLI (Orbital Link Interface) — VSAT Auto-Pointing System",
+        oliModalSub: "Servicio Satelital S.A. · Industrial Design (Jan 2020 – Dec 2022 · 3 years)",
+        oliVideoSectionTitle: "🎬 I SSPI DAY 2025 — Global Product Showcase Video",
+        oliVideoSectionSub: "Press play below to watch the presentation directly on the page (starts at 4:35:19):",
+        oliWatchOnYtBtn: "Open in YouTube (4:35:19) ↗",
+        oliExpRole: "Industrial Designer · Ambystoma Technologies",
+        oliExpMeta: "Jan 2020 – Dec 2022 · 3 years · Buenos Aires Province, Argentina · Remote",
+        oliExpP1: "<strong>Ambystoma Technologies</strong> was part of the development team for <strong>OLI (Orbital Link Interface)</strong>, an Argentine automatic pointing system for VSAT antennas, led by <strong>Eng. Guido Mora</strong>, designed to bring satellite connectivity to remote environments such as mining, oil and gas, and rural areas.",
+        oliExpP2: "Our involvement focused on industrial design, ranging from the housing to the mechanical movement system. We developed structural and functional solutions that allowed for robustness, precision, and resistance in extreme environmental conditions, maintaining a focus on assembly efficiency, protection of electronic components, and the product's industrial aesthetics.",
+        oliExpP3: "Collaboration with electronic engineering, programming, and telecommunications teams to integrate mechanical design with the product's functional architecture.",
+        oliExpP4: "This project allowed us to collaborate with a high-level multidisciplinary technical team and contribute from our area to the development of a unique technological solution of its kind in Latin America.",
+        oliExpP5: "The project was partly funded by national technological innovation programs and represents a strategic advancement in regional satellite connectivity.",
+        oliShowcaseImgDesc: "Industrial design of housing and motorized mechanical pointing structure for VSAT satellite antenna.",
+        oliShowcaseVidTitle: "Global Product Showcase Video",
+        oliShowcaseVidDesc: "Official international presentation of the OLI automatic VSAT pointing system at I SSPI Day 2025.",
+        oliShowcaseVidLink: "▶ Watch on YouTube (t=4:35:19) ↗"
       },
       es: {
         pageTitle: "Ambystoma Technologies · Soluciones Científicas & Deep Tech",
@@ -4580,8 +4983,8 @@
         catFilterWeb: "Herramientas Web",
         catScientificEyebrow: "INVESTIGACIÓN E INSTRUMENTACIÓN",
         catScientificTitle: "Herramientas Científicas",
-        catScientificSub: "Soluciones avanzadas para mecánica de fluidos, física óptica, conteo celular con IA, visualización 3D, macrofotografía científica y bioseñales.",
-        catScientificCount: "6 Desarrollos",
+        catScientificSub: "Soluciones avanzadas para mecánica de fluidos, telecomunicaciones satelitales, física óptica, conteo celular con IA, visualización 3D y bioseñales.",
+        catScientificCount: "7 Desarrollos",
         catWebEyebrow: "UTILIDADES EN EL NAVEGADOR",
         catWebTitle: "Herramientas Web",
         catWebSub: "Utilidades web ligeras y 100% en el navegador para síntesis de voz, transcripción de audio y procesamiento de documentos PDF.",
@@ -5470,7 +5873,30 @@
         fluidLiStatComments: "95 Comentarios",
         fluidLiStatGlobal: "Comunidad Internacional de Ingeniería",
         fluidReviewsOpenPostBtn: "Ver Publicación Original ↗",
-        fluidReviewsModalFooter: "💡 Al hacer clic en cualquier tarjeta de comentario serás redirigido a la publicación original en LinkedIn para comprobar su autenticidad."
+        fluidReviewsModalFooter: "💡 Al hacer clic en cualquier tarjeta de comentario serás redirigido a la publicación original en LinkedIn para comprobar su autenticidad.",
+        // OLI Project (Español)
+        oliLicenseBadge: "🛰️ Satcom & Diseño Industrial",
+        oliPlayInlineBtn: "Reproducir Video (SSPI Day)",
+        oliTitle: "OLI — Orbital Link Interface",
+        oliCardDesc: "Ambystoma Technologies formó parte del equipo de desarrollo de OLI (Servicio Satelital S.A.), sistema argentino de apuntamiento automático para antenas VSAT. Diseño industrial y mecánico en Autodesk Inventor.",
+        oliDetailsBtn: "ℹ️ Ver proyecto y video →",
+        oliModalBadge: "TELECOMUNICACIONES SATELITALES · DISEÑO INDUSTRIAL",
+        oliModalTitle: "OLI (Orbital Link Interface) — Sistema de Apuntamiento Automático VSAT",
+        oliModalSub: "Servicio Satelital S.A. · Diseño Industrial (ene. de 2020 – dic. de 2022 · 3 años)",
+        oliVideoSectionTitle: "🎬 I SSPI DAY 2025 — Video de Muestra Mundial del Producto",
+        oliVideoSectionSub: "Presiona Play abajo para reproducir el video directamente desde la página (inicia en 4:35:19):",
+        oliWatchOnYtBtn: "Abrir en YouTube (4:35:19) ↗",
+        oliExpRole: "Industrial Designer (Diseñador Industrial) · Ambystoma Technologies",
+        oliExpMeta: "ene. de 2020 – dic. de 2022 · 3 años · Provincia de Buenos Aires, Argentina · En remoto",
+        oliExpP1: "<strong>Ambystoma Technologies</strong> formó parte del equipo de desarrollo de <strong>OLI (Orbital Link Interface)</strong>, un sistema argentino de apuntamiento automático para antenas satelitales VSAT liderado por el <strong>Ing. Guido Mora</strong>, diseñado para llevar conectividad satelital a entornos remotos como minería, petróleo y gas (Oil &amp; Gas) y zonas rurales.",
+        oliExpP2: "Nuestra participación se centró en el diseño industrial, abarcando desde la carcasa hasta el sistema mecánico de movimiento. Se desarrollaron soluciones estructurales y funcionales que permitieron lograr robustez, precisión y resistencia ante condiciones ambientales extremas, manteniendo el foco en la eficiencia de ensamblaje, la protección de los componentes electrónicos y la estética industrial del producto.",
+        oliExpP3: "Colaboración directa con los equipos de ingeniería electrónica, programación y telecomunicaciones para integrar el diseño mecánico con la arquitectura funcional del producto.",
+        oliExpP4: "Este proyecto nos permitió colaborar con un equipo técnico multidisciplinario de alto nivel y aportar desde nuestra área al desarrollo de una solución tecnológica única en su tipo en América Latina.",
+        oliExpP5: "El proyecto fue financiado parcialmente por programas nacionales de innovación tecnológica y representa un avance estratégico en la conectividad satelital regional.",
+        oliShowcaseImgDesc: "Diseño industrial de carcasa y estructura mecánica motorizada de apuntamiento para antena satelital VSAT.",
+        oliShowcaseVidTitle: "Video de Muestra Mundial del Producto",
+        oliShowcaseVidDesc: "Presentación internacional oficial del sistema de apuntamiento automático VSAT OLI en el I SSPI Day 2025.",
+        oliShowcaseVidLink: "▶ Ver en YouTube (t=4:35:19) ↗"
       }
     };
 
@@ -5792,11 +6218,62 @@
       }
     }
 
+    // Reproductor de video integrado en la tarjeta OLI y control del Modal OLI
+    const OLI_YT_EMBED_URL = "https://www.youtube.com/embed/O5AFc8TlGrM?start=16519&rel=0";
+
+    function playOliInlineVideo() {
+      const box = document.getElementById('oli-card-media-box');
+      if (!box) return;
+      box.classList.add('playing');
+      box.innerHTML = `
+        <iframe
+          class="oli-inline-iframe"
+          src="${OLI_YT_EMBED_URL}&autoplay=1"
+          title="OLI - Orbital Link Interface (I SSPI DAY 2025)"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
+    function openOliModal() {
+      const modal = document.getElementById('oli-modal');
+      const iframe = document.getElementById('oli-modal-iframe');
+      if (iframe && (!iframe.getAttribute('src') || iframe.getAttribute('src') === 'about:blank')) {
+        iframe.setAttribute('src', OLI_YT_EMBED_URL);
+      }
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeOliModal() {
+      const modal = document.getElementById('oli-modal');
+      const iframe = document.getElementById('oli-modal-iframe');
+      if (iframe) {
+        // Reiniciar el iframe para detener el audio al cerrar el modal
+        iframe.setAttribute('src', OLI_YT_EMBED_URL);
+      }
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeOliModalOnBackdrop(event) {
+      if (event.target.id === 'oli-modal') {
+        closeOliModal();
+      }
+    }
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeCellCountModal();
         closeDonateModal();
         closeFluidReviewsModal();
+        closeOliModal();
       }
     });
   </script>
